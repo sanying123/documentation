@@ -11,7 +11,7 @@ In its analysis step, ShiftLeft identifies the application's attack surface, its
 
 Informed by the knowledge derived from code analysis, a custom instrumentation called Security Profile for Runtime (SPR) is created and loaded onto a ShiftLeft microagent that runs alongside the application. This informs the microagent on how to instrument the application and how to monitor its specific shape and weaknesses.
 
-![ShiftLeft Workflow][shiftleft-workflow.jpg]
+![ShiftLeft Workflow][/getting-started/shiftleft-workflow.jpg]
 
 The combination of code analysis and runtime monitoring is what gives the application an edge over attackers as the protection provided is very specific to the application itself.
 
@@ -78,11 +78,11 @@ sl.exe auth
 * An alternative to using `sl auth` (which stores the credentials to a local file) is setting the environment variables `SHIFTLEFT_ORG_ID` and `SHIFTLEFT_UPLOAD_TOKEN`
 * See more information about authentication on the [Authenticating with ShiftLeft](doc:auth) page
 
+### Step 3: Run with Microagent
+
 > #### Microagent support
 >
 > The instructions below apply to Java only. Microagent support for .NET is coming soon. For inquiries, please fill out our [contact form](https://www.shiftleft.io/contact/).
-
-### Step 3: Run with Microagent
 
 In order to start your application with the ShiftLeft Microagent, you need to prefix the command line you use to start your application with `sl run`.
 

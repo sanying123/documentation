@@ -11,7 +11,7 @@ In its analysis step, ShiftLeft identifies the application's attack surface, its
 
 Informed by the knowledge derived from code analysis, a custom instrumentation called Security Profile for Runtime (SPR) is created and loaded onto a ShiftLeft microagent that runs alongside the application. This informs the microagent on how to instrument the application and how to monitor its specific shape and weaknesses.
 
-![ShiftLeft Workflow][/getting-started/shiftleft-workflow.jpg]
+![ShiftLeft Workflow](shiftleft-workflow.jpg)
 
 The combination of code analysis and runtime monitoring is what gives the application an edge over attackers as the protection provided is very specific to the application itself.
 

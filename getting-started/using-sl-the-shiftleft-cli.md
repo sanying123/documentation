@@ -62,7 +62,7 @@ Command | Description
 `analyze [<path>]` | Submit application for [analysis](doc:analyze). If `<path>` is not provided, then `.` is implied. `<path>` can be the path to a `.jar`, `.war` or `.ear` file, or it can be the path to a Java project directory.
 `run -- <command>` | Run target command with the [ShiftLeft Microagent](doc:run).
 `push <path> [<path>...]` | Upload policies to ShiftLeft (coming soon).
-`update [java-agent|libplugin]` | Update certain component of `sl`. Use `sl update java-agent` to auto-update the ShiftLeft Java Microagent.
+`update [java-agent,libplugin]` | Update certain component of `sl`. Use `sl update java-agent` to auto-update the ShiftLeft Java Microagent.
 `install [dotnet-agent]` | Runs the ShiftLeft .NET Microagent installer.
 `help`, `h` | List `sl` commands or help for one command.
 

@@ -14,7 +14,7 @@ Use the `sl analyze` command to submit applications to ShiftLeft for code analys
 
 The ShiftLeft CLI supports three modes of analysis. The mode you choose depends on your business requirements.
 
-### sl analyze --app <name> [<path>]
+### `sl analyze --app <name> [<path>]`
 
 Use `sl analyze --app <name> <path>` to upload the application to the ShiftLeft cloud for analysis. This mode of analysis is suitable for most use cases.
 
@@ -22,7 +22,7 @@ The flag `--app <name>` tells ShiftLeft to associate the analysis with the appli
 
 The `sl analyze` command scans the artifact (JAR/WAR) provided by `<path>`.
 
-### sl analyze --app <name> --cpg [<path>]
+### `sl analyze --app <name> --cpg [<path>]`
 
 Use `sl analyze --app <name> --cpg <path>` to submit security metadata for proprietary application code (in lieu of bytecode), and bytecode for open source dependencies. 
 

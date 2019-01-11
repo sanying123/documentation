@@ -1,6 +1,6 @@
 # Summary
 
-* [Getting Started](getting-started/quick-start.md)
+* [Getting Started](getting-started/getting-started.md)
   * [ShiftLeft Requirements](getting-started/shiftleft-requirements.md)
   * [Using sl - The ShiftLeft CLI](getting-started/using-sl-the-shiftleft-cli.md)
   * [Authenticating with ShiftLeft](getting-started/authenticating-with-shiftleft.md)

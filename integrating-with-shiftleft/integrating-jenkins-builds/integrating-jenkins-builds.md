@@ -32,7 +32,7 @@ Initially these credentials will be provided to you by ShiftLeft. Once you have 
   * Name: `SHIFTLEFT_ORG_ID`| Value: Paste your **Organization ID**
   * Name: `SHIFTLEFT_UPLOAD_TOKEN`| Value: Paste your **Upload Token**
 
-  ![Adding Jenkins environment variables for ShiftLeft authentication](jenkins-envvars.png)
+![Adding Jenkins environment variables for ShiftLeft authentication](jenkins-envvars.png)
 
 5. Configure each Jenkins project you want to [analyze](doc:analyze) using one of the following approaches: 
  * [Final Build Step](doc:jenkins-final-build-step), or

@@ -12,3 +12,9 @@
     * [Wildfly Configuration](installing-the-microagent/jvm-based-environments/wildfly-configuration.md)
     * [Websphere Configuration](installing-the-microagent/jvm-based-environments/websphere-configuration.md)
     * [Tomcat Integration](installing-the-microagent/jvm-based-environments/tomcat-integration.md)
+* Integrating with ShiftLeft
+  * [Integrating with Docker Builds](integrating-with-shiftleft/integrating-with-docker-builds.md)
+  * [Integrating with Jenkins Builds](integrating-with-shiftleft/integrating-jenkins-builds/integrating-jenkins-builds.md)
+    * [Configure Final Build Step](integrating-with-shiftleft/integrating-jenkins-builds/configure-final-build-step.md)
+    * [Configure Post Build Task](integrating-with-shiftleft/integrating-jenkins-builds/configure-post-build-task.md)
+    * [Verify Jenkins Integration](integrating-with-shiftleft/integrating-jenkins-builds/verify-jenkins-integration.md)

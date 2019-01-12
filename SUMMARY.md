@@ -18,3 +18,7 @@
     * [Configure Final Build Step](integrating-with-shiftleft/integrating-jenkins-builds/configure-final-build-step.md)
     * [Configure Post Build Task](integrating-with-shiftleft/integrating-jenkins-builds/configure-post-build-task.md)
     * [Verify Jenkins Integration](integrating-with-shiftleft/integrating-jenkins-builds/verify-jenkins-integration.md)
+  * [Integrating GoCD Builds](integrating-with-shiftleft/integrating-gocd-builds.md)
+  * [Integrating Bamboo Builds](integrating-with-shiftleft/integrating-bamboo-builds.md)
+  * [Integrating TeamCity Builds](integrating-with-shiftleft/integrating-teamcity-builds.md)
+  * [Integrating Travis Builds](integrating-with-shiftleft/integrating-travis-builds.md)

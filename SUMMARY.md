@@ -8,3 +8,7 @@
   * [Windows Installer](getting-started/windows-installer.md)
 * [Installing the Microagent](installing-the-microagent/installing-the-microagent.md)
   * [JVM Based Environments](installing-the-microagent/jvm-based-environments/jvm-based-environments.md)
+    * [Configuring the Microagent](installing-the-microagent/jvm-based-environments/configuring-the-microagent.md)
+    * [Wildfly Configuration](installing-the-microagent/jvm-based-environments/wildfly-configuration.md)
+    * [Websphere Configuration](installing-the-microagent/jvm-based-environments/websphere-configuration.md)
+    * [Tomcat Integration](installing-the-microagent/jvm-based-environments/tomcat-integration.md)

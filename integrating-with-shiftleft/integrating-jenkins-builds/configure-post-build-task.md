@@ -6,7 +6,7 @@ This section describes how to integrate ShiftLeft analysis with Jenkins builds b
 
 1. Review [Jenkins requirements](integrating-jenkins-builds.md).
 2. [Install the ShiftLeft CLI](../getting-started/using-sl-the-shiftleft-cli.md) on the host where Jenkins is installed.
-3. [Create Jenkins environment variables](#section-jenkins-integration-instructions) to [authenticate](../getting-started/authenticating-with-shiftleft.md) with ShiftLeft and associate Jenkins builds with with your ShiftLeft organization.
+3. Create Jenkins environment variables to [authenticate](../getting-started/authenticating-with-shiftleft.md) with ShiftLeft and associate Jenkins builds with with your ShiftLeft organization.
 
 ## Install the Post Build Task Plugin
 

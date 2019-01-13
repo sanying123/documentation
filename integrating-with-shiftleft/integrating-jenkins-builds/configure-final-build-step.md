@@ -1,6 +1,6 @@
 # Configure Final Build Step
 
-The instructions for integrating ShiftLeft with Jenkins using a final build step differ depending on the type of Jenkins project you are configuring: [Freestyle](#section-freestyle-projects) or [Pipeline](#section-pipeline-projects).
+The instructions for integrating ShiftLeft with Jenkins using a final build step differ depending on the type of Jenkins project you are configuring: Freestyle or Pipeline.
 
 ## Prerequisites
 

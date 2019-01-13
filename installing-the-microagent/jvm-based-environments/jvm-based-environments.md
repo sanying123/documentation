@@ -89,7 +89,7 @@ There are various ways to confirm that the ShiftLeft Microagent is running.
 
 ### Dashboard confirmation
 
-As shown below, when the microagent is connected you will see this reflected in the **App Card** as "X Instances." If you don't see this, check the microagent command output and verify [success](#section-microagent-output-successful-connectivity).
+As shown below, when the microagent is connected you will see this reflected in the **App Card** as "X Instances." If you don't see this, check the microagent command output.
 
 ![Application Card](app-card.png)
 

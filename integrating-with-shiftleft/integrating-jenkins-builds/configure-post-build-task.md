@@ -1,6 +1,6 @@
 # Configure Post Build Task
 
-This section describes how to integrate ShiftLeft analysis with Jenkins builds by installing the [Hudson Post Build Task Plugin](<https://plugins.jenkins.io/postbuild-task>) and configure a post build task for each target project.
+This section describes how to integrate ShiftLeft analysis with Jenkins builds by installing the [Hudson Post Build Task Plugin](https://plugins.jenkins.io/postbuild-task) and configure a post build task for each target project.
 
 ## Prerequisites
 

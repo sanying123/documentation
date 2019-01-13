@@ -77,7 +77,7 @@ The license property represents the client license that authorizes the microagen
 
 ### SPR ID
 
-The SPR ID property identifies the [Security Profile for Runtime](docs:intro#section-code-analysis) (SPR) to fetch from the proxy.
+The SPR ID property identifies the Security Profile for Runtime (SPR) to fetch from the proxy.
 
 ```json
 {

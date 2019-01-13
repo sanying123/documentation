@@ -36,7 +36,7 @@ To verify that you are running the supported Java version, use the `java -versio
 >
 > ShiftLeft requires the presence of a supported project build tool to generate security metadata from bytecode. The supported build tool must be installed on the host where you submit an application for analysis.
 >
-> Analysis should be performed for each code commit or build of the application. Automate analysis submissions using your preferred CI/CD system ([Bamboo](doc:bamboo), CircleCI, [GoCD](doc:gocd), [Jenkins](doc:jenkins), [Travis](doc:travis), [TeamCity](doc:teamcity), etc.).
+> Analysis should be performed for each code commit or build of the application. Automate analysis submissions using your preferred CI/CD system ([Bamboo](doc:bamboo), CircleCI, [GoCD](doc:gocd), [Jenkins](../integrating-with-shiftleft/integrating-jenkins-builds/integrating-jenkins-builds.md), [Travis](doc:travis), [TeamCity](doc:teamcity), etc.).
 
 ## Java Requirements for ShiftLeft Protect
 

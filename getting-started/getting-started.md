@@ -60,7 +60,7 @@ Invoke-WebRequest -Uri https://www.shiftleft.io/download/installer-dotnet-core-l
   * [sl for Windows .NET Framework](https://www.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip)
   * [sl for Windows .NET Core](https://www.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip)
 
-Verify that the installation worked by typing `sl help`. See more information about sl on the [Using the ShiftLeft CLI](doc:cli) page.
+Verify that the installation worked by typing `sl help`. See more information about sl on the [Using the ShiftLeft CLI](using-sl-the-shiftleft-cli.md) page.
 
 ### Step 2: Authenticate sl
 

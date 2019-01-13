@@ -1,13 +1,13 @@
 # Using sl - the ShiftLeft CLI
 
 The ShiftLeft command line Interface (CLI) is used to:
-- [Authenticate with ShiftLeft](doc:auth) and associate your applications with the organization you are in.
-- [Submit applications for analysis and profiling](doc:analyze) to the ShiftLeft service. 
-- [Run the ShiftLeft Microagent](doc:run) with analyzed applications for runtime monitoring and metrics.
+- [Authenticate with ShiftLeft](../getting-started/authenticating-with-shiftleft.md) and associate your applications with the organization you are in.
+- [Submit applications for analysis and profiling](../getting-started/analyzing-applications-in-ci.md) to the ShiftLeft service. 
+- [Run the ShiftLeft Microagent](../installing-the-microagent/installing-the-microagent.md) with analyzed applications for runtime monitoring and metrics.
 
 ## Requirements
 
-Refer to the [CLI Requirements](doc:requirements#section-cli-requirements) for details.
+Refer to the [CLI Requirements](shiftleft-requirements.md) for details.
 
 ## Installation on Linux
 
@@ -33,7 +33,7 @@ curl https://www.shiftleft.io/download/sl-latest-osx-x64.tar.gz | tar xvz -C /us
 
 ## Installation on Windows
 
-To install the ShiftLeft CLI on Windows, please refer [to our installer page](doc:windows-installer).
+To install the ShiftLeft CLI on Windows, please refer [to our installer page](windows-installer.md).
 
 ## Manual Installation
 
@@ -58,9 +58,9 @@ sl [global options] command [command options] [arguments...]
 
 Command | Description
 --- | ---
-`auth` | [Authenticate](doc:auth) using `organization ID` and `upload token`.
-`analyze [<path>]` | Submit application for [analysis](doc:analyze). If `<path>` is not provided, then `.` is implied. `<path>` can be the path to a `.jar`, `.war` or `.ear` file, or it can be the path to a Java project directory.
-`run -- <command>` | Run target command with the [ShiftLeft Microagent](doc:run).
+`auth` | [Authenticate](../getting-started/authenticating-with-shiftleft.md) using `organization ID` and `upload token`.
+`analyze [<path>]` | Submit application for [analysis](../getting-started/analyzing-applications-in-ci.md). If `<path>` is not provided, then `.` is implied. `<path>` can be the path to a `.jar`, `.war` or `.ear` file, or it can be the path to a Java project directory.
+`run -- <command>` | Run target command with the [ShiftLeft Microagent](../installing-the-microagent/installing-the-microagent.md).
 `push <path> [<path>...]` | Upload policies to ShiftLeft (coming soon).
 `update [java-agent,libplugin]` | Update certain component of `sl`. Use `sl update java-agent` to auto-update the ShiftLeft Java Microagent.
 `install [dotnet-agent]` | Runs the ShiftLeft .NET Microagent installer.
@@ -80,7 +80,7 @@ None | `https_proxy=<proxy>` | Proxy configuration.
 
 `sl analyze` option | Environment Variable | Description
 --- | --- | ---
-`--cpg` | `SHIFTLEFT_CPG=true` | Submit application for analysis using [CPG mode](doc:analyze#section-sl-analyze-cpg).
+`--cpg` | `SHIFTLEFT_CPG=true` | Submit application for analysis using CPG mode.
 `--app <name>`, `-a <name>` | `SHIFTLEFT_APP=<name>` | Associate analysis with this application name. This name will be used in the ShiftLeft UI.
 `--wait`, `-w` | `SHIFTLEFT_WAIT=true` | Wait for analysis to finish before returning control.
 `--java` | `SHIFTLEFT_LANG_JAVA=true` | Analyze Java code (implicit).
@@ -97,7 +97,7 @@ None | `https_proxy=<proxy>` | Proxy configuration.
 --- | --- | ---
 `--analyze <file.jar>` | `SHIFTLEFT_ANALYZE=<file.jar>` | Perform analysis before running the application. If analysis has previously been performed on this version of this application, then no further analysis is performed and the application is started immediately.
 `--app <name>`, `-a <name>` | `SHIFTLEFT_APP=<name>` | Associate analysis with this application name. This name will be used in the ShiftLeft UI. Only used when `--analyze` is passed.
-`--cpg` | `SHIFTLEFT_CPG=true` | Submit application for analysis using [CPG mode](doc:analyze#section-sl-analyze-cpg). Only used when `--analyze` is passed.
+`--cpg` | `SHIFTLEFT_CPG=true` | Submit application for analysis using CPG mode. Only used when `--analyze` is passed.
 `--java` | `SHIFTLEFT_JAVA=true` | This is a Java application (implicit).
 None | `SHIFTLEFT_CONFIG=<path> ` | Path to the `shiftleft.json` file. Defaults to `./shiftleft.json`.
 

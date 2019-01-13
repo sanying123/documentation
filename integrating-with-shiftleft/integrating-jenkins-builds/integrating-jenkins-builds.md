@@ -4,20 +4,20 @@ To integrate Jenkins builds with ShiftLeft and automate code analysis, configure
 
 ## Jenkins Integration Options
 
-There are **two ways** to integrate with Jenkins: by configuring a [final build step](doc:jenkins-final-build-step) or [post build task](doc:jenkins-post-build-task) for *each* Jenkins project you want to submit for analysis to ShiftLeft.
+There are **two ways** to integrate with Jenkins: by configuring a [final build step](configure-final-build-step.md) or [post build task](configure-post-build-task.md) for *each* Jenkins project you want to submit for analysis to ShiftLeft.
 
 Configuration Option | Description
 --- | ---
-[Final Build Step](doc:jenkins-final-build-step) | Edit the project build configuration and add the `sl analyze` (or `sl analyze --cpg)` shell command as a [final build step](doc:jenkins-final-build-step).
-[Post Build Task](doc:jenkins-post-build-task) | Install the *Hudson Post Build Task Plugin* plugin and add the `sl analyze` (or `sl analyze --cpg)` shell command as a [post build task](doc:jenkins-post-build-task).
+[Final Build Step](configure-final-build-step.md) | Edit the project build configuration and add the `sl analyze` (or `sl analyze --cpg)` shell command as a [final build step](configure-final-build-step.md).
+[Post Build Task](configure-post-build-task.md) | Install the *Hudson Post Build Task Plugin* plugin and add the `sl analyze` (or `sl analyze --cpg)` shell command as a [post build task](configure-post-build-task.md).
 
 ## Jenkins Integration Prerequisites
 
 The requirements for integrating Jenkins application builds are as follows:
 
 - [Jenkins installation](https://jenkins.io/changelog/) version 2.78 or later
-- Supported application and build tool (see [code analysis requirements](doc:requirements#section-code-analysis-requirements))
-- Familiarity with [ShiftLeft Workflow](doc:getting-started#section-shiftleft-workflow) 
+- Supported application and build tool (see [code analysis requirements](../../getting-started/shiftleft-requirements.md))
+- Familiarity with [ShiftLeft Workflow](../../getting-started/getting-started.md) 
 - ShiftLeft account credentials: **Organization ID** and **Upload Token**
 Initially these credentials will be provided to you by ShiftLeft. Once you have established your account you can copy them from the **My Profile** page at the ShiftLeft Dashboard.
 
@@ -25,7 +25,7 @@ Initially these credentials will be provided to you by ShiftLeft. Once you have 
 
 ## Jenkins Integration Instructions
 
-1. [Install the ShiftLeft CLI](doc:cli#section-installation) on the host where Jenkins is installed.
+1. [Install the ShiftLeft CLI](../../getting-started/using-sl-the-shiftleft-cli.md) on the host where Jenkins is installed.
 2. Log in to Jenkins as an administrator.
 3. Select **Manage Jenkins > Configure System > Global properties**. 
 4. Select (check) **Environment variables** and create the following:
@@ -34,13 +34,13 @@ Initially these credentials will be provided to you by ShiftLeft. Once you have 
 
 ![Adding Jenkins environment variables for ShiftLeft authentication](jenkins-envvars.png)
 
-5. Configure each Jenkins project you want to [analyze](doc:analyze) using one of the following approaches: 
- * [Final Build Step](doc:jenkins-final-build-step), or
- * [Post Build Task](doc:jenkins-post-build-task)
-6. Test and [verify Jenkins integration](doc:jenkins-verify).
+5. Configure each Jenkins project you want to [analyze](../getting-started/analyzing-applications-in-ci.md) using one of the following approaches: 
+ * [Final Build Step](configure-final-build-step.md), or
+ * [Post Build Task](configure-post-build-task.md)
+6. Test and [verify Jenkins integration](verify-jenkins-integration.md).
 
 For basic Jenkins administration you can set and inject build env vars as described above. For advanced Jenkins administration, you can use Jenkins secret store to inject the ShiftLeft credentials into builds. Refer to the [Jenkins documentation](https://jenkins.io/doc/) for details.
 
 ## Jenkins Integration Demo
 
-Here is a quick video (~ 2 minutes) that demonstrates how to integrate ShiftLeft with an existing Jenkins freestyle project using the [final build step](doc:jenkins-final-build-step) approach: https://youtu.be/bI1GATsD5mc.
+Here is a quick video (~ 2 minutes) that demonstrates how to integrate ShiftLeft with an existing Jenkins freestyle project using the [final build step](configure-final-build-step.md) approach: https://youtu.be/bI1GATsD5mc.

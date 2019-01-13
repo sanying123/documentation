@@ -26,8 +26,6 @@ Environment variable for **Upload Token**:
 - Name: `SHIFTLEFT_UPLOAD_TOKEN`
 - Value: `{upload-token-string}`
 
-See the [Jenkins documentation](doc:jenkins#section-jenkins-integration-instructions) for an example.
-
 ## Obtaining Your Credentials
 
-For initial customers your ShiftLeft credentials will be shared with you by your ShiftLeft account representative. Once you have logged in to the system, you can obtain these credentials at the **Profiles** page of the ShiftLeft Dashboard, and when you [add an application](doc:adding-applications).
+Once you have logged in to the system, you can obtain these credentials at the **Profiles** page of the ShiftLeft Dashboard.

@@ -4,9 +4,9 @@ The instructions for integrating ShiftLeft with Jenkins using a final build step
 
 ## Prerequisites
 
-1. Review [Jenkins requirements](doc:jenkins#section-jenkins-requirements).
-2. [Install the ShiftLeft CLI](doc:cli#section-installation) on the host where Jenkins is installed.
-3. [Create Jenkins environment variables](doc:jenkins#section-jenkins-integration-instructions) to [authenticate](doc:auth) with ShiftLeft and associate Jenkins builds with your ShiftLeft tenant. 
+1. Review [Jenkins requirements](integrating-jenkins-builds.md).
+2. [Install the ShiftLeft CLI](../getting-started/using-sl-the-shiftleft-cli.md) on the host where Jenkins is installed.
+3. Create Jenkins environment variables to [authenticate](../getting-started/authenticating-with-shiftleft.md) with ShiftLeft and associate Jenkins builds with your ShiftLeft tenant. 
 
 ## Freestyle Project Configuration
 
@@ -63,7 +63,7 @@ For example:
 
 To  integrate the `sl analyze` (or `sl analyze --cpg`) shell command as a final build step in a Jenkins Pipeline project (using a Jenkinsfile):
 
-1. Complete [Jenkins prerequisites](doc:jenkins-final-build-step#section-prerequisites).
+1. Complete [Jenkins prerequisites](#prerequisites).
 2. Edit the Jenkinsfile and add a final stage at the end of the build stage. For example:
 
 ```groovy

@@ -24,7 +24,7 @@ The combination of code analysis and runtime monitoring is what gives the applic
 To get started, you will need 
 
 * A ShiftLeft account ([contact us](https://www.shiftleft.io/contact/))
-* Linux or Mac OS X (Windows support is experimental - please [use our installer](doc:windows-installer))
+* Linux or Mac OS X (Windows support is experimental - please [use our installer](windows-installer.md))
 * A Java application (or use [HelloShiftLeft](https://github.com/ShiftLeftSecurity/HelloShiftLeft))
 
 ### Step 1: Download and Install sl - the ShiftLeft CLI
@@ -76,7 +76,7 @@ sl.exe auth
 
 * This will prompt for your Organization ID and your Upload Token. You will find this information on the [user profile page in the ShiftLeft dashboard](https://www.shiftleft.io/user/profile)
 * An alternative to using `sl auth` (which stores the credentials to a local file) is setting the environment variables `SHIFTLEFT_ORG_ID` and `SHIFTLEFT_UPLOAD_TOKEN`
-* See more information about authentication on the [Authenticating with ShiftLeft](doc:auth) page
+* See more information about authentication on the [Authenticating with ShiftLeft](authenticating-with-shiftleft.md) page
 
 ### Step 3: Run with Microagent
 
@@ -99,9 +99,9 @@ sl run \
 * `--analyze <jar>` points `sl` to the application's JAR to be analyzed before starting up
 * `--` delimits flags from the command to be wrapped. What comes after `--` is the command itself that will be run with the ShiftLeft Microagent installed
 
-The first time you run this command for a specific JAR, it will take a few minutes to perform the analysis. Subsequent runs will be fast. You also have the option of [pre-analyzing applications](doc:analyze) so that starting up is always fast.
+The first time you run this command for a specific JAR, it will take a few minutes to perform the analysis. Subsequent runs will be fast. You also have the option of [pre-analyzing applications](../getting-started/analyzing-applications-in-ci.md) so that starting up is always fast.
 
-See more information about installing the Microagent on the [Installing the Microagent](doc:run) page or the [Configuring the Microagent](doc:microagent) page.
+See more information about installing the Microagent on the [Installing the Microagent](../installing-the-microagent/installing-the-microagent.md) page or the [Configuring the Microagent](../installing-the-microagent/jvm-based-environments/configuring-the-microagent.md) page.
 
 ### Step 4: Trigger activity in the application
 

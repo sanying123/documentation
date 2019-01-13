@@ -5,7 +5,7 @@ The ShiftLeft Microagent is run with an application that has been analyzed by Sh
 ## Requirements
 
 To run the ShiftLeft microagent, you must:
-- Use a [supported 64-bit JVM](doc:requirements#section-runtime-requirements)
+- Use a [supported 64-bit JVM](../../getting-started/shiftleft-requirements.md)
 - Analyze the application beforehand OR pass in `--analyze <path.jar>` flag to perform analysis before running the application. If analyzed beforehand, include the `shiftleft.json` file (that was generated during analysis) with the target application you are deploying, or specify the `SHIFTLEFT_CONFIG` environment variable that points to the path for this file.
 
 ## Performing Analysis
@@ -14,7 +14,7 @@ Before running the Microagent, analysis of the target application must be perfor
 
 Performing analysis can be performed either as a separate step, allowing installation in a build / Continuous Integration (CI) environment, or in the same command used for running the agent itself.
 
-To perform analysis beforehand, see [Analyzing Applications in CI](doc:analyze). Note that in this case, you will need to carry the produced `shiftleft.json` file to your runtime environment and make it available to the ShiftLeft Microagent. This allows the Microagent to associate the application to be run with the analysis.
+To perform analysis beforehand, see [Analyzing Applications in CI](../getting-started/analyzing-applications-in-ci.md). Note that in this case, you will need to carry the produced `shiftleft.json` file to your runtime environment and make it available to the ShiftLeft Microagent. This allows the Microagent to associate the application to be run with the analysis.
 
 To perform analysis in the same command as running the agent, pass the `--analyze` flag to the `sl run` command as shown below. The system will then submit the application to the cloud for analysis, wait for it to finish, then run the application with the Microagent installed. Subsequent runs of the same command, with the same version of the application will start immediately with the Microagent installed, as the analysis is only performed the first time.
 
@@ -38,11 +38,11 @@ sl run -- sbt run
 
 The command performs the following tasks:
 
-* If the `--analyze <file.jar>` flag was provided, it checks with the ShiftLeft server whether analysis of this version of the application was performed before. If it was not, it performs analysis in the cloud and waits for it to complete. If this flag is not passed, then the agent will look for the `shiftleft.json` file which resulted from performing analysis ahead of time. **Note: if you are a current ShiftLeft user and you plan to use the `--analyze` option here, please ensure that you have authenticated yourself to your ShiftLeft tenant using `sl auth` (see [Authenticating with ShiftLeft](doc:auth)).
+* If the `--analyze <file.jar>` flag was provided, it checks with the ShiftLeft server whether analysis of this version of the application was performed before. If it was not, it performs analysis in the cloud and waits for it to complete. If this flag is not passed, then the agent will look for the `shiftleft.json` file which resulted from performing analysis ahead of time. **Note: if you are a current ShiftLeft user and you plan to use the `--analyze` option here, please ensure that you have authenticated yourself to your ShiftLeft tenant using `sl auth` (see [Authenticating with ShiftLeft](../getting-started/authenticating-with-shiftleft.md)).
 **
 * If not already at the latest version, it downloads the latest Microagent to a local directory.
 * It runs the `<command>` with a certain environment variable set, which instructs the JVM to load the Microagent.
-* Before the application code is triggered, the Microagent connects to the ShiftLeft Proxy server to fetch the [SPR](doc:overview#section-code-analysis) (Security Profile for Runtime) that results from analysis.
+* Before the application code is triggered, the Microagent connects to the ShiftLeft Proxy server to fetch the SPR (Security Profile for Runtime) that results from analysis.
 
 The `sl run` process is a wrapper around the target Java application process. The `sl run` process spawns the target application process as a child. When you deploy your application using `sl run`, you will see two processes: the parent (`sl run`) and the child (application).
 
@@ -73,7 +73,7 @@ java -javaagent:~/.shiftleft/sl-microagent-latest.jar -jar exampleapp.jar
 
 The ShiftLeft Microagent is a lightweight agent that runs in-memory within the JVM of each app you want to monitor and protect using ShiftLeft. Once started, the microagent periodically pushes runtime data and metrics to the proxy server.
 
-If the `--analyze` flag was not provided, the microagent requires the `shiftleft.json` file that is generated during analysis. The `shiftleft.json` file contains the License and SPR ID which are [required parameters](doc:microagent#section-required-parameters) that must be passed using the `shiftleft.json` file.
+If the `--analyze` flag was not provided, the microagent requires the `shiftleft.json` file that is generated during analysis. The `shiftleft.json` file contains the License and SPR ID which are required parameters that must be passed using the `shiftleft.json` file.
 
 By default the microagent expects the `shiftleft.json` file to be in the working directory where you run the application. If you are running the application in an environment different from where you performed analysis, copy `shiftleft.json` to the working directory where the application is run. 
 
@@ -117,4 +117,4 @@ When you run the microagent and it connects to the ShiftLeft Proxy server, you w
 
 ## Configuration Options
 
-The ShiftLeft Microagent for Java runs out-of-the-box with default settings. See [Configuring the Microagent](doc:java-configuration) for details on configuration options.
+The ShiftLeft Microagent for Java runs out-of-the-box with default settings. See [Configuring the Microagent](configuring-the-microagent.md) for details on configuration options.

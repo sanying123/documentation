@@ -4,11 +4,11 @@ Use the `sl analyze` command to submit applications to ShiftLeft for code analys
 
 ## Analysis Workflow
 
-- Review [code analysis requirements](doc:requirements#section-code-analysis-requirements).
+- Review [code analysis requirements](shiftleft-requirements.md).
 - [Install ShiftLeft CLI](using-sl-the-shiftleft-cli.md) on the host where you will submit applications for analysis.
 - Successfully build the application using a supported build tool (maven, gradle, sbt) **before** you submit the app for analysis. 
 - Submit the application for analysis using one of the supported analysis commands (see below).
-- For each code commit, rebuild the application and resubmit it for analysis by integrating the CLI with an CI/CD build system to automate analysis: [Jenkins](../integrating-with-shiftleft/integrating-jenkins-builds/integrating-jenkins-builds.md), [GoCD](doc:gocd), [Bamboo](doc:bamboo), [TeamCity](doc:teamcity), [Travis](doc:travis), CircleCI.
+- For each code commit, rebuild the application and resubmit it for analysis by integrating the CLI with an CI/CD build system to automate analysis: [Jenkins](../integrating-with-shiftleft/integrating-jenkins-builds/integrating-jenkins-builds.md), [GoCD](../integrating-with-shiftleft/integrating-gocd-builds.md), [Bamboo](../integrating-with-shiftleft/integrating-bamboo-builds.md), [TeamCity](../integrating-with-shiftleft/integrating-teamcity-builds.md), [Travis](../integrating-with-shiftleft/integrating-travis-builds.md), CircleCI.
 
 ## Analysis Commands
 

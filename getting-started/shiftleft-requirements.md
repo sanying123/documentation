@@ -2,10 +2,10 @@
 
 ShiftLeft runs as a [service](https://en.wikipedia.org/wiki/Software_as_a_service) with two integration points for your environment:
 
-- ShiftLeft CLI to submit workloads for [code analysis](doc:intro#section-code-analysis)
-- ShiftLeft Microagent for [runtime monitoring](doc:intro#section-runtime-monitoring)
+- ShiftLeft CLI to submit workloads for code analysis
+- ShiftLeft Microagent for runtime monitoring
 
-The [ShiftLeft Dashboard](doc:dashboard) provides the user interface for viewing the security profiles of analyzed applications and for monitoring the security of these applications in production.
+The ShiftLeft Dashboard provides the user interface for viewing the security profiles of analyzed applications and for monitoring the security of these applications in production.
 
 ## CLI Requirements
 
@@ -20,7 +20,7 @@ To verify that you are running the supported Java version, use the `java -versio
 
 ## Java Requirements for ShiftLeft Inspect
 
-The ShiftLeft [code analysis pipeline](doc:intro#section-code-analysis) supports Java server applications built using one of the supported build tools listed below.
+The ShiftLeft Inspect supports Java server applications built using one of the supported build tools listed below.
 
 Component | Requirement
 --- | ---
@@ -32,17 +32,17 @@ To verify that you are running the supported Java version, use the `java -versio
 
 > #### Analysis requirements notes
 >
-> ShiftLeft code analysis is performed on complied application bytecode (not source code). As such, you **must** successfully build the application using a supported build tool **before** you submit the app for analysis. See [Analyzing Applications](doc:analyze) for details.
+> ShiftLeft code analysis is performed on complied application bytecode (not source code). As such, you **must** successfully build the application using a supported build tool **before** you submit the app for analysis. See [Analyzing Applications](../getting-started/analyzing-applications-in-ci.md) for details.
 >
 > ShiftLeft requires the presence of a supported project build tool to generate security metadata from bytecode. The supported build tool must be installed on the host where you submit an application for analysis.
 >
-> Analysis should be performed for each code commit or build of the application. Automate analysis submissions using your preferred CI/CD system ([Bamboo](doc:bamboo), CircleCI, [GoCD](doc:gocd), [Jenkins](../integrating-with-shiftleft/integrating-jenkins-builds/integrating-jenkins-builds.md), [Travis](doc:travis), [TeamCity](doc:teamcity), etc.).
+> Analysis should be performed for each code commit or build of the application. Automate analysis submissions using your preferred CI/CD system ([Bamboo](../integrating-with-shiftleft/integrating-bamboo-builds.md), CircleCI, [GoCD](../integrating-with-shiftleft/integrating-gocd-builds.md), [Jenkins](../integrating-with-shiftleft/integrating-jenkins-builds/integrating-jenkins-builds.md), [Travis](../integrating-with-shiftleft/integrating-travis-builds.md), [TeamCity](../integrating-with-shiftleft/integrating-teamcity-builds.md), etc.).
 
 ## Java Requirements for ShiftLeft Protect
 
-The [ShiftLeft Microagent](doc:run) requires a supported 64-bit Java Runtime Environment (JRE). Each microagent runs in-memory within the same JVM as the deployed application. The microagent memory footprint is minimal (~50MB). 
+The [ShiftLeft Microagent](../installing-the-microagent/installing-the-microagent.md) requires a supported 64-bit Java Runtime Environment (JRE). Each microagent runs in-memory within the same JVM as the deployed application. The microagent memory footprint is minimal (~50MB). 
 
-Each Microagent connects to a [ShiftLeft Proxy server](doc:intro) to download the runtime security profile (SPR) and to send events and metrics to the ShiftLeft Dashboard. ShiftLeft hosts the proxy server, or we can provide an on-prem edition for supported platforms.
+Each Microagent connects to a ShiftLeft Proxy server to download the runtime security profile (SPR) and to send events and metrics to the ShiftLeft Dashboard. ShiftLeft hosts the proxy server, or we can provide an on-prem edition for supported platforms.
 
 The microagent must be able to download data from and push metrics to the proxy server over the specified port. If using a firewall, open a connection to a remote service on the specified TCP port.
 

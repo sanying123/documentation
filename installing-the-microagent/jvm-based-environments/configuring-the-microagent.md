@@ -108,7 +108,7 @@ The strictness setting determines how the microagent behaves if there is a disco
 
 In non-strict mode (default), the microagent does not require the SPR at startup. In this case the app will start but may not be monitored by ShifLeft, or in case it is, metrics generated during disconnection are ignored.
 
-In strict mode (`"strict":"true"`) the microagent requires the [SPR](doc:intro#section-runtime-monitoring) to let the application run. If the microagent loses connection with the proxy, the application methods calling the proxy are paused until connection is reestablished.
+In strict mode (`"strict":"true"`) the microagent requires the SPR to let the application run. If the microagent loses connection with the proxy, the application methods calling the proxy are paused until connection is reestablished.
 
 Parameter | Name
 --- | ---

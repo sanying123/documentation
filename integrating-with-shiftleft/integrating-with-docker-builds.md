@@ -18,7 +18,7 @@ There are two ways to integrate the complete ShiftLeft solution with the contain
 * **Host + Container**: Shiftleft code analysis is carried on the host prior to application container run. During container run, only the ShiftLeft Microagent is run for each execution.
 
 ## Option 1. Container-only Mode
-In this mode, during the container build, we need to prepare the image with all ShiftLeft dependencies bundled in it with the application. We first need to fetch the `sl` binary and copy the ShiftLeft configuration (`config.json`) generated from the authentication steps outlined in [Authenticating with ShiftLeft](doc:auth). There can be two ways to achieve the container-only solution.
+In this mode, during the container build, we need to prepare the image with all ShiftLeft dependencies bundled in it with the application. We first need to fetch the `sl` binary and copy the ShiftLeft configuration (`config.json`) generated from the authentication steps outlined in [Authenticating with ShiftLeft](../getting-started/authenticating-with-shiftleft.md). There can be two ways to achieve the container-only solution.
 
 ### Method A 
 In the first method, we would separately do code analysis and application execution with `sl`. A typical Dockerfile that performs these steps during for a target app (`app.jar`) has been shown below.

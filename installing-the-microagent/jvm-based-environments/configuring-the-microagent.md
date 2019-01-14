@@ -243,5 +243,5 @@ Values:
 The ShiftLeft Microagent supports the commonly used environment variable `https_proxy` for configuring a HTTPS proxy.
 
 ```bash
-export https_proxy="https://host:port/"
+export https_proxy="http://[$user:$password@]$host:$port"
 ```

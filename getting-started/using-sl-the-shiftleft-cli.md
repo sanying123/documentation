@@ -17,7 +17,7 @@ To install the ShiftLeft CLI on Linux:
 3. Run `sl help` to verify installation.
 
 ```bash
-curl https://www.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
+curl https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
 ```
 
 ## Installation on MacOS
@@ -28,7 +28,7 @@ To install the ShiftLeft CLI on MacOS X:
 3. Run `sl help` to verify installation.
 
 ```bash
-curl https://www.shiftleft.io/download/sl-latest-osx-x64.tar.gz | tar xvz -C /usr/local/bin
+curl https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz | tar xvz -C /usr/local/bin
 ```
 
 ## Installation on Windows
@@ -39,9 +39,9 @@ To install the ShiftLeft CLI on Windows, please refer [to our installer page](wi
 
 To manually install the ShiftLeft CLI:
 * Download the release for your platform:
-  * Linux: [sl-latest-linux-x64.tar.gz](https://www.shiftleft.io/download/sl-latest-linux-x64.tar.gz)
-  * MacOSX: [sl-latest-osx-x64.tar.gz](https://www.shiftleft.io/download/sl-latest-osx-x64.tar.gz)
-  * Windows: [sl-latest-windows-x64.zip](https://www.shiftleft.io/download/sl-latest-windows-x64.zip)
+  * Linux: [sl-latest-linux-x64.tar.gz](https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz)
+  * MacOSX: [sl-latest-osx-x64.tar.gz](https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz)
+  * Windows: [sl-latest-windows-x64.zip](https://cdn.shiftleft.io/download/sl-latest-windows-x64.zip)
 * Extract the `sl`/`sl.exe` binary from the file you just downloaded.
 * Add the directory location of the `sl` binary to your `$PATH` (or manually copy it to `/usr/local/bin`).
 * Run `sl help`/`sl.exe help` to verify installation.

@@ -34,7 +34,7 @@ RUN apk --update --no-cache add curl openjdk8
 COPY app.jar /user/src/app/app.jar
 
 # Install ShiftLeft CLI
-RUN curl https://www.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
+RUN curl https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
 ENV SHIFTLEFT_ORG_ID=...
 ENV SHIFTLEFT_UPLOAD_TOKEN=...
 
@@ -60,7 +60,7 @@ RUN apk --update --no-cache add curl openjdk8
 COPY app.jar /user/src/app/app.jar
 
 # Install ShiftLeft CLI
-RUN curl https://www.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
+RUN curl https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
 ENV SHIFTLEFT_ORG_ID=...
 ENV SHIFTLEFT_UPLOAD_TOKEN=...
 
@@ -114,7 +114,7 @@ RUN apk --update --no-cache add curl openjdk8
 COPY app.jar /user/src/app/app.jar
 
 # Install ShiftLeft CLI
-RUN curl https://www.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
+RUN curl https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
 
 # Copy ShiftLeft Application Configuration app directory
 COPY shiftleft.json /usr/src/app/.shiftleft.json

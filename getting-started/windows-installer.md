@@ -4,7 +4,7 @@ Installation on Windows for ShiftLeft tools (`sl` and .NET microagent) may be do
 
 ## Installing
 
-Use [this installer](https://www.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip) for .NET Framework installations or [this installer](https://www.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip) for .NET Core installations. Simply unpack the downloaded archive and an executable will appear.
+Use [this installer](https://cdn.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip) for .NET Framework installations or [this installer](https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip) for .NET Core installations. Simply unpack the downloaded archive and an executable will appear.
 
 ![Extract Zip](unzip-windows.png)
 

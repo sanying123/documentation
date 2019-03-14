@@ -32,33 +32,33 @@ To get started, you will need
 #### Linux
 
 ```bash
-curl https://www.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
+curl https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
 ```
 
 #### Mac OS X
 
 ```bash
-curl https://www.shiftleft.io/download/sl-latest-osx-x64.tar.gz | tar xvz -C /usr/local/bin
+curl https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz | tar xvz -C /usr/local/bin
 ```
 
 #### Windows .NET Framework
 
 ```bash
-Invoke-WebRequest -Uri https://www.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
+Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
 ```
 
 #### Windows .NET Core
 
 ```bash
-Invoke-WebRequest -Uri https://www.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
+Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
 ```
 
 #### Or download and install manually
 
-  * [sl for Linux](https://www.shiftleft.io/download/sl-latest-linux-x64.tar.gz)
-  * [sl for Mac OS X](https://www.shiftleft.io/download/sl-latest-osx-x64.tar.gz)
-  * [sl for Windows .NET Framework](https://www.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip)
-  * [sl for Windows .NET Core](https://www.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip)
+  * [sl for Linux](https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz)
+  * [sl for Mac OS X](https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz)
+  * [sl for Windows .NET Framework](https://cdn.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip)
+  * [sl for Windows .NET Core](https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip)
 
 Verify that the installation worked by typing `sl help`. See more information about sl on the [Using the ShiftLeft CLI](using-sl-the-shiftleft-cli.md) page.
 

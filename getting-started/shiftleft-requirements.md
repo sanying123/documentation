@@ -32,7 +32,7 @@ To verify that you are running the supported Java version, use the `java -versio
 
 > #### Analysis requirements notes
 >
-> ShiftLeft code analysis is performed on complied application bytecode (not source code). As such, you **must** successfully build the application using a supported build tool **before** you submit the app for analysis. See [Analyzing Applications](../getting-started/analyzing-applications-in-ci.md) for details.
+> ShiftLeft code analysis is performed on compiled application bytecode (not source code). As such, you **must** successfully build the application using a supported build tool **before** you submit the app for analysis. See [Analyzing Applications](../getting-started/analyzing-applications-in-ci.md) for details.
 >
 > ShiftLeft requires the presence of a supported project build tool to generate security metadata from bytecode. The supported build tool must be installed on the host where you submit an application for analysis.
 >

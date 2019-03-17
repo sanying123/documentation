@@ -29,7 +29,13 @@ To get started, you will need
 
 ### Step 1: Download and Install sl - the ShiftLeft CLI
 
+Verify that the installation worked by typing `sl help`. See more information about sl on the [Using the ShiftLeft CLI](using-sl-the-shiftleft-cli.md) page.
+
+Note that for .NET there are two variants, either the .NET Framework or .NET Core version; be sure to pick the right one for your project.
+
 #### Linux
+
+Download [sl for Linux](https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz), or run the following command:
 
 ```bash
 curl https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
@@ -37,30 +43,31 @@ curl https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /
 
 #### Mac OS X
 
+Download [sl for Mac OS X](https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz), or run the following command:
+
 ```bash
 curl https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz | tar xvz -C /usr/local/bin
 ```
 
 #### Windows .NET Framework
 
+Download [ShiftLeft Installer for Windows and .NET Framework](https://cdn.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip), or run the following command:
+
 ```bash
 Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
 ```
 
+Then unzip the downloaded file and invoke the installer. 
+
 #### Windows .NET Core
+
+Download [ShiftLeft Installer for Windows and .NET Core](https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip), or run the following command:
 
 ```bash
 Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
 ```
 
-#### Or download and install manually
-
-  * [sl for Linux](https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz)
-  * [sl for Mac OS X](https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz)
-  * [sl for Windows .NET Framework](https://cdn.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip)
-  * [sl for Windows .NET Core](https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip)
-
-Verify that the installation worked by typing `sl help`. See more information about sl on the [Using the ShiftLeft CLI](using-sl-the-shiftleft-cli.md) page.
+Then unzip the downloaded file and invoke the installer.
 
 ### Step 2: Authenticate sl
 

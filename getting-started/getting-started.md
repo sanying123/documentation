@@ -57,7 +57,7 @@ Download [ShiftLeft Installer for Windows and .NET Framework](https://cdn.shiftl
 Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
 ```
 
-Then unzip the downloaded file and invoke the installer. 
+Then unzip the downloaded file and invoke the installer.  If run from the terminal you may add `--no-prompt` to disable waiting for user input.
 
 #### Windows .NET Core
 
@@ -67,7 +67,7 @@ Download [ShiftLeft Installer for Windows and .NET Core](https://cdn.shiftleft.i
 Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
 ```
 
-Then unzip the downloaded file and invoke the installer.
+Then unzip the downloaded file and invoke the installer.  If run from the terminal you may add `--no-prompt` to disable waiting for user input.
 
 ### Step 2: Authenticate sl
 

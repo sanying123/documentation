@@ -14,6 +14,8 @@ The choice between .NET Core and .NET Framework is a setting specific to the .NE
 
 The installer requires a user with administrator privileges. It will copy `sl.exe` into the global programs directory (specifically `%ProgramFiles%\ShiftLeft`), create a start menu entry with a shortcut to open a shell with `sl.exe` in its path (the folder will be called `ShiftLeft` too), as well as an uninstall shortcut; the .NET microagent will be separately installed into `C:\shiftleftDotNetAgent`.
 
+In case the installer is run from the command line the flag `--no-prompt` may be added to skip the prompt waiting for user input that's usually there to allow users to read the installer output when running it without a terminal.
+
 ![Start Menu Folder](windows-start-menu.png)
 
 At this time the installer can simply be executed by double-clicking and confirming when the dialog for elevated privileges pops up afterwards.

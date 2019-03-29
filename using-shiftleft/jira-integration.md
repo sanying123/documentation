@@ -5,15 +5,15 @@ Integrate Jira with your ShiftLeft account to create tickets in Jira for the Vul
 ## Prerequisites
 
 - User enabling Jira should be in the *jira-administrators* group
-- At least one project in your Jira account that ShiftLeft can create tickets in 
+- At least one project in your Jira account that ShiftLeft can create tickets in
 - At least one application in the ShiftLeft dashboard
 
 ## Installation
 
 ### Getting Started
 
-- Login into your ShiftLeft account
-- Click on the gear icon located in the top right section (Image 1)
+- Login into your ShiftLeft account here: https://www.shiftleft.io/login
+- Click on the gear icon located in the top right section to access integrations page (Image 1)
 
 ![Opening integrations page](opening-integrations-page.png)
 Image 1: Opening integrations page
@@ -32,7 +32,7 @@ Image 3: Jira integration - Getting started
 
 ### Configuration
 
-**Step 1**
+#### Step 1
 
 ![Linking ShiftLeft project to Jira](linking-project-to-jira.png)
 
@@ -51,17 +51,17 @@ Image 5: Creating new link in Jira
 
 Image 6: Random warning in Jira
 
-** Step 2**
+#### Step 2
 
-- Fill in the configuration fields using the corresponding values from the ShiftLeft Configuration screen to finalize the connection (as shown in image 7). 
-- Check the box that says *Create incoming link* 
+- Fill in the configuration fields using the corresponding values from the ShiftLeft Configuration screen to finalize the connection (as shown in image 7).
+- Check the box that says *Create incoming link*
 - Click *Continue*
 
 ![Linking ShiftLeft information in Jira](sl-info-in-jira.png)
 
 Image 7: Linking ShiftLeft generated information in Jira
 
-**Step 3**
+#### Step 3
 
 - Fill the final 3 fields and click *Continue*
 - You should see a confirmation dialogue confirming the successful Application Link creation (as shown in Image 8)
@@ -70,7 +70,7 @@ Image 7: Linking ShiftLeft generated information in Jira
 
 Image 8: Successfully created application link
 
-- Proceed to ShiftLeft dashboard and click *Continue* 
+- Proceed to ShiftLeft dashboard and click *Continue*
 - Please *Allow* ShiftLeft to have read and write access to your Jira project (Note: Clicking *Deny* will disrupt the integration flow and you might need to contact ShiftLeft support to enable again)
 
 ![Allowing read and write access](read-write-access.png)
@@ -88,7 +88,7 @@ Image 9: Allowing read and write access
 - - Default priority settings: Defines what should be the priority of the ticket in Jira based on the severity defined by ShiftLeft
   - Default state settings: Defines how ShiftLeft should ShiftLeft treat any state change for the tickets in Jira
 
-- Select how you want the ticket to show up in your Jira (ex: Bug, Task, Epic, etc) 
+- Select how you want the ticket to show up in your Jira (ex: Bug, Task, Epic, etc)
 
 - Click *Continue* to Save and Finish configuration (You can change these settings in the Manage Integration section later)
 
@@ -101,7 +101,7 @@ Image 10: Mapping settings
 - Click on the gear icon in the Configured Integrations (Image 11)
 - Click on the + icon on the new ShiftLeft project you want to enable Jira integration
 - Please Allow ShiftLeft to have read and write access to you Jira project
-- Enable Two-way Integration with custom options as explained above 
+- Enable Two-way Integration with custom options as explained above
 
 ![Mapping integration](manage-integration.png)
 
@@ -120,7 +120,7 @@ Image 12: Add more projects
 
 ![Jira CTA in vulnerability details](jira-cta.png)
 
-Image 13: Jira CTA in vulnerability details 
+Image 13: Jira CTA in vulnerability details
 
 ![Jira linked vulnerability](jira-linked-vulnerability.png)
 

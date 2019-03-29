@@ -24,5 +24,4 @@
   * [Integrating Travis Builds](integrating-with-shiftleft/integrating-travis-builds.md)
 * Using ShiftLeft in Security/Development Workflows
   * [Vulnerability Dashboard](using-shiftleft/vulnerability-dashboard.md)
-  * Integrating with JIRA
 * [Release Notes](release-notes/release-notes.md)

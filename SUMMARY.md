@@ -22,6 +22,7 @@
   * [Integrating Bamboo Builds](integrating-with-shiftleft/integrating-bamboo-builds.md)
   * [Integrating TeamCity Builds](integrating-with-shiftleft/integrating-teamcity-builds.md)
   * [Integrating Travis Builds](integrating-with-shiftleft/integrating-travis-builds.md)
-* Using ShiftLeft in Security/Development Workflows
+* Using ShiftLeft in Workflows
   * [Vulnerability Dashboard](using-shiftleft/vulnerability-dashboard.md)
+  * [Integrating Jira](using-shiftleft/jira-integration.md)
 * [Release Notes](release-notes/release-notes.md)

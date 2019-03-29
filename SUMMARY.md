@@ -1,5 +1,5 @@
 # Summary
-* [Release Notes](release-notes/release-notes.md)
+
 * [Getting Started](getting-started/getting-started.md)
   * [ShiftLeft Requirements](getting-started/shiftleft-requirements.md)
   * [Using sl - The ShiftLeft CLI](getting-started/using-sl-the-shiftleft-cli.md)
@@ -22,3 +22,4 @@
   * [Integrating Bamboo Builds](integrating-with-shiftleft/integrating-bamboo-builds.md)
   * [Integrating TeamCity Builds](integrating-with-shiftleft/integrating-teamcity-builds.md)
   * [Integrating Travis Builds](integrating-with-shiftleft/integrating-travis-builds.md)
+* [Release Notes](release-notes/release-notes.md)

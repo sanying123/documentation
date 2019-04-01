@@ -1,23 +1,21 @@
 # Quick Start
 
-ShiftLeft is a cloud-based security service that monitors your application in production, based on a runtime agent. The runtime agent's configuration is custom to the version of the application that you protect, as it is informed by code analysis.
+ShiftLeft is a cloud-based security service that analyzes your code, and then uses this analysis to monitor your application at runtime in production. 
 
-Behind the scenes, ShiftLeft works in two steps:
+In the analysis phase, ShiftLeft identifies your application's:
+* attack surface
+* inputs and outputs
+* categories of data
+* data flows
+* weaknesses (such as mishandling attacker-controlled data or leaking sensitive variables in plain text)
 
-* Analysis
-* Monitoring in runtime
-
-In its analysis step, ShiftLeft identifies the application's attack surface, its inputs, outputs, categories of data handled, the way the data flows throughout the application and any weaknesses the application might have - like mishandling attacker-controlled data or leaking sensitive variables in plain text.
-
-Informed by the knowledge derived from code analysis, a custom instrumentation called Security Profile for Runtime (SPR) is created and loaded onto a ShiftLeft microagent that runs alongside the application. This informs the microagent on how to instrument the application and how to monitor its specific shape and weaknesses.
+The ShiftLeft Microagent, using the knowledge derived from the code analysis, runs alongside your application and enables runtime security monitoring. The Microagent is automatically customized to your application through the use of a Security Profile for Runtime (SPR), which informs the Microagent on how to instrument the application and how to monitor its specific shape and weaknesses. 
 
 ![ShiftLeft Workflow](shiftleft-workflow.jpg)
 
-The combination of code analysis and runtime monitoring is what gives the application an edge over attackers as the protection provided is very specific to the application itself.
+The combination of code analysis and runtime monitoring performed by ShiftLeft is what gives your application an edge over attackers, because the protection provided is very specific to the application.
 
-## Getting Started
-
-> #### Language Support
+> ## Language Support
 >
 > For now, ShiftLeft supports Java 7+ and C# 6.0. Other languages are coming soon. For inquiries, please fill out our [contact form](https://www.shiftleft.io/contact/).
 
@@ -27,13 +25,13 @@ To get started, you will need
 * Linux or Mac OS X (Windows support is experimental - please [use our installer](windows-installer.md))
 * A Java application (or use [HelloShiftLeft](https://github.com/ShiftLeftSecurity/HelloShiftLeft))
 
-### Step 1: Download and Install sl - the ShiftLeft CLI
+## Downloading and Installing the ShiftLeft CLI
 
 Verify that the installation worked by typing `sl help`. See more information about sl on the [Using the ShiftLeft CLI](using-sl-the-shiftleft-cli.md) page.
 
 Note that for .NET there are two variants, either the .NET Framework or .NET Core version; be sure to pick the right one for your project.
 
-#### Linux
+### Linux
 
 Download [sl for Linux](https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz), or run the following command:
 
@@ -41,7 +39,7 @@ Download [sl for Linux](https://cdn.shiftleft.io/download/sl-latest-linux-x64.ta
 curl https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
 ```
 
-#### Mac OS X
+### Mac OS X
 
 Download [sl for Mac OS X](https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz), or run the following command:
 
@@ -49,7 +47,7 @@ Download [sl for Mac OS X](https://cdn.shiftleft.io/download/sl-latest-osx-x64.t
 curl https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz | tar xvz -C /usr/local/bin
 ```
 
-#### Windows .NET Framework
+### Windows .NET Framework
 
 Download [ShiftLeft Installer for Windows and .NET Framework](https://cdn.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip), or run the following command:
 
@@ -59,7 +57,7 @@ Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-framew
 
 Then unzip the downloaded file and invoke the installer.  If run from the terminal you may add `--no-prompt` to disable waiting for user input.
 
-#### Windows .NET Core
+### Windows .NET Core
 
 Download [ShiftLeft Installer for Windows and .NET Core](https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip), or run the following command:
 
@@ -69,7 +67,7 @@ Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-core-l
 
 Then unzip the downloaded file and invoke the installer.  If run from the terminal you may add `--no-prompt` to disable waiting for user input.
 
-### Step 2: Authenticate sl
+## Authenticating the ShiftLeft CLI
 
 ```bash
 sl auth
@@ -85,9 +83,9 @@ sl.exe auth
 * An alternative to using `sl auth` (which stores the credentials to a local file) is setting the environment variables `SHIFTLEFT_ORG_ID` and `SHIFTLEFT_UPLOAD_TOKEN`
 * See more information about authentication on the [Authenticating with ShiftLeft](authenticating-with-shiftleft.md) page
 
-### Step 3: Run with Microagent
+## Running the ShiftLeft Microagent
 
-> #### Microagent support
+> ### Microagent support
 >
 > The instructions below apply to Java only. Microagent support for .NET is coming soon. For inquiries, please fill out our [contact form](https://www.shiftleft.io/contact/).
 
@@ -110,7 +108,7 @@ The first time you run this command for a specific JAR, it will take a few minut
 
 See more information about installing the Microagent on the [Installing the Microagent](../installing-the-microagent/installing-the-microagent.md) page or the [Configuring the Microagent](../installing-the-microagent/jvm-based-environments/configuring-the-microagent.md) page.
 
-### Step 4: Trigger activity in the application
+##Triggering Activity in the Application
 
 Once the application is running, you can trigger some activity in your application or expose it to real traffic.
 

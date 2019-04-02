@@ -113,8 +113,6 @@ The first time you run this command for a specific JAR, it takes a few minutes t
 
 For more information, refer to [Installing the Microagent](../installing-the-microagent/installing-the-microagent.md) and  [Configuring the Microagent](../installing-the-microagent/jvm-based-environments/configuring-the-microagent.md).
 
-### Running the Microagent for .NET
-
 ## Triggering Activity in the Application
 
 Once your application is running with the ShiftLeft Microagent, you can trigger some activity or expose it to real traffic. Then open the [ShiftLeft Dashboard](https://www.shiftleft.io/dashboard) to see that activity.

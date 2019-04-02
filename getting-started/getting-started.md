@@ -13,9 +13,9 @@ Once code analysis is complete, the monitor phase automatically protects your ap
 
 The combination of code analysis and runtime monitoring performed by ShiftLeft is what gives your application an edge over attackers, because the protection provided is very specific to your application.
 
-> # Language Support
->
->Currently, ShiftLeft supports Java 7+ and C# 6.0. Support for other languages is in development. For inquiries, please fill out our [contact form](https://www.shiftleft.io/contact/).
+# Language Support
+
+Currently, ShiftLeft supports Java 7+ and C# 6.0. Support for other languages is in development. For inquiries, please fill out our [contact form](https://www.shiftleft.io/contact/).
 
 # Requirements
 
@@ -25,7 +25,7 @@ To get started with ShiftLeft, you need:
 * Linux or Mac OS X operating system (Windows support is experimental - please [use our installer](windows-installer.md))
 * A Java application you want to protect (or use the [HelloShiftLeft demo Java application](https://github.com/ShiftLeftSecurity/HelloShiftLeft))
 
-# Downloading, Installing and Authenticating the ShiftLeft CLI
+# Downloading and Installing the ShiftLeft CLI
 
 Once you have downloaded and installed the ShiftLeft CLI, verify the installation by typing `sl help`. See more information on [Using the ShiftLeft CLI](using-sl-the-shiftleft-cli.md).
 
@@ -67,7 +67,7 @@ Download the [ShiftLeft Installer for Windows and .NET Core](https://cdn.shiftle
 Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
 ```
 
-## Associating the CLI with your ShiftLeft Account
+# Associating the CLI with your ShiftLeft Account
 
 To associate the CLI with your ShiftLeft account, run the following command:
 

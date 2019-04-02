@@ -1,99 +1,100 @@
-# Quick Start
+# Getting Started
 
-ShiftLeft is a cloud-based security service that monitors your application in production, based on a runtime agent. The runtime agent's configuration is custom to the version of the application that you protect, as it is informed by code analysis.
+ShiftLeft is a cloud-based security [service](https://en.wikipedia.org/wiki/Software_as_a_service) with two products that integrate with your environment: ShiftLeft Inspect and ShiftLeft Protect. ShiftLeft Inspect analyzes your code, and then ShiftLeft Protect uses this analysis to monitor your application at runtime. The ShiftLeft Dashboard is your visual interface with these products, providing information on the security profiles of analyzed applications and monitoring the security of these applications in production.
 
-Behind the scenes, ShiftLeft works in two steps:
+During analysis, ShiftLeft Inspect identifies your application's:
+* attack surface
+* inputs and outputs
+* categories of data
+* data flows
+* weaknesses (such as mishandling attacker-controlled data or leaking sensitive variables in plain text). 
 
-* Analysis
-* Monitoring in runtime
+Once code analysis is complete, ShiftLeft Protect automatically conducts runtime security monitoring of your application. This is done by deploying a ShiftLeft Microagent in-memory alongside your application in production. The Microagent is customized to your application's specific shape and weaknesses through the use of a Security Profile for Runtime (SPR).
 
-In its analysis step, ShiftLeft identifies the application's attack surface, its inputs, outputs, categories of data handled, the way the data flows throughout the application and any weaknesses the application might have - like mishandling attacker-controlled data or leaking sensitive variables in plain text.
+![](shiftleft-workflow.jpg)
 
-Informed by the knowledge derived from code analysis, a custom instrumentation called Security Profile for Runtime (SPR) is created and loaded onto a ShiftLeft microagent that runs alongside the application. This informs the microagent on how to instrument the application and how to monitor its specific shape and weaknesses.
+The combination of code analysis and runtime monitoring performed by ShiftLeft is what gives your application an edge over attackers, because the protection provided is very specific to your application.
 
-![ShiftLeft Workflow](shiftleft-workflow.jpg)
+The process for getting started with ShiftLeft is:
 
-The combination of code analysis and runtime monitoring is what gives the application an edge over attackers as the protection provided is very specific to the application itself.
+1. [Download and install the ShiftLeft CLI](#downloading-and-installing-the-shiftleft-cli).
+2. [Associatie the CLI with your ShiftLeft Account](#associating-the-cli-with-your-shiftleft-account).
+3. [Run the ShiftLeft Microagent](#running-the-shiftleft-microagent).
+4. [Trigger Activity in the Application](#triggering-activity-in-the-application).
 
-## Getting Started
+## Language Support
 
-> #### Language Support
->
-> For now, ShiftLeft supports Java 7+ and C# 6.0. Other languages are coming soon. For inquiries, please fill out our [contact form](https://www.shiftleft.io/contact/).
+Currently, ShiftLeft protects applications written in Java 7+ and C# 6.0. Support for other languages is in development. For inquiries, please fill out our [contact form](https://www.shiftleft.io/contact/).
 
-To get started, you will need 
+## Requirements
 
-* A ShiftLeft account ([contact us](https://www.shiftleft.io/contact/))
-* Linux or Mac OS X (Windows support is experimental - please [use our installer](windows-installer.md))
-* A Java application (or use [HelloShiftLeft](https://github.com/ShiftLeftSecurity/HelloShiftLeft))
+To get started with ShiftLeft, you need:
 
-### Step 1: Download and Install sl - the ShiftLeft CLI
+* A ShiftLeft account ([contact us](https://www.shiftleft.io/contact/)).
+* Linux, MacOS X or Windows .NET operating system. 
+* A Java application you want to protect (or use the [HelloShiftLeft demo Java application](https://github.com/ShiftLeftSecurity/HelloShiftLeft)).
 
-Verify that the installation worked by typing `sl help`. See more information about sl on the [Using the ShiftLeft CLI](using-sl-the-shiftleft-cli.md) page.
+Make sure to refer to [ShiftLeft Requirements](shiftleft-requirements.md) for specifics on all requirements.
 
-Note that for .NET there are two variants, either the .NET Framework or .NET Core version; be sure to pick the right one for your project.
+## Downloading and Installing the ShiftLeft CLI
 
-#### Linux
+The ShiftLeft command line interface (CLI) is used to submit applications for analysis and to run the ShiftLeft Microagent. The tool is named `sl`.
 
-Download [sl for Linux](https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz), or run the following command:
+Once you have downloaded and installed the ShiftLeft CLI for your specific operating system, verify the installation by typing `sl help`. See more information on [Using the ShiftLeft CLI](using-sl-the-shiftleft-cli.md).
+
+### Linux
+
+Download the [ShiftLeft CLI for Linux](https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz), or run the following command:
 
 ```bash
 curl https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
 ```
 
-#### Mac OS X
+### MacOS X
 
-Download [sl for Mac OS X](https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz), or run the following command:
+Download the [ShiftLeft CLI for MacOS X](https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz), or run the following command:
 
 ```bash
 curl https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz | tar xvz -C /usr/local/bin
 ```
 
+### Windows .Net
+
+Note that for Windows .NET there are two variants, either the .NET Framework or .NET Core version; be sure to pick the right one for your project.
+
+After you have downloaded the appropriate installer, unzip the file and invoke the installer.  If you are running the installer from the terminal, add `--no-prompt` to disable waiting for user input.
+
 #### Windows .NET Framework
 
-Download [ShiftLeft Installer for Windows and .NET Framework](https://cdn.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip), or run the following command:
+Download the [ShiftLeft CLI for Windows and .NET Framework](https://cdn.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip), or run the following command:
 
 ```bash
 Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
 ```
 
-Then unzip the downloaded file and invoke the installer.  If run from the terminal you may add `--no-prompt` to disable waiting for user input.
-
 #### Windows .NET Core
 
-Download [ShiftLeft Installer for Windows and .NET Core](https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip), or run the following command:
+Download the [ShiftLeft CLI for Windows and .NET Core](https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip), or run the following command:
 
 ```bash
 Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
 ```
 
-Then unzip the downloaded file and invoke the installer.  If run from the terminal you may add `--no-prompt` to disable waiting for user input.
+## Associating the CLI with your ShiftLeft Account
 
-### Step 2: Authenticate sl
+To associate the CLI with your ShiftLeft account, copy and run the command provided in step 4 of your Welcome page.
 
-```bash
-sl auth
-```
+![](WelcomeStep4.jpg)
 
-or on Windows
+## Running the ShiftLeft Microagent
 
-```bash
-sl.exe auth
-```
+Microagent support is available for Java and .NET.
 
-* This will prompt for your Organization ID and your Upload Token. You will find this information on the [user profile page in the ShiftLeft dashboard](https://www.shiftleft.io/user/profile)
-* An alternative to using `sl auth` (which stores the credentials to a local file) is setting the environment variables `SHIFTLEFT_ORG_ID` and `SHIFTLEFT_UPLOAD_TOKEN`
-* See more information about authentication on the [Authenticating with ShiftLeft](authenticating-with-shiftleft.md) page
+### Running the Microagent for Java
 
-### Step 3: Run with Microagent
+In order to start your application with the Microagent, you need to prefix the command line you use to start your application with `sl run`.
 
-> #### Microagent support
->
-> The instructions below apply to Java only. Microagent support for .NET is coming soon. For inquiries, please fill out our [contact form](https://www.shiftleft.io/contact/).
-
-In order to start your application with the ShiftLeft Microagent, you need to prefix the command line you use to start your application with `sl run`.
-
-For example, if your usual command is `java -jar target/hello-shiftleft-0.0.1.jar` and the packaged application is at `target/hello-shiftleft-0.0.1.jar`, then you can wrap the command like so:
+For example, if your usual command is `java -jar target/hello-shiftleft-0.0.1.jar` and the packaged application is at `target/hello-shiftleft-0.0.1.jar`, then you can wrap the command as:
 
 ```bash
 sl run \
@@ -102,19 +103,21 @@ sl run \
   -- java -jar target/hello-shiftleft-0.0.1.jar
 ```
 
-* `--app <name>` specifies a unique name for the application
-* `--analyze <jar>` points `sl` to the application's JAR to be analyzed before starting up
-* `--` delimits flags from the command to be wrapped. What comes after `--` is the command itself that will be run with the ShiftLeft Microagent installed
+Where
 
-The first time you run this command for a specific JAR, it will take a few minutes to perform the analysis. Subsequent runs will be fast. You also have the option of [pre-analyzing applications](../getting-started/analyzing-applications-in-ci.md) so that starting up is always fast.
+* `--app <name>` specifies a unique name for the application.
+* `--analyze <jar>` points the ShiftLeft CLI (i.e. `sl`) to the application's JAR to be analyzed before starting up.
+* `--` delimits flags from the command to be wrapped. What comes after `--` is the command itself that is run with the installed Microagent.
 
-See more information about installing the Microagent on the [Installing the Microagent](../installing-the-microagent/installing-the-microagent.md) page or the [Configuring the Microagent](../installing-the-microagent/jvm-based-environments/configuring-the-microagent.md) page.
+The first time you run this command for a specific JAR, it takes a few minutes to perform the code analysis. Subsequent runs are faster. You also have the option of [pre-analyzing your applications](../getting-started/analyzing-applications-in-ci.md), so that starting up is always fast.
 
-### Step 4: Trigger activity in the application
+For more information, refer to [Installing the Microagent](../installing-the-microagent/installing-the-microagent.md) and  [Configuring the Microagent](../installing-the-microagent/jvm-based-environments/configuring-the-microagent.md).
 
-Once the application is running, you can trigger some activity in your application or expose it to real traffic.
+## Triggering Activity in the Application
 
-If you are using HelloShiftLeft, you can use the following script as an example:
+Once your application is running with the ShiftLeft Microagent, you can trigger some activity or expose it to real traffic. Then open the [ShiftLeft Dashboard](https://www.shiftleft.io/dashboard) to see that activity.
+
+If you are using HelloShiftLeft, use the following script as an example:
 
 ```bash
 while true ; do \
@@ -148,4 +151,3 @@ sleep 1 ;\
 done
 ```
 
-Open [the ShiftLeft Dashboard](https://www.shiftleft.io/dashboard) to see activity.

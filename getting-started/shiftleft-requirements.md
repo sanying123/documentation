@@ -81,7 +81,18 @@ To verify that you are running a supported 64-bit JRE, use the `java -version` c
 
 ### .NET Requirements for ShiftLeft Protect
 
-Coming soon...
+The [ShiftLeft Microagent](../installing-the-microagent/installing-the-microagent.md) requires a Windows operating system with the .NET Framework runtime version 4.5 or later installed.
+
+The microagent works with 64-bit .NET Framework applications. Support for .NET Core will be coming at a future date.
+
+The microagent must be able to download data from and push metrics to Shiftleft's server over the secure port, 443.
+
+The Shiftleft Windows installer will put the agent's .NET assemblies into the Global Assembly Cache (GAC). If you are running your application in Microsoft Azure as an AppService, you will need to use a Windows Docker Container. See [Windows Container Support in Azure App Service](https://azure.microsoft.com/en-us/blog/announcing-the-public-preview-of-windows-container-support-in-azure-app-service/) for details on this configuration.
+Component | Requirement
+--- | ---
+System | Windows
+.NET Framework Runtime | version **4.5** or higher
+
 
 ## Browser Requirements
 

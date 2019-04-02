@@ -31,7 +31,7 @@ System | Linux, MacOS X, Windows
 Application Type | **Java 8** or **Java 9**. 
 Build environment | Linux or Mac with **Java 8** installed locally and with 16GB of memory available.
 
-Analysis should be performed for each code commit or build of the application. Automate analysis submissions using your preferred CI/CD system ([Bamboo](../integrating-with-shiftleft/integrating-bamboo-builds.md), CircleCI, [GoCD](../integrating-with-shiftleft/integrating-gocd-builds.md), [Jenkins](../integrating-with-shiftleft/integrating-jenkins-builds/integrating-jenkins-builds.md), [Travis](../integrating-with-shiftleft/integrating-travis-builds.md), [TeamCity](../integrating-with-shiftleft/integrating-teamcity-builds.md), etc.).
+Analysis should be performed for each code commit or build of the application. You can automate analysis submissions using your preferred CI/CD system ([Bamboo](../integrating-with-shiftleft/integrating-bamboo-builds.md), CircleCI, [GoCD](../integrating-with-shiftleft/integrating-gocd-builds.md), [Jenkins](../integrating-with-shiftleft/integrating-jenkins-builds/integrating-jenkins-builds.md), [Travis](../integrating-with-shiftleft/integrating-travis-builds.md), [TeamCity](../integrating-with-shiftleft/integrating-teamcity-builds.md), etc.).
 
 To verify that you are running the supported Java version, use the `java -version` command.
 
@@ -45,7 +45,7 @@ Component | Target Type | Requirement
 --- | --- | ---
 Specification | | [MSBuild format](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild?view=vs-2017), *i.e.*, a .csproj file.
 Language | | C# 7.0
-Build environment | **.NET Framework** targets | MSBuild **15.0**. Visual Studio 2017 already comes with MSBuild 15.0. Otherwise, you can [download it from Microsoft](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15).
+Build environment | **.NET Framework** targets | MSBuild **15.0**. Visual Studio 2017 already comes with MSBuild 15.0. Otherwise, you can [download Visual Studio from Microsoft](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15).
 Build environment | **.NET Core** targets | .NET Core **2.1** or above.
 
 To determine the version of MSBuild installed in your system:
@@ -57,20 +57,20 @@ To verify whether a .NET Framework target can be built with MSBuild 15.0:
 
 1. Open the *Developer Command Prompt for VS*.
 2. Navigate to the project location.
-3. Restore NuGet packages, if any: `nuget.exe restore MySolution.sln`.
-3. Trigger a build: `msbuild MyProject.csproj` (applying additional options, if necessary).
+3. Restore NuGet packages, if any, using the command `nuget.exe restore MySolution.sln`.
+3. Trigger a build using the command `msbuild MyProject.csproj` (and apply additional options, if necessary).
 
 ## Requirements for ShiftLeft Protect
 
-ShiftLeft Inspect provides code analysis of applications written in Java and .NET. See [Analyzing Applications](../getting-started/analyzing-applications-in-ci.md) for details.
+ShiftLeft Protect monitors applications written in Java and .NET. Refer to [Installing the Microagent](../installing-the-microagent/installing-the-microagent.md) for additional information.
 
 ### Java Requirements for ShiftLeft Protect
 
-The [ShiftLeft Microagent](../installing-the-microagent/installing-the-microagent.md) requires a supported 64-bit Java Runtime Environment (JRE). Each microagent runs in-memory within the same JVM as the deployed application. The microagent memory footprint is minimal (~50MB). 
+The ShiftLeft Microagent requires a supported 64-bit Java Runtime Environment (JRE). Each microagent runs in-memory within the same JVM as the deployed application. The Mcroagent memory footprint is minimal (~50MB). 
 
-Each Microagent connects to a ShiftLeft Proxy server to download the runtime security profile (SPR) and to send events and metrics to the ShiftLeft Dashboard. ShiftLeft hosts the proxy server, or we can provide an on-prem edition for supported platforms.
+Each Microagent connects to a ShiftLeft Proxy server to download the Security Profile for Runtime (SPR) and to send events and metrics to the ShiftLeft Dashboard. ShiftLeft hosts the proxy server; an on-prem edition for supported platforms is also available.
 
-The microagent must be able to download data from and push metrics to the proxy server over the specified port. If using a firewall, open a connection to a remote service on the specified TCP port.
+The Microagent must be able to download data from, and push metrics to, the proxy server over the specified port. If using a firewall, open a connection to a remote service on the specified TCP port.
 
 Component | Requirement
 --- | ---
@@ -91,5 +91,5 @@ ShiftLeft supports the following browsers for accessing, viewing, and interactin
 - Mozilla Firefox (tested with v57, v58b)
 - macOS Safari (tested with v11)
 
-Microsoft Edge* is currently not officially supported but have been verified with v41.
+Microsoft Edge* is currently not officially supported but has been verified with v41.
 

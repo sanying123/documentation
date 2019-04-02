@@ -1,10 +1,10 @@
 # ShiftLeft Requirements
 
 ShiftLeft has specific requirements for:
-* ShiftLeft CLI
-* ShiftLeft Inspect
-* ShiftLeft Protect
-* Browser
+* [ShiftLeft CLI](#shiftleft-cli-requirements)
+* [ShiftLeft Inspect](#requirements-for-shiftleft-inspect)
+* [ShiftLeft Protect](#requirements-for-shiftleft-protect)
+* [Browser](#browser-requirements)
 
 ## ShiftLeft CLI Requirements
 
@@ -13,7 +13,9 @@ The CLI is used to submit applications for analysis and to run the ShiftLeft Mic
 Component | Requirement
 --- | ---
 System | Linux, MacOS X, Windows
-JVM | 64-bit **JRE** version **8** (Java 9 is not currently supported). To verify that you are running the supported Java version, use the `java -version` command.
+JVM | 64-bit **JRE** version **8** (Java 9 is not currently supported). 
+
+To verify that you are running the supported Java version, use the `java -version` command.
 
 ## Requirements for ShiftLeft Inspect
 
@@ -26,14 +28,16 @@ ShiftLeft Inspect's Java code analysis is performed on compiled application **by
 Component | Requirement
 --- | ---
 System | Linux, MacOS X, Windows
-Application Type | **Java 8** or **Java 9**. To verify that you are running the supported Java version, use the `java -version` command.
+Application Type | **Java 8** or **Java 9**. 
 Build environment | Linux or Mac with **Java 8** installed locally and with 16GB of memory available.
 
 Analysis should be performed for each code commit or build of the application. Automate analysis submissions using your preferred CI/CD system ([Bamboo](../integrating-with-shiftleft/integrating-bamboo-builds.md), CircleCI, [GoCD](../integrating-with-shiftleft/integrating-gocd-builds.md), [Jenkins](../integrating-with-shiftleft/integrating-jenkins-builds/integrating-jenkins-builds.md), [Travis](../integrating-with-shiftleft/integrating-travis-builds.md), [TeamCity](../integrating-with-shiftleft/integrating-teamcity-builds.md), etc.).
 
+To verify that you are running the supported Java version, use the `java -version` command.
+
 ### .NET Requirements for ShiftLeft Inspect
 
-ShiftLeft Inspect's .NET code analysis is performed on **source code** (not on the equivalence of byte code, which is the [CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)), and does an actual build of your application. Therefore, the system in which you run ShiftLeft CLI  **must** must be able to successfully build the application. Remember to restore NuGet packages, if necessary.
+ShiftLeft Inspect's .NET code analysis is performed on **source code** (not on the equivalence of byte code, which is the [CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)), and does an actual build of your application as part of the process. Therefore, the system in which you run ShiftLeft CLI  **must** must be able to successfully build the application. Remember to restore NuGet packages, if necessary.
 
 The analysis of .NET applications with the following characteristics is supported:
 
@@ -86,6 +90,6 @@ ShiftLeft supports the following browsers for accessing, viewing, and interactin
 - Google Chrome (tested with v61, v62)
 - Mozilla Firefox (tested with v57, v58b)
 - macOS Safari (tested with v11)
-- Microsoft Edge* (verified with v41)
 
-NOTE: * Not officially supported currently, but generally should work with indicated version.
+Microsoft Edge* is currently not officially supported but have been verified with v41.
+

@@ -11,7 +11,7 @@ During analysis, ShiftLeft Inspect identifies your application's:
 
 Once code analysis is complete, ShiftLeft Protect automatically conducts runtime security monitoring of your application. This is done by deploying a ShiftLeft Microagent in-memory alongside your application in production. The Microagent is customized to your application's specific shape and weaknesses through the use of a Security Profile for Runtime (SPR).
 
-![ShiftLeft Workflow](shiftleft-workflow.jpg)
+![](shiftleft-workflow.jpg)
 
 The combination of code analysis and runtime monitoring performed by ShiftLeft is what gives your application an edge over attackers, because the protection provided is very specific to your application.
 

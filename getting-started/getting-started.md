@@ -1,4 +1,4 @@
-ShiftLeft is a cloud-based security service that analyzes your code, and then uses this analysis to monitor your application at runtime in production. 
+ShiftLeft is a cloud-based security service that analyzes your code, and then uses this analysis to monitor your application at runtime. 
 
 In the analysis phase, ShiftLeft identifies your application's:
 * attack surface
@@ -7,11 +7,11 @@ In the analysis phase, ShiftLeft identifies your application's:
 * data flows
 * weaknesses (such as mishandling attacker-controlled data or leaking sensitive variables in plain text)
 
-The ShiftLeft Microagent, using the knowledge derived from the code analysis, runs alongside your application and enables runtime security monitoring. The Microagent is automatically customized to your application through the use of a Security Profile for Runtime (SPR), which informs the Microagent on how to instrument the application and how to monitor its specific shape and weaknesses. 
+Once code analysis is complete, the monitor phase automatically protects your application in production by deploying the ShiftLeft Microagent alongside your application. It uses the knowledge derived from the analysis to conduct runtime security monitoring. The Microagent is customized to your application's specific shape and weaknesses through the use of a Security Profile for Runtime (SPR).
 
 ![ShiftLeft Workflow](shiftleft-workflow.jpg)
 
-The combination of code analysis and runtime monitoring performed by ShiftLeft is what gives your application an edge over attackers, because the protection provided is very specific to the application.
+The combination of code analysis and runtime monitoring performed by ShiftLeft is what gives your application an edge over attackers, because the protection provided is very specific to your application.
 
 > # Language Support
 >
@@ -22,8 +22,8 @@ The combination of code analysis and runtime monitoring performed by ShiftLeft i
 To get started with ShiftLeft, you need:
 
 * A ShiftLeft account ([contact us](https://www.shiftleft.io/contact/))
-* Linux or Mac X OS (Windows support is experimental - please [use our installer](windows-installer.md))
-* A Java application (or use [HelloShiftLeft](https://github.com/ShiftLeftSecurity/HelloShiftLeft))
+* Linux or Mac OS X operating system (Windows support is experimental - please [use our installer](windows-installer.md))
+* A Java application you want to protect (or use the [HelloShiftLeft demo Java application](https://github.com/ShiftLeftSecurity/HelloShiftLeft))
 
 # Downloading, Installing and Authenticating the ShiftLeft CLI
 
@@ -67,25 +67,13 @@ Download the [ShiftLeft Installer for Windows and .NET Core](https://cdn.shiftle
 Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
 ```
 
-## Authenticating the ShiftLeft CLI
+## Associating the CLI with your ShiftLeft Account
 
-Autheticating the ShiftLeft CLI stores the credentials to a local file. 
-
-For Linux and Mac, run the following command:
+To associate the CLI with your ShiftLeft account, run the following command:
 
 ```bash
-sl auth
+sl auth --org "0d37be4b-0b9b-4bfe-a4cb-aaf01a75d13c" --token "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODUyNjQ3MzQsImlzcyI6IlNoaWZ0TGVmdCIsIm9yZ0lEIjoiMGQzN2JlNGItMGI5Yi00YmZlLWE0Y2ItYWFmMDFhNzVkMTNjIiwic2NvcGVzIjpbImFwaTp2MiIsInVwbG9hZHM6d3JpdGUiLCJsb2c6d3JpdGUiLCJwaXBlbGluZXN0YXR1czpyZWFkIiwibG9nOndyaXRlIiwicG9saWNpZXM6cmVhZCJdfQ.CAVEhyr-3Q-kekhpD9wntzqeD1PPAx148b7iCfyYVTE8QwuquE92nojDYBrsiMOjYH0RLh6R1NR4mraCgDAAQKWiUUS4BlVg2q0zZXRYHbKYvVBE76o4mqJ0Aj4gjAq4wwxqusf8beRQMYkPccl5bO6khhM7eoPvxMxar49hhx4SqcC4MDnUtCE23C24WHPsQJx1kc6ydxHJW3PT4TfHBgRTf-opo3bxUWAXLSEJfWlPSstTjrmP530xuMPT_MJ6GcxP3t5nBOyfRjAp6qRhTT0gV1kEZMOIJGQxCh1numHyt17_DJuktvMr8lvmIugZ_7myhod1_5pBjL6t7SgZLw"
 ```
-
-For Windows, run:
-
-```bash
-sl.exe auth
-```
-
-You are prompted for your Organization ID and Upload Token. This information is available from the [user profile page in the ShiftLeft dashboard](https://www.shiftleft.io/user/profile).
-An alternative to authenticating the ShiftLeft CLI using the `sl auth` command is setting the environment variables `SHIFTLEFT_ORG_ID` and `SHIFTLEFT_UPLOAD_TOKEN`.
-See [Authenticating with ShiftLeft](authenticating-with-shiftleft.md) for additional information.
 
 # Running the ShiftLeft Microagent
 

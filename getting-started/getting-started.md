@@ -84,7 +84,7 @@ Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-core-l
 
 To associate the CLI with your ShiftLeft account, copy and run the command provided in step 4 of your Welcome page.
 
-![Associate CLI with Account](welcome4.jpg)
+![Associate CLI with Account](welcomestep4.jpg)
 
 ## Running the ShiftLeft Microagent
 

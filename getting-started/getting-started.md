@@ -1,15 +1,15 @@
 # Getting Started
 
-ShiftLeft is a cloud-based security service that analyzes your code, and then uses this analysis to monitor your application at runtime. 
+ShiftLeft is a cloud-based security [service](https://en.wikipedia.org/wiki/Software_as_a_service) with two products that integrate with your environment: ShiftLeft Inspect and ShiftLeft Protect. ShiftLeft Inspect analyzes your code, and then ShiftLeft Protect uses this analysis to monitor your application at runtime. The ShiftLeft Dashboard is your visual interface with these products, providing information on the security profiles of analyzed applications and monitoring the security of these applications in production.
 
-In the analysis phase, ShiftLeft identifies your application's:
+During analysis, ShiftLeft Inspect identifies your application's:
 * attack surface
 * inputs and outputs
 * categories of data
 * data flows
-* weaknesses (such as mishandling attacker-controlled data or leaking sensitive variables in plain text)
+* weaknesses (such as mishandling attacker-controlled data or leaking sensitive variables in plain text). 
 
-Once code analysis is complete, the monitor phase automatically protects your application in production by deploying the ShiftLeft Microagent alongside your application. It uses the knowledge derived from the analysis to conduct runtime security monitoring. The Microagent is customized to your application's specific shape and weaknesses through the use of a Security Profile for Runtime (SPR).
+Once code analysis is complete, ShiftLeft Protect automatically conducts runtime security monitoring of your application. This is done by deploying a ShiftLeft Microagent in-memory alongside your application in production. The Microagent is customized to your application's specific shape and weaknesses through the use of a Security Profile for Runtime (SPR).
 
 ![ShiftLeft Workflow](shiftleft-workflow.jpg)
 
@@ -31,12 +31,16 @@ Currently, ShiftLeft protects applications written in Java 7+ and C# 6.0. Suppor
 To get started with ShiftLeft, you need:
 
 * A ShiftLeft account ([contact us](https://www.shiftleft.io/contact/)).
-* Linux, Mac OS X or Windows .NET operating system. 
+* Linux, MacOS X or Windows .NET operating system. 
 * A Java application you want to protect (or use the [HelloShiftLeft demo Java application](https://github.com/ShiftLeftSecurity/HelloShiftLeft)).
+
+Make sure to refer to [ShiftLeft Requirements](shiftleft-requirements.md) for specifics on all requirements.
 
 ## Downloading and Installing the ShiftLeft CLI
 
-Once you have downloaded and installed the ShiftLeft CLI, verify the installation by typing `sl help`. See more information on [Using the ShiftLeft CLI](using-sl-the-shiftleft-cli.md).
+The ShiftLeft command line interface (CLI) is used to submit applications for analysis and to run the ShiftLeft Microagent. The tool is named `sl`.
+
+Once you have downloaded and installed the ShiftLeft CLI for your specific operating system, verify the installation by typing `sl help`. See more information on [Using the ShiftLeft CLI](using-sl-the-shiftleft-cli.md).
 
 ### Linux
 
@@ -46,9 +50,9 @@ Download the [ShiftLeft CLI for Linux](https://cdn.shiftleft.io/download/sl-late
 curl https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
 ```
 
-### Mac OS X
+### MacOS X
 
-Download the [ShiftLeft CLI for Mac OS X](https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz), or run the following command:
+Download the [ShiftLeft CLI for MacOS X](https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz), or run the following command:
 
 ```bash
 curl https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz | tar xvz -C /usr/local/bin

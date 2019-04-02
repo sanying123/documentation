@@ -20,18 +20,19 @@ The process for getting started with ShiftLeft is:
 1. [Download and install the ShiftLeft CLI](#downloading-and-installing-the-shiftleft-cli).
 2. [Associatie the CLI with your ShiftLeft Account](#associating-the-cli-with-your-shiftleft-account).
 3. [Run the ShiftLeft Microagent](#running-the-shiftleft-microagent).
+4. [Trigger Activity in the Application](#triggering-activity-in-the-application).
 
 ## Language Support
 
-Currently, ShiftLeft supports Java 7+ and C# 6.0. Support for other languages is in development. For inquiries, please fill out our [contact form](https://www.shiftleft.io/contact/).
+Currently, ShiftLeft protects applications written in Java 7+ and C# 6.0. Support for other languages is in development. For inquiries, please fill out our [contact form](https://www.shiftleft.io/contact/).
 
 ## Requirements
 
 To get started with ShiftLeft, you need:
 
-* A ShiftLeft account ([contact us](https://www.shiftleft.io/contact/))
-* Linux or Mac OS X operating system (Windows support is experimental - please [use our installer](windows-installer.md))
-* A Java application you want to protect (or use the [HelloShiftLeft demo Java application](https://github.com/ShiftLeftSecurity/HelloShiftLeft))
+* A ShiftLeft account ([contact us](https://www.shiftleft.io/contact/)).
+* Linux, Mac OS X or Windows .NET operating system. 
+* A Java application you want to protect (or use the [HelloShiftLeft demo Java application](https://github.com/ShiftLeftSecurity/HelloShiftLeft)).
 
 ## Downloading and Installing the ShiftLeft CLI
 
@@ -61,7 +62,7 @@ After you have downloaded the appropriate installer, unzip the file and invoke t
 
 #### Windows .NET Framework
 
-Download the [ShiftLeft Installer for Windows and .NET Framework](https://cdn.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip), or run the following command:
+Download the [ShiftLeft CLI for Windows and .NET Framework](https://cdn.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip), or run the following command:
 
 ```bash
 Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
@@ -69,7 +70,7 @@ Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-framew
 
 #### Windows .NET Core
 
-Download the [ShiftLeft Installer for Windows and .NET Core](https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip), or run the following command:
+Download the [ShiftLeft CLI for Windows and .NET Core](https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip), or run the following command:
 
 ```bash
 Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
@@ -83,7 +84,7 @@ To associate the CLI with your ShiftLeft account, copy and run the command provi
 
 ## Running the ShiftLeft Microagent
 
-Microagent support is currently only available for Java. Development is planned for .NET support; if you are interested in using the ShiftLeft Microagent for .NET, please fill out our [contact form](https://www.shiftleft.io/contact/).
+Microagent support is available for Java and .NET.
 
 ### Running the Microagent for Java
 
@@ -108,9 +109,11 @@ The first time you run this command for a specific JAR, it takes a few minutes t
 
 For more information, refer to [Installing the Microagent](../installing-the-microagent/installing-the-microagent.md) and  [Configuring the Microagent](../installing-the-microagent/jvm-based-environments/configuring-the-microagent.md).
 
-#Triggering Activity in the Application
+### Running the Microagent for .NET
 
-Once your application is running, you can trigger some activity or expose it to real traffic.
+## Triggering Activity in the Application
+
+Once your application is running, you can trigger some activity or expose it to real traffic. Then open the [ShiftLeft Dashboard](https://www.shiftleft.io/dashboard) to see that activity.
 
 If you are using HelloShiftLeft, use the following script as an example:
 
@@ -146,4 +149,5 @@ sleep 1 ;\
 done
 ```
 
-Open the [ShiftLeft Dashboard](https://www.shiftleft.io/dashboard) to see activity.
+
+

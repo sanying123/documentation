@@ -113,7 +113,7 @@ For more information, refer to [Installing the Microagent](../installing-the-mic
 
 ## Triggering Activity in the Application
 
-Once your application is running, you can trigger some activity or expose it to real traffic. Then open the [ShiftLeft Dashboard](https://www.shiftleft.io/dashboard) to see that activity.
+Once your application is running with the ShiftLeft Microagent, you can trigger some activity or expose it to real traffic. Then open the [ShiftLeft Dashboard](https://www.shiftleft.io/dashboard) to see that activity.
 
 If you are using HelloShiftLeft, use the following script as an example:
 
@@ -148,6 +148,4 @@ curl -s localhost:8081/off >/dev/null ;\
 sleep 1 ;\
 done
 ```
-
-
 

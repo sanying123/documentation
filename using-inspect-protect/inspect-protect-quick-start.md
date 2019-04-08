@@ -1,21 +1,6 @@
-# Getting Started
+# ShiftLeft Inspect and ShiftLeft Protect Quick Start
 
-ShiftLeft is a cloud-based security [service](https://en.wikipedia.org/wiki/Software_as_a_service) with two products that integrate with your environment: ShiftLeft Inspect and ShiftLeft Protect. ShiftLeft Inspect analyzes your code, and then ShiftLeft Protect uses this analysis to monitor your application at runtime. The ShiftLeft Dashboard is your visual interface with these products, providing information on the security profiles of analyzed applications and monitoring the security of these applications in production.
-
-During analysis, ShiftLeft Inspect identifies your application's:
-* attack surface
-* inputs and outputs
-* categories of data
-* data flows
-* weaknesses (such as mishandling attacker-controlled data or leaking sensitive variables in plain text). 
-
-Once code analysis is complete, ShiftLeft Protect automatically conducts runtime security monitoring of your application. This is done by deploying a ShiftLeft Microagent in-memory alongside your application in production. The Microagent is customized to your application's specific shape and weaknesses through the use of a Security Profile for Runtime (SPR).
-
-![](shiftleft-workflow.jpg)
-
-The combination of code analysis and runtime monitoring performed by ShiftLeft is what gives your application an edge over attackers, because the protection provided is very specific to your application.
-
-The process for getting started with ShiftLeft is:
+The process for quickly getting started with ShiftLeft is:
 
 1. [Download and install the ShiftLeft CLI](#downloading-and-installing-the-shiftleft-cli).
 2. [Associatie the CLI with your ShiftLeft Account](#associating-the-cli-with-your-shiftleft-account).
@@ -36,7 +21,7 @@ To get started with ShiftLeft, you need:
 
 Make sure to refer to [ShiftLeft Requirements](shiftleft-requirements.md) for specifics on all requirements.
 
-## Downloading and Installing the ShiftLeft CLI
+## Installing the ShiftLeft CLI
 
 The ShiftLeft command line interface (CLI) is used to submit applications for analysis and to run the ShiftLeft Microagent. The tool is named `sl`.
 
@@ -44,19 +29,29 @@ Once you have downloaded and installed the ShiftLeft CLI for your specific opera
 
 ### Linux
 
+Before installing the ShiftLeft CLI, make sure that `/usr/local/bin` is in your `$PATH`.
+
 Download the [ShiftLeft CLI for Linux](https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz), or run the following command:
 
 ```bash
 curl https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
 ```
+If you downloaded installer, extract the `sl`/`sl.exe` binary  and then add the directory location of the `sl` binary to your `$PATH` (or manually copy it to `/usr/local/bin`).
+
+You can run the command `sl help` to verify installation.
 
 ### MacOS X
+
+Before installing the ShiftLeft CLI, make sure that `/usr/local/bin` is in your `$PATH`.
 
 Download the [ShiftLeft CLI for MacOS X](https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz), or run the following command:
 
 ```bash
 curl https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz | tar xvz -C /usr/local/bin
 ```
+If you downloaded installer, extract the `sl`/`sl.exe` binary  and then add the directory location of the `sl` binary to your `$PATH` (or manually copy it to `/usr/local/bin`).
+
+You can run the command `sl help` to verify installation.
 
 ### Windows .Net
 
@@ -84,7 +79,9 @@ Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-core-l
 
 To associate the CLI with your ShiftLeft account, copy and run the command provided in step 4 of your Welcome page.
 
-![](WelcomeStep4.jpg)
+![](welcome-step4.jpg)
+
+The command automatically includes your unique organization ID and upload token.
 
 ## Running the ShiftLeft Microagent
 
@@ -113,11 +110,15 @@ The first time you run this command for a specific JAR, it takes a few minutes t
 
 For more information, refer to [Installing the Microagent](../installing-the-microagent/installing-the-microagent.md) and  [Configuring the Microagent](../installing-the-microagent/jvm-based-environments/configuring-the-microagent.md).
 
+### Running the Microagent for .NET
+
+Coming soon...
+
 ## Triggering Activity in the Application
 
 Once your application is running with the ShiftLeft Microagent, you can trigger some activity or expose it to real traffic. Then open the [ShiftLeft Dashboard](https://www.shiftleft.io/dashboard) to see that activity.
 
-If you are using HelloShiftLeft, use the following script as an example:
+If you are using the Java demo application HelloShiftLeft, use the following script to trigger that application's activity:
 
 ```bash
 while true ; do \

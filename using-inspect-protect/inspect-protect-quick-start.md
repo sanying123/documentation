@@ -3,7 +3,7 @@
 The process for quickly getting started with ShiftLeft is:
 
 1. [Download and install the ShiftLeft CLI](#downloading-and-installing-the-shiftleft-cli).
-2. [Associatie the CLI with your ShiftLeft Account](#associating-the-cli-with-your-shiftleft-account).
+2. [Associate the CLI with your ShiftLeft Account](#associating-the-cli-with-your-shiftleft-account).
 3. [Run the ShiftLeft Microagent](#running-the-shiftleft-microagent).
 4. [Trigger Activity in the Application](#triggering-activity-in-the-application).
 

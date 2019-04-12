@@ -4,10 +4,10 @@
 * Introduction
   * [About ShiftLeft](introduction/about.md)
   * [ShiftLeft Products](introduction/products.md)
-  * [ShiftLeft Language Support and Requirements](introduction/requirements.md)
+  * [ShiftLeft Requirements](introduction/requirements.md)
 * Using ShiftLeft Inspect and ShiftLeft Protect
   * [Quick Start](using-inspect-protect/inspect-protect-quick-start.md)
-  * [Analyzing an Application](using-inspect-protect/analyzing-applications-in-ci.md)
+  * Analyzing an Application
     * [Using the ShiftLeft CLI](getting-started/using-sl-the-shiftleft-cli.md)
     * [Authenticating with ShiftLeft](getting-started/authenticating-with-shiftleft.md)
     * [Analyzing Applications in CI](using-inspect-protect/analyzing-applications-in-ci.md)
@@ -51,6 +51,6 @@
     * [CPG2SP](using-ocular/reference/cpg2sp.md)
     * [Ocular Query Language](using-ocular/reference/oql.md)
     * [Security Policy Language](using-ocular/reference/spl.md)
-  * [Ocular API](https://ocular.shiftleft.io/api/io/shiftleft/queryprimitives/index.html)
+  * [Ocular API](https://ocular.shiftleft.io/api/)
 * [Release Notes](release-notes/release-notes.md)
 

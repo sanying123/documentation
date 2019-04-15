@@ -1,33 +1,29 @@
-## Quick Start
+# Quick Start for ShiftLeft Ocular
 
-This tutorial teaches the basics of navigating in the **Code Property
-Graph (CPG)**. Ocular can also be used to navigate Security Profile (SP)
-which is generated on top of CPG. The tutorial focuses on analysis using
-CPG and demonstrates how the tooling can be used to:
+You use ShiftLeft Ocular to navigate and interactively query the **Code Property Graph (CPG)** to analyze and identify your application's attack surface and vulnerabilities.
 
-* Interactively query the code property graph to uncover attack surface
-* Formulate ad-hoc queries to identify vulnerabilities
+The philosophy behind ShiftLeft's solution is that creating a "one-fits-all" vulnerability scanner borders on the impossible. Instead, ShiftLeft Ocular can be adapted and extended to suit your specific needs. ShiftLeft Ocular provides vulnerability researchers with the ability to explore code bases to determine vulnerability patterns, formulate these patterns in a concise and expressive language and persist them. Code can then be automatically scanned for these patterns in the future. 
 
-The philosophy behind our tooling is that, while creating a
-"one-fits-all" vulnerability scanner borders on the impossible, you
-can certainly provide the tooling that vulnerability researchers
-require to explore code bases in order to determine vulnerability
-patterns, formulate these patterns in concise and expressive
-languages, and persist them, such that code can be automatically
-scanned for these patterns in the future. Instead of only showcasing
-the tooling's default capabilities, in this tutorial we also
-demonstrate the many ways in which the tooling can be adapted and
-extended to suit your specific needs.
+The process for quickly starting with ShiftLeft Ocular is:
 
-## **Step 1:** Install Ocular
+1. [Install ShiftLeft Ocular](#installing-ocular).
+   
+2. [Specify the target application](#specifying-the-target-application).
 
-### Prerequisites
+3. [Generate the CPG](#generating-the-cpg).
 
-Ocular runs on top of the Java virtual machine. Please make sure you have a Java Runtime Environment >= 1.8 installed.
+4. [Uncover Attack Surface](#uncovering-attack-surface).
 
-### Instructions
+The demo Java application [HelloShiftLeft](https://github.com/ShiftLeftSecurity/HelloShiftLeft) is used in this Quick Start. It is a Spring-based Web application that contains different sample vulnerabilities, including typical injection
+vulnerabilities and leakages of sensitive information. The focus of the Quick Start is an object deserialization vulnerability in the`AdminController`.
 
-Begin by decompressing the provided ZIP file `ocular-distribution.zip`. This will create the directory `ocular-distribution`.
+ShiftLeft Ocular can also be used to navigate the Security Profile, which is generated on top of the CPG. 
+
+## Installing Ocular
+
+ShiftLeft Ocular runs on top of the Java Virtual Machine (JVM). Please make sure you have a Java Runtime Environment >= 1.8 installed.
+
+Begin by decompressing the provided ZIP file `ocular-distribution.zip`. This creates the directory `ocular-distribution`.
 
 ```bash
 unzip ocular-distribution.zip
@@ -40,26 +36,27 @@ Run the installer and follow the prompts:
 bash ./install.sh
 ```
 
-The install script will:
+The install script:
 
-* ask you where you want to install it to (defaults to `~/bin/ocular`)
-* check if there is an existing installation and offer to delete it
-* unpack the ShiftLeft dynamic policy to `~/.shiftleft/policy/dynamic` and offer to delete it, if it already exists
-* unpack the ShiftLeft static policy to `~/.shiftleft/policy/static` and offer to delete it, if it already exists.
-* not touch anything outside these directories (installation and policy)
+* asks you for the install location (defaults to `~/bin/ocular`).
+* checks if there is an existing installation, and if so, offers to delete it.
+* unpacks the ShiftLeft dynamic policy to `~/.shiftleft/policy/dynamic`, and if it already exists, offers to delete it.
+* unpacks the ShiftLeft static policy to `~/.shiftleft/policy/static`, and if it already exists, offers to delete it.
+
+Do not make any changes outside the installation and policy directories.
 
 ### Additional Configuration for Large Projects
 
-Code analysis can require lots of memory, and unfortunately, the Java Virtual Machine (JVM) does not pick up the available amount of memory by itself. While tuning Java memory usage is a discipline in its own right, it is usually sufficient to specify the maximum available amount of heap memory via the Java virtual machine's `-Xmx` flag. The easiest way to achieve this globally is by setting the environment variable `_JAVA_OPTS` as follows:
+Code analysis can require a large amount of memory, and unfortunately the JVM does not automatically allocate the necessary amount of memory. While tuning Java memory usage is a discipline in its own right, it is usually sufficient to specify the maximum available amount of heap memory via the Java virtual machine's `-Xmx` flag. The easiest way to achieve this globally is by setting the environment variable `_JAVA_OPTS` as:
 
 ```bash
 export _JAVA_OPTS="-Xmx$NG"
 ```
 where `$N` is the amount of memory in gigabytes. You can add this line to your shell startup script, e.g., `~/.bashrc` or `~/.zshrc`.
 
-> Note: The above option will affect all JVM instances that are started henceforth on the machine.
+**Note** This option affects all subsequent JVM instances started on the machine.
 
-In order to restrict the JVM option to only the parts of Ocular tools that you intend to use, you can provide it individually as well (such as in Step 3) For example to set 12 GB available heap memory to `java2cpg`, `cpg2sp` or `ocular`, we can just provide this option directly:
+In order to restrict the JVM option to only the parts of ShiftLeft Ocular that you intend to use, you can also provide the memory allocation individually. For example, to set 12 GB available heap memory to `java2cpg`, `cpg2sp` or `ocular`, use this option directly:
 
 ```bash
 ./ocular.sh -J-Xmx12g
@@ -67,17 +64,9 @@ In order to restrict the JVM option to only the parts of Ocular tools that you i
 ./cpg2sp.sh -J-Xmx12g <...>
 ```
 
-## **Step 2:** Prepare the Target Application
+## Specifying the Target Application
 
-This tutorial is based on the sample application "Hello-ShiftLeft"
-which you can find in the directory `subjects` provided with the
-ShiftLeft Command Line Tools distribution.
-
-Hello-Shiftleft is a Spring-based Web application which contains
-different sample vulnerabilities, including typical injection
-vulnerabilities and leakages of sensitive information. Throughout this
-guide, we focus on an object deserialization vulnerability in the
-`AdminController` shown in the listing below.
+After installing ShiftLeft Ocular, you must specify the target application. Using the demo Java application HelloShiftLeft
 
 ```java
 ...
@@ -115,55 +104,47 @@ try {
 ...
 ```
 
-In this code fragment, a cookie is received via HTTP and eventually
-deserialized to create a Java object, an optimistic practice that can
-often be exploited by attackers for arbitrary code execution.
+In this code fragment, a cookie is received via HTTP and eventually deserialized to create a Java object, an optimistic practice that is often exploited by attackers for arbitrary code execution.
 
-## **Step 3:** Generate Code Property Graph
+## Generating the CPG
 
-Once the tools are installed, we begin by generating a code property
-graph (CPG) for the `hello-shiftleft.jar`:
+To generate the CPG for the `hello-shiftleft-0.0.1-SNAPSHOT.jar`:
 
 ```bash
 cd $shiftleft
-./java2cpg.sh subjects/hello-shiftleft-0.0.1-SNAPSHOT.jar -o cpg.bin.zip
+./ocular.sh
+createCpg("subjects/hello-shiftleft-0.0.1-SNAPSHOT.jar")
 ```
 
-This command creates a file named `cpg.bin.zip` containing the code
-property graph in a binary format.
+This command creates a CPG for the HelloShiftLeft application and stores it in the workspace. Issuing the command `workspace` shows a workspace entry for the newly created CPG.
 
-## **Step 4:** Uncovering Attack Surface
-
-The code property graph contains information about the processed code
-on different levels of abstraction, from dependencies, to type
-hierarchies, control flow, data flow, and instruction-level
-information. Like the SP, the CPG can be queried interactively via
-Ocular or via non-interactive scripts. We now illustrate interactive
-querying, however, all queries can also be used as-in in interactive
-scripts.
-
-The CPG is loaded via the `loadCpg` command:
-
-```scala
-loadCpg("cpg.bin.zip")
+```
+workspace
+ | name                              | overlays                 | loaded|
+ |======================================================================|
+ | hello-shiftleft-0.0.1-SNAPSHOT.jar| semanticcpg(l),tagging(l)| true  |
 ```
 
-This creates an object named `cpg`, which provides access to the code
-property graph. We begin by exploring the program dependencies:
+As the workspace overview shows, the CPG is automatically loaded on creation. The CPG that was loaded last is accessible using the variable `cpg`.
+
+## Uncovering Attack Surface
+
+The CPG contains information about the processed code on different levels of abstraction: dependencies, type
+hierarchies, control flow, data flow, and instruction-level information. The CPG can be queried interactively using 
+ShiftLeft Ocular or via non-interactive scripts. Using interactive querying, explore the program dependencies by:
 
 ```scala
 cpg.dependency.name.l
 ```
 
-This provides a list of all dependency names. We support functional
-combinators. For example, to output (name, version) pairs, we can use
-the following expression:
+A list of all dependency names is returned. ShiftLeft Ocular supports functional combinators. For example, to output (name, version) pairs, use the following expression:
 
 ```scala
 cpg.dependency.map(x => (x.name, x.version)).l
 ```
 
 which yields
+
 ```scala
 List[(String, String)] = List(
   ("zt-exec", "1.9"),
@@ -188,31 +169,29 @@ List[(String, String)] = List(
 )
 ```
 
-It is also possible to process CPG sub graphs via external programs by
-exporting them to JSON. For example,
+It is also possible to process CPG subgraphs using external programs by exporting them to JSON. For example, the command 
 
 ```scala
 cpg.dependency.toJson |> "/tmp/dependencies.json"
 ```
 
-dumps dependency information into the file "/tmp/dependencies.json" is
-JSON format. Fields of the CPG can be queried using regular
-expressions. For example, to determine whether an application uses the
-spring framework, a quick query could be
+dumps dependency information into the file "/tmp/dependencies.json" in JSON format. 
+
+Fields of the CPG can be queried using regular expressions. So, to determine whether an application uses the
+Spring framework, a quick query is
 
 ```scala
 cpg.dependency.name(".*spring.*").l.nonEmpty
 => true
 ```
 
-Since the application uses Spring, it makes sense to look for the
-typical Java annotations that indicate attacker-controlled variables.
+Since the HelloShiftLeft application uses Spring, it makes sense to look for the typical Java annotations that indicate attacker-controlled variables 
 
 ```scala
 cpg.annotation.name(".*(CookieValue|PathVariable).*").l
 ```
 
-From annotations, we can jump to parameters using these annotations:
+From annotations, you can look at the parameters using
 
 ```scala
 cpg.annotation.name(".*(CookieValue|PathVariable).*").parameter.name.l
@@ -224,37 +203,37 @@ which yields
 List[String] = List("customerId", "customerId", "customerId", "accountId", "accountId", "accountId", "accountId", "auth", "auth")
 ```
 
-We can now track these attacker-controlled variables to see all data flows originating at them. To do this, we first define the set of sinks to be all parameters annotated by CookieValue or PathVariable:
+Tracking these attacker-controlled variables shows all data flows originating at them. To do this, first define the set of sinks to be all parameters annotated by CookieValue or PathVariable
 
 ```scala
 val sources = cpg.annotation.name(".*(CookieValue|PathVariable).*").parameter
 ```
 
-We then define the set of sinks to be all parameters:
+then define the set of sinks to be all parameters
 
 ```scala
 val sinks = cpg.method.parameter
 ```
 
-Finally, we enumerate all flows from sources to sinks:
+Finally, enumerate all flows from sources to sinks
 
 ```scala
 sinks.reachableBy(sources).flows.p
 ```
 
-The flows can be examined manually or automatically. For example, we can determine parameters we control as a result of data flows as follows:
+The flows can be examined manually or automatically. For example, to determine parameters controlled as a result of data flows
 
 ```scala
 sinks.reachableBy(sources).flows.sink.parameter.l
 ```
 
-The query determines sinks reachable by sources and examines the corresponding data flows. The last flow element is extracted of each flow via the `pathElemens.last` directive, and the corresponding parameter is retrieved. The result of the query can be stored in a variable for further processing, which comes in handy when determining a large number of data flows:
+The query determines those sinks reachable by sources and examines the corresponding data flows. The last flow element is extracted of each flow through the `pathElemens.last` directive, and the corresponding parameter is retrieved. The result of the query can be stored in a variable for further processing, which is useful when determining a large number of data flows
 
 ```scala
 val controlled = sinks.reachableBy(sources).flows.sink.parameter.l
 ```
 
-We can now retrieve the parameter index ("ast child number" and method full name):
+Now retrieve the parameter index ("ast child number" and method full name)
 
 ```scala
 controlled.map(x => s"Controlling parameter ${x.astChildNum} of ${x.start.method.fullName.l.head}")
@@ -286,7 +265,4 @@ yielding
 ...
 ```
 
-In particular, we see that the instance parameter (with an index of 0)
-of the method `ObjectInputStream.readObject` is controlled, that is,
-the deserialization vulnerability exists. This shows a more
-exploratory way of identifying the vulnerability.
+In particular, notice that the instance parameter (with an index of 0) of the method `ObjectInputStream.readObject` is controlled, that is, the deserialization vulnerability exists. This shows a more exploratory way of identifying the vulnerability.

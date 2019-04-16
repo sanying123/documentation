@@ -17,7 +17,7 @@ The requirements for integrating Jenkins application builds are as follows:
 
 - [Jenkins installation](https://jenkins.io/changelog/) version 2.78 or later
 - Supported application and build tool (see [code analysis requirements](../../introduction/requirements.md))
-- Familiarity with [ShiftLeft Workflow](../../getting-started/getting-started.md) 
+- Familiarity with [ShiftLeft Inspect and ShiftLeft Protect](../using-inspect-protect/quick-start.md) 
 - ShiftLeft account credentials: **Organization ID** and **Upload Token**
 Initially these credentials will be provided to you by ShiftLeft. Once you have established your account you can copy them from the **My Profile** page at the ShiftLeft Dashboard.
 

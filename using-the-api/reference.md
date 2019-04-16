@@ -24,7 +24,7 @@ The various queries on this API will return Vulnerabilities which contain all th
                "blockedEvents": "1",
                "locationURL": "/account/{accountId}/addInterest",
                "locationMethod": "addInterest",
-               "status": "fixed",
+               "status": "FIXED",
                "assignedTo": "example@shiftleft.io",
            }
        },
@@ -99,7 +99,7 @@ The filtering criteria can be passed in the body of the query:
             "project1549413585aa"
         ],
         "statusFilter": [
-            "fixed", "assigned"
+            "FIXED", "ASSIGNED"
         ],
         "severityFilter": [],
         "titleFilter": "",
@@ -154,7 +154,7 @@ The filtering criteria can be passed in the body of the query:
         "orderBy": "severity",
         "orderByDirection": "DESC",
         "statusFilter": [
-            "fixed", "assigned"
+            "FIXED", "ASSIGNED"
         ],
         "severityFilter": [],
         "titleFilter": "",

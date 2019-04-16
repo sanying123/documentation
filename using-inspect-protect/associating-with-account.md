@@ -1,4 +1,4 @@
-# Authenticating with ShiftLeft
+# Associating the ShiftLeft CLI with your ShiftLeft Account
 
 To submit applications to ShiftLeft for analysis and profiling, you must first authenticate with ShiftLeft. This is done using the CLI command `sl auth` or using environment variables.
 

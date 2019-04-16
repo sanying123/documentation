@@ -1,4 +1,4 @@
-# JVM Based Environments
+# Installing ShiftLeft Protect and Configuring the Microagent for Java
 
 The ShiftLeft Microagent is run with an application that has been analyzed by ShiftLeft. The Microagent runs alongside the application in production (or other environments such as staging, test, UAT).
 

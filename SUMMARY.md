@@ -53,4 +53,3 @@
     * [Security Policy Language](using-ocular/reference/spl.md)
   * [Ocular API](https://ocular.shiftleft.io/api/)
 * [Release Notes](release-notes/release-notes.md)
-

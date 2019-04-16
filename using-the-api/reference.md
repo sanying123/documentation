@@ -68,7 +68,7 @@ Our endpoints are always paginated, given the amount of results possibles for an
 
 The outmost endoints allows querying/filtering for vulnerabilities at an organization level:
 
-POST `/api/v3/public/organizations/{organization id}/vulnerabilities/`
+POST `/api/v3/public/orgs/{organization id}/vulnerabilities/`
 
 This will result on a default query returning vulnerabilities with the following criteria:
 
@@ -83,7 +83,7 @@ This will result on a default query returning vulnerabilities with the following
 
 To obtain an arbitrary page 
 
-POST `/api/v3/public/organizations/{organization id}/vulnerabilities/page/{page number}`
+POST `/api/v3/public/orgs/{organization id}/vulnerabilities/page/{page number}`
 
 if the page is outside of the possible range you will obtain an empty result set.
 
@@ -122,7 +122,7 @@ The filtering criteria can be passed in the body of the query:
 
 Application level vulnerabilities is an endpoint that allows you to perform the exact same kind of query than for Organizations but it limits results displayed to one Application.
 
-POST `/api/v3/public/organizations/{organization id}/application/{application id}/vulnerabilities/`
+POST `/api/v3/public/orgs/{organization id}/application/{application id}/vulnerabilities/`
 
 This will result on a default query returning vulnerabilities with the following criteria:
 
@@ -137,11 +137,11 @@ This will result on a default query returning vulnerabilities with the following
 
 To obtain an arbitrary page 
 
-POST `/api/v3/public/organizations/{organization id}/application/{application id}/vulnerabilities/page/{page number}`
+POST `/api/v3/public/orgs/{organization id}/application/{application id}/vulnerabilities/page/{page number}`
 
 To obtain an arbitrary version (also supports `/page/{page number}` at the end)
 
-POST `/api/v3/public/organizations/{organization id}/application/{application id}/version/{version}/vulnerabilities`
+POST `/api/v3/public/orgs/{organization id}/application/{application id}/version/{version}/vulnerabilities`
 
 if the page is outside of the possible range you will obtain an empty result set.
 

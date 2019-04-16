@@ -4,7 +4,7 @@ This API aims at allowing access to each of your organization’s vulnerabilitie
 
 The main piece of security information in ShiftLeft is called a Vulnerability, it represents a potentially exploitable path in your code base, this API allows you to get said vulnerabilities for all of the versions of all the applications in your organization,
 
-Data
+### Data
 The various queries on this API will return Vulnerabilities which contain all the necessary data for you to take action on a code exploitable area.
 
 ### A Vulnerability
@@ -18,11 +18,14 @@ The various queries on this API will return Vulnerabilities which contain all th
                "title": "Unsanitized database write in `DataLoader.run`",
                "description": "Attacker-controlled data is used in a database query without any sanitation or encoding. This could be intended behavior and thus has a low score. Injection flaws, such as SQL, NoSQL, OS, and LDAP injection, occur when untrusted data is sent to an interpreter as part of a command or query. By injecting hostile data, an attacker may trick the interpreter into executing unintended commands or accessing data without proper authorization which can result in data loss, corruption, or disclosure to unauthorized parties, loss of accountability, denial of access or even a complete host takeover.",
                "score": 1,
-               "severity": "SEVERITY_BLUE"
-               "incidentCount": "1",
-               "trafficCount": "1"
-               "location": "/account/{accountId}/addInterest",
+               "severity": "LOW_IMPACT",
+               "securityEvents": "1",
+               "calls	": "1",
+               "blockedEvents": "1",
+               "locationURL": "/account/{accountId}/addInterest",
+               "locationMethod": "addInterest",
                "status": "fixed",
+               "assignedTo": "example@shiftleft.io",
            }
        },
 ```
@@ -35,11 +38,14 @@ The various queries on this API will return Vulnerabilities which contain all th
 	*  `title`: a friendly title for this vulnerability
 	*  `description`: a more complete description of this vulnerability.
 	*  `score`: a float score from 1-9 representing the OWASP severity of this vulnerability
-	*  `severity`: one of `SEVERITY_BLUE`, `SEVERITY_YELLOW`, `SEVERITY_RED` which are the levels ShiftLeft assigns according to score.
-	*  `incidentCount`: an integer containing the amount of blocked incidents to the vulnerable endpoint, this counts.
-	*  `trafficCount`: the amount of total hits to the vulnerable endpoints (including the ones that are not necesarily attacks.
-	*  `location`: where the affected endpoint is published.
-	*  `status` a status set throught the ShiftLeft UI
+	*  `severity`: one of `LOW_IMPACT`, `MEDIUM_IMPACT`, `HIGH_IMPACT` which are the levels ShiftLeft assigns according to score.
+	*  `securityEvents `: an integer containing the amount of incidents to the vulnerable endpoint, this counts.
+	*  `blockedEvents `: an integer containing the amount of blocked incidents to the vulnerable endpoint, this counts.
+	*  `calls `: the amount of total hits to the vulnerable endpoints (including the ones that are not necesarily attacks.
+	*  `locationURL `: where the affected endpoint is published.
+	*  `locationMethod `: the method affected by this vulnerability.
+	*  `status`: a status set throught the ShiftLeft UI
+	*  `assignedTo`: if this vulnerability is assigned to someone the field will be set to that person's email.
 	
 A vulnerability is found on an Application through analysis and can be in various versions of the same Application, our API will allow you to slice the applications of your organization in various dimansions to obtain the data you need:
 
@@ -52,9 +58,9 @@ Our endpoints are always paginated, given the amount of results possibles for an
 	"page": "1",
  	"totalResults": "155",
   	"results": [],
-  	"blueResults": "104",
-	"yellowResults": "21",
-	"redResults": "30"
+  	"lowImpactResults": "104",
+	"mediumImpactResults": "21",
+	"highImpactResults": "30"
 }
 ```
 
@@ -62,7 +68,7 @@ Our endpoints are always paginated, given the amount of results possibles for an
 
 The outmost endoints allows querying/filtering for vulnerabilities at an organization level:
 
-POST `/api/v3/public/organizations/{organization id}/violations/`
+POST `/api/v3/public/organizations/{organization id}/vulnerabilities/`
 
 This will result on a default query returning vulnerabilities with the following criteria:
 
@@ -77,7 +83,7 @@ This will result on a default query returning vulnerabilities with the following
 
 To obtain an arbitrary page 
 
-POST `/api/v3/public/organizations/{organization id}/violations/page/{page number}`
+POST `/api/v3/public/organizations/{organization id}/vulnerabilities/page/{page number}`
 
 if the page is outside of the possible range you will obtain an empty result set.
 
@@ -116,7 +122,7 @@ The filtering criteria can be passed in the body of the query:
 
 Application level vulnerabilities is an endpoint that allows you to perform the exact same kind of query than for Organizations but it limits results displayed to one Application.
 
-POST `/api/v3/public/organizations/{organization id}/application/{application id}/violations/`
+POST `/api/v3/public/organizations/{organization id}/application/{application id}/vulnerabilities/`
 
 This will result on a default query returning vulnerabilities with the following criteria:
 
@@ -131,11 +137,11 @@ This will result on a default query returning vulnerabilities with the following
 
 To obtain an arbitrary page 
 
-POST `/api/v3/public/organizations/{organization id}/application/{application id}/violations/page/{page number}`
+POST `/api/v3/public/organizations/{organization id}/application/{application id}/vulnerabilities/page/{page number}`
 
 To obtain an arbitrary version (also supports `/page/{page number}` at the end)
 
-POST `/api/v3/public/organizations/{organization id}/application/{application id}/version/{version}/violations`
+POST `/api/v3/public/organizations/{organization id}/application/{application id}/version/{version}/vulnerabilities`
 
 if the page is outside of the possible range you will obtain an empty result set.
 

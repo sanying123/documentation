@@ -16,7 +16,7 @@ Configuration Option | Description
 The requirements for integrating Jenkins application builds are as follows:
 
 - [Jenkins installation](https://jenkins.io/changelog/) version 2.78 or later
-- Supported application and build tool (see [code analysis requirements](../../getting-started/shiftleft-requirements.md))
+- Supported application and build tool (see [code analysis requirements](../../introduction/requirements.md))
 - Familiarity with [ShiftLeft Workflow](../../getting-started/getting-started.md) 
 - ShiftLeft account credentials: **Organization ID** and **Upload Token**
 Initially these credentials will be provided to you by ShiftLeft. Once you have established your account you can copy them from the **My Profile** page at the ShiftLeft Dashboard.
@@ -25,7 +25,7 @@ Initially these credentials will be provided to you by ShiftLeft. Once you have 
 
 ## Jenkins Integration Instructions
 
-1. [Install the ShiftLeft CLI](../../getting-started/using-sl-the-shiftleft-cli.md) on the host where Jenkins is installed.
+1. [Install the ShiftLeft CLI](../../using-inspect-protect/using-sl-the-shiftleft-cli.md) on the host where Jenkins is installed.
 2. Log in to Jenkins as an administrator.
 3. Select **Manage Jenkins > Configure System > Global properties**. 
 4. Select (check) **Environment variables** and create the following:
@@ -34,7 +34,7 @@ Initially these credentials will be provided to you by ShiftLeft. Once you have 
 
 ![Adding Jenkins environment variables for ShiftLeft authentication](jenkins-envvars.png)
 
-5. Configure each Jenkins project you want to [analyze](../getting-started/analyzing-applications-in-ci.md) using one of the following approaches: 
+5. Configure each Jenkins project you want to [analyze](../../using-inspect-protect/analyzing-applications-in-ci.md) using one of the following approaches: 
  * [Final Build Step](configure-final-build-step.md), or
  * [Post Build Task](configure-post-build-task.md)
 6. Test and [verify Jenkins integration](verify-jenkins-integration.md).

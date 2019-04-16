@@ -6,10 +6,10 @@
   * [ShiftLeft Products](introduction/products.md)
   * [ShiftLeft Requirements](introduction/requirements.md)
 * Using ShiftLeft Inspect and ShiftLeft Protect
-  * [Quick Start](using-inspect-protect/inspect-protect-quick-start.md)
+  * [Quick Start](using-inspect-protect/quick-start.md)
   * Analyzing an Application
-    * [Using the ShiftLeft CLI](getting-started/using-sl-the-shiftleft-cli.md)
-    * [Authenticating with ShiftLeft](getting-started/authenticating-with-shiftleft.md)
+    * [Using the ShiftLeft CLI](using-inspect-protect/using-sl-the-shiftleft-cli.md)
+    * [Associating with ShiftLeft](using-inspect-protect/associating-with-account.md)
     * [Analyzing Applications in CI](using-inspect-protect/analyzing-applications-in-ci.md)
     * [Windows Installer](getting-started/windows-installer.md)
   * Monitoring an Application in Runtime

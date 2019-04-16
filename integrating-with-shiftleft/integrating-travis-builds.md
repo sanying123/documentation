@@ -7,7 +7,7 @@ This section describes how to integrate Travis builds with ShiftLeft.
 To integrate Travis builds with ShiftLeft, please adhere to the following prerequisites:
 
 - [Travis instance](https://travis-ci.org/) (hosted or on-prem) 
-- Supported application and build tool (see [code analysis requirements](../getting-started/shiftleft-requirements.md))
+- Supported application and build tool (see [code analysis requirements](../introduction/requirements.md))
 - Familiarity with [ShiftLeft Workflow](../getting-started/getting-started.md) 
 - ShiftLeft account credentials: **Organization ID** and **Upload Token**
 Initially these credentials will be provided to you by ShiftLeft. Once you have established your account you can copy them from the **My Profile** page at the ShiftLeft Dashboard.
@@ -40,7 +40,7 @@ after_script:
  - <RUN CLI & EXECUTE COMMAND sl analyze> 
 ```
 
-See [SL Auth](../getting-started/authenticating-with-shiftleft.md) for more information on using environment variables for authentication. See also the [Travis documentation](https://docs.travis-ci.com/user/environment-variables#Default-Environment-Variables).
+See [SL Auth](../using-inspect-protect/associating-with-account.md) for more information on using environment variables for authentication. See also the [Travis documentation](https://docs.travis-ci.com/user/environment-variables#Default-Environment-Variables).
 
 ### Option 2: Customize the container
 

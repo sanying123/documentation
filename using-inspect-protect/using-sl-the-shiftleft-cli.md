@@ -2,20 +2,20 @@
 
 The ShiftLeft CLI is used to:
 
-- [Use ShiftLeft Inspect to submit applications for analysis and profiling](../getting-started/analyzing-applications-in-ci.md). 
+- [Use ShiftLeft Inspect to submit applications for analysis and profiling](../using-inspect-protect/analyzing-applications-in-ci.md). 
 - [Use ShiftLeft Protect to run the Microagent](../installing-the-microagent/installing-the-microagent.md) with analyzed applications for runtime monitoring and metrics.
 
-Before using the ShiftLeft CLI with Inspect and Protect, make sure you have [associateed the CLI with your ShiftLeft Account](../getting-started/associating-the-cli-with-your-shiftLeft-account.md).
+Before using the ShiftLeft CLI with Inspect and Protect, make sure you have [associated the CLI with your ShiftLeft Account](../using-inspect-protect/associating-with-account.md).
 
 The ShiftLeft CLI tool is named `sl`.
 
 ## Requirements
 
-See [ShiftLeft CLI Requirements](shiftleft-requirements.md) for details.
+See [ShiftLeft CLI Requirements](../introduction/requirements.md) for details.
 
 ## Installation
 
-Refer to [Installing the ShiftLeft CLI](../getting-started/installing-the-shiftleft-cli.md) for information.
+Refer to [Installing the ShiftLeft CLI](../using-inspect-protect/using-sl-the-shiftleft-cli.md) for information.
 
 
 ## CLI Command Reference
@@ -30,8 +30,8 @@ sl [global options] command [command options] [arguments...]
 
 Command | Description
 --- | ---
-`auth` | [Associate the CLI with your ShiftLeft account](getting-started.md).
-`analyze [<path>]` | [Use ShiftLeft Inspect to analyze your application](../getting-started/analyzing-applications-in-ci.md).  `<path>` can be the path to a `.jar`, `.war` or `.ear` file, or it can be the path to a Java project directory. If `<path>` is not provided, then `.` is implied.
+`auth` | [Associate the CLI with your ShiftLeft account](../using-inspect-protect/associating-with-account.md).
+`analyze [<path>]` | [Use ShiftLeft Inspect to analyze your application](../using-inspect-protect/analyzing-applications-in-ci.md).  `<path>` can be the path to a `.jar`, `.war` or `.ear` file, or it can be the path to a Java project directory. If `<path>` is not provided, then `.` is implied.
 `run -- <command>` | [Run the target command with ShiftLeft Protect's Microagent](../installing-the-microagent/installing-the-microagent.md).
 `push <path> [<path>...]` | (Currently not implemented) Upload policies to ShiftLeft.
 `update [java-agent,libplugin]` | Update certain components of the ShiftLeft CLI, including the ShiftLeft Java Microagent (`sl update java-agent`).

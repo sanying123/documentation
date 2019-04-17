@@ -13,6 +13,7 @@ The various queries on this API will return Vulnerabilities which contain all th
        {
            "applicationId": "project1549413585aa",
            "vulnerability": {
+               "firstDetected": "041718202019.28",
                "vulnerabilityId": "database-write/e0ec210246d63ea44e28c01ed6113a66",
                "category": "a1-injection",
                "title": "Unsanitized database write in `DataLoader.run`",
@@ -20,8 +21,8 @@ The various queries on this API will return Vulnerabilities which contain all th
                "score": 1,
                "severity": "LOW_IMPACT",
                "securityEvents": "1",
-               "calls	": "1",
                "blockedEvents": "1",
+               "calls	": "1",
                "locationURL": "/account/{accountId}/addInterest",
                "locationMethod": "addInterest",
                "status": "FIXED",
@@ -31,21 +32,22 @@ The various queries on this API will return Vulnerabilities which contain all th
 ```
 
 
-* `projectId`: A unique identification string per project within your organization
+* `applicationId`: A unique identification string per application within your organization
 * `vulnerability`:
-	*  `vulnerabilityId`: An unique id for this particular vulnerability, it is unique accross all organization.
-	*  `category`: an OWASP category in which this vulnerability fits?
+	* 	`firstDetected`: A unix timestamp for the date and time when our analysis first detected this vulnerability.
+	*  `vulnerabilityId`: A unique id for this particular vulnerability, it is unique accross all organizations.
+	*  `category`: OWASP category of the vulnerability
 	*  `title`: a friendly title for this vulnerability
 	*  `description`: a more complete description of this vulnerability.
 	*  `score`: a float score from 1-9 representing the OWASP severity of this vulnerability
 	*  `severity`: one of `LOW_IMPACT`, `MEDIUM_IMPACT`, `HIGH_IMPACT` which are the levels ShiftLeft assigns according to score.
-	*  `securityEvents `: an integer containing the amount of incidents to the vulnerable endpoint, this counts.
-	*  `blockedEvents `: an integer containing the amount of blocked incidents to the vulnerable endpoint, this counts.
-	*  `calls `: the amount of total hits to the vulnerable endpoints (including the ones that are not necesarily attacks.
-	*  `locationURL `: where the affected endpoint is published.
-	*  `locationMethod `: the method affected by this vulnerability.
-	*  `status`: a status set throught the ShiftLeft UI
-	*  `assignedTo`: if this vulnerability is assigned to someone the field will be set to that person's email.
+	*  `securityEvents`: count of security relevant events for the vulnerable endpoint
+	*  `blockedEvents`: count of security relevant events that were blocked
+	*  `calls`: total calls on the vulnerable endpoint. This represents regular traffic as well as any detected attacks
+	*  `locationURL`: where the affected endpoint is published.
+	*  `locationMethod`: starting method of the vulnerable code path
+	*  `status`: UI configurable status of the vulnerability (Assignees, fixed or ignore state, etc)
+	*  `assignedTo`: Person (email) assigned to fix or triage this vulnerability
 	
 A vulnerability is found on an Application through analysis and can be in various versions of the same Application, our API will allow you to slice the applications of your organization in various dimansions to obtain the data you need:
 
@@ -76,8 +78,8 @@ This will result on a default query returning vulnerabilities with the following
 * Of any Severity
 * Of any category
 * With Any Description
-* With or without traffic
-* With or without blocked incidents.
+* With or without calls
+* With or without blocked calls.
 * Arbitrarily sorted
 * Only the first page (50 results)
 
@@ -93,7 +95,6 @@ The filtering criteria can be passed in the body of the query:
 
 ```json
 {
-        "orderBy": "severity",
         "orderByDirection": "DESC",
         "applicationId": [
             "project1549413585aa"
@@ -104,19 +105,18 @@ The filtering criteria can be passed in the body of the query:
         "severityFilter": [],
         "titleFilter": "",
         "assignedToFilter": [],
-        "includeTraffic": true
+        "includeCalls": true
     }
 },
 ```
 
-* `orderBy`: the response field used to sort the results, can be any of the vulnerability fields.
-* `orderByDirection`: either `DESC` or `ASC` will be applied to the `orderBy` field.
+* `orderByDirection`: either `DESC` or `ASC` will be applied to the `firstDetected` field of a vulnerability.
 * `applicationId`: if included in this list, only results for these application IDs will be returned.
 * `statusFilter`: if present, only results for vulnerabilities in these statuses will be returned
 * `severityFilter`: if present, only results for vulnerabilities of these severities will be returned
 * `titleFilter`: if present the vulnerability title will be partially-matched with this, it might make the query slower.
 * `assignedToFilter`: if present, only vulnerabilities that have been assigned to the passed emails will be returned.
-* `includeTraffic`: true by default, this indicates that `incidentCount` and `trafficCount` will be returned as part of the results, omitting them might be beneficial if you do not need them as they slow a bit the query.
+* `includeCalls`: true by default, this indicates that `securityEvents`, `blockedEvents` and `calls` will be returned as part of the results, omitting them might be beneficial if you do not need them as they slow a bit the query.
 
 ## Application vulnerabilities
 
@@ -130,8 +130,8 @@ This will result on a default query returning vulnerabilities with the following
 * Of any Severity
 * Of any category
 * With Any Description
-* With or without traffic
-* With or without blocked incidents.
+* With or without calls
+* With or without blocked calls.
 * Arbitrarily sorted
 * Only the first page (50 results)
 
@@ -151,7 +151,6 @@ The filtering criteria can be passed in the body of the query:
 
 ```json
 {
-        "orderBy": "severity",
         "orderByDirection": "DESC",
         "statusFilter": [
             "FIXED", "ASSIGNED"
@@ -164,11 +163,10 @@ The filtering criteria can be passed in the body of the query:
 },
 ```
 
-* `orderBy`: the response field used to sort the results, can be any of the vulnerability fields.
-* `orderByDirection`: either `DESC` or `ASC` will be applied to the `orderBy` field.
+* `orderByDirection`: either `DESC` or `ASC` will be applied to the `firstDetected` field of a vulnerability.
 * `applicationId`: if included in this list, only results for these application IDs will be returned.
 * `statusFilter`: if present, only results for vulnerabilities in these statuses will be returned
 * `severityFilter`: if present, only results for vulnerabilities of these severities will be returned
 * `titleFilter`: if present the vulnerability title will be partially-matched with this, it might make the query slower.
 * `assignedToFilter`: if present, only vulnerabilities that have been assigned to the passed emails will be returned.
-* `includeTraffic`: true by default, this indicates that `incidentCount` and `trafficCount` will be returned as part of the results, omitting them might be beneficial if you do not need them as they slow a bit the query.
+* `includeCalls`: true by default, this indicates that `securityEvents`, `blockedEvents` and `calls` will be returned as part of the results, omitting them might be beneficial if you do not need them as they slow a bit the query.

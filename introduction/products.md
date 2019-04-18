@@ -1,25 +1,21 @@
 # ShiftLeft Products
 
-ShiftLeft is a cloud-based security service with three products: 
+ShiftLeft is an application security platform with three solutions: 
 
-* **ShiftLeft Inspect**. Anayzes your code.
-* **ShiftLeft Protect**. Uses the analysis provided by ShiftLeft Inspect to monitor your application at runtime.
-* **ShiftLeft Ocular**. Gives you a static analysis framework in the context of security.
+* **[ShiftLeft Ocular](../using-ocular/ocular-desc.md)**. Helps examine the software elements and flows in your application to identify complex business logic vulnerabilities that can't be scanned for automatically. ShiftLeft Ocular gives code auditors and reviewers the ability to construct and tune powerful, highly customized queries for interactive interrogation of your unique code bases and environments.
 
-During analysis, ShiftLeft Inspect identifies your application's:
-* attack surface
-* inputs and outputs
-* categories of data
-* data flows
-* weaknesses (such as mishandling attacker-controlled data or leaking sensitive variables in plain text). 
+* **[ShiftLeft Inspect](../using-inspect-protect/analyzing-applications-in-ci.md)**. A next-generation static application security testing (SAST) solution. In just minutes, ShiftLeft Inspect provides an accurate and exhaustive exploration and analysis of your unique code and identifies complex vulnerabilities and sensitive data leakage.
 
-Once code analysis is complete, ShiftLeft Protect automatically conducts runtime security monitoring of your application. This is done by deploying a ShiftLeft Microagent in-memory alongside your application in production. The Microagent is customized to your application's specific shape and weaknesses through the use of a Security Profile for Runtime (SPR).
+* **[ShiftLeft Protect](../using-inspect-protect/protect-java/jvm-based-environments.md)**. ShiftLeft Protect secures applications against exploitation of vulnerabilities by leveraging "code informed" insights. ShiftLeft Protect creates surgical security policies based on identified vulnerabilities discovered during analysis of code. This approach allows ShiftLeft Protect to operate with minimal footprint and overhead. 
 
-Other components of the ShiftLeft Platform are:
+Components of the ShiftLeft solution are:
 
-* **ShiftLeft CLI**. The ShiftLeft command line interface (CLI) is used to submit applications for analysis and to run the ShiftLeft Microagent. 
-* **ShiftLeft Dashboard**. Your visual interface with ShiftLeft Inspect and ShiftLeft Protect. Shows information on the security profiles of analyzed applications and monitoring the security of these applications in production.
+* **Code Property Graph (CPG)**. All ShiftLeft solutions leverage the CPG. In a single graph, the CPG provides an extensible, multi-layered representation of each code version, including the various levels of abstraction. The unique insights from the CPG provide all ShiftLeft solutions with granular detail and a deep understanding of data flows.
 
-![](../getting-started/shiftleft-workflow.jpg)
+* **[ShiftLeft Command Line Interface (CLI)](../using-inspect-protect/using-cli/using-cli.md)**. The interface to ShiftLeft Inspect and ShiftLeft Protect via the command line. ShiftLeft CLI is used with ShiftLeft Inspect to submit applications for analysis and with ShiftLeft Protect to monitor your applications in runtime. 
 
-The combination of code analysis and runtime monitoring performed by ShiftLeft is what gives your application an edge over attackers, because the protection provided is very specific to your application.
+* **ShiftLeft Dashboard**. Your visual interface with ShiftLeft Inspect and ShiftLeft Protect. Shows information on the vulnerabilities of analyzed applications and the monitoring of the security of these applications in production. It also allows you to manage your ShiftLeft account.
+
+* **[ShiftLeft Microagent](../using-inspect-protect/protect-java/configuring-the-microagent.md)**. ShiftLeft Protect deploys a ShiftLeft Microagent in-memory alongside your runtime application. The Microagent protects the residual issues in production and is customized to your application's specific shape and weaknesses through the use of a Security Profile for Runtime (SPR). Each Microagent connects to a ShiftLeft Proxy server to download the SPR and to send events and metrics to the Dashboard. 
+
+* **[Ocular Query Language (OQL)](../using-ocular/oql.md)**. Use to query CPGs and SPRs. OQL results are available and exportable via standard JSON format for easy integration into the security tools in use by your organization and for sharing data across the SDLC.

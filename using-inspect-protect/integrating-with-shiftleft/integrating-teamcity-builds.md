@@ -46,5 +46,3 @@ To create a TeamCity job that executes SL commands:
  - Command parameters: `analyze` (or `analyze --cpg`)
 9. Save the configuration.
 10. Run the build and verify analysis success in the command output.
-
-![TeamCity Integration with ShiftLeft](img/teamcity.png)

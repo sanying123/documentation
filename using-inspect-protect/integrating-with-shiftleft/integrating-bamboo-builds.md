@@ -12,7 +12,7 @@ To integrate Bamboo builds with ShiftLeft, please adhere to the following prereq
 - ShiftLeft account credentials: **Organization ID** and **Upload Token**
 Initially these credentials will be provided to you by ShiftLeft. Once you have established your account you can copy them from the **My Profile** page at the ShiftLeft Dashboard.
 
-![Get ShiftLeft Account Credentials](copy-org.png)
+![Get ShiftLeft Account Credentials](img/copy-org.png)
 
 ## Install the CLI and Authenticate
 

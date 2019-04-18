@@ -236,32 +236,31 @@ val controlled = sinks.reachableBy(sources).flows.sink.parameter.l
 Now retrieve the parameter index ("ast child number" and method full name)
 
 ```scala
-controlled.map(x => s"Controlling parameter ${x.astChildNum} of ${x.start.method.fullName.l.head}")
-```
+ocular> controlled.map(x => s"Controlling parameter ${x.order} of ${x.start.method.fullName.l.head}").filterNot(_.contains("<operator>")).sorted
+``
 
 yielding
 
 ```scala
-"Controlling parameter 1 of java.lang.Long.valueOf:java.lang.Long(long)",
-"Controlling parameter 1 of java.lang.Long.valueOf:java.lang.Long(long)",
-"Controlling parameter 1 of java.lang.Long.valueOf:java.lang.Long(long)",
-"Controlling parameter 1 of java.lang.Long.valueOf:java.lang.Long(long)",
-"Controlling parameter 0 of java.lang.String.equals:boolean(java.lang.Object)",
-"Controlling parameter 1 of java.io.ObjectInputStream.<init>:void(java.io.InputStream)",
-<b>"Controlling parameter 0 of java.io.ObjectInputStream.readObject:java.lang.Object()",</b>
-"Controlling parameter 0 of io.shiftleft.model.AuthToken.isAdmin:boolean()",
-"Controlling parameter 1 of io.shiftleft.repository.AccountRepository.findOne:java.lang.Object(java.io.Serializable)",
-"Controlling parameter 1 of io.shiftleft.repository.AccountRepository.findOne:java.lang.Object(java.io.Serializable)",
-"Controlling parameter 1 of io.shiftleft.repository.AccountRepository.findOne:java.lang.Object(java.io.Serializable)",
-"Controlling parameter 1 of io.shiftleft.repository.AccountRepository.findOne:java.lang.Object(java.io.Serializable)",
-"Controlling parameter 1 of io.shiftleft.repository.CustomerRepository.findOne:java.lang.Object(java.io.Serializable)",
-"Controlling parameter 1 of io.shiftleft.repository.CustomerRepository.exists:boolean(java.io.Serializable)",
-"Controlling parameter 1 of io.shiftleft.repository.CustomerRepository.exists:boolean(java.io.Serializable)",
-"Controlling parameter 1 of io.shiftleft.repository.CustomerRepository.delete:void(java.io.Serializable)",
-"Controlling parameter 1 of java.util.Base64$Decoder.decode:byte[](java.lang.String)",
-"Controlling parameter 1 of io.shiftleft.controller.AdminController.isAdmin:boolean(java.lang.String)",
-"Controlling parameter 1 of java.io.ByteArrayInputStream.<init>:void(byte[])",
-"Controlling parameter 2 of javax.servlet.http.HttpSession.setAttribute:void(java.lang.String,java.lang.Object)",
+  "Controlling parameter 0 of java.io.ObjectInputStream.readObject:java.lang.Object()",
+  "Controlling parameter 0 of java.lang.String.equals:boolean(java.lang.Object)",
+  "Controlling parameter 1 of io.shiftleft.controller.AdminController.isAdmin:boolean(java.lang.String)",
+  "Controlling parameter 1 of io.shiftleft.repository.AccountRepository.findOne:java.lang.Object(java.io.Serializable)",
+  "Controlling parameter 1 of io.shiftleft.repository.AccountRepository.findOne:java.lang.Object(java.io.Serializable)",
+  "Controlling parameter 1 of io.shiftleft.repository.AccountRepository.findOne:java.lang.Object(java.io.Serializable)",
+  "Controlling parameter 1 of io.shiftleft.repository.AccountRepository.findOne:java.lang.Object(java.io.Serializable)",
+  "Controlling parameter 1 of io.shiftleft.repository.CustomerRepository.delete:void(java.io.Serializable)",
+  "Controlling parameter 1 of io.shiftleft.repository.CustomerRepository.exists:boolean(java.io.Serializable)",
+  "Controlling parameter 1 of io.shiftleft.repository.CustomerRepository.exists:boolean(java.io.Serializable)",
+  "Controlling parameter 1 of io.shiftleft.repository.CustomerRepository.findOne:java.lang.Object(java.io.Serializable)",
+  "Controlling parameter 1 of java.io.ByteArrayInputStream.<init>:void(byte[])",
+  "Controlling parameter 1 of java.io.ObjectInputStream.<init>:void(java.io.InputStream)",
+  "Controlling parameter 1 of java.lang.Long.valueOf:java.lang.Long(long)",
+  "Controlling parameter 1 of java.lang.Long.valueOf:java.lang.Long(long)",
+  "Controlling parameter 1 of java.lang.Long.valueOf:java.lang.Long(long)",
+  "Controlling parameter 1 of java.lang.Long.valueOf:java.lang.Long(long)",
+  "Controlling parameter 1 of java.util.Base64$Decoder.decode:byte[](java.lang.String)",
+  "Controlling parameter 2 of javax.servlet.http.HttpSession.setAttribute:void(java.lang.String,java.lang.Object)"
 ...
 ```
 

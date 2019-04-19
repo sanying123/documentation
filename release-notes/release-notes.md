@@ -8,6 +8,9 @@ ShiftLeft Release Notes are updated every month for all products: ShiftLeft Ocul
 
 ## April 2019 Release Notes
 
+### New Support
+* **JSP support added for ShiftLeft Inspect**. You can now use ShiftLeft Inspect to analyze your JSP pages for vulnerabilities and data leakage. Note that this support does not include JSP Expression Language.
+
 
 ## March 2019 Release Notes
 

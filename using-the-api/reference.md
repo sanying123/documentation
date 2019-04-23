@@ -1,8 +1,8 @@
 # ShiftLeft Vulnerability API
 
-The ShiftLeft Vulnerability API allows ShiftLeft to access each version of your organization’s applications to identify vulnerabilities and provide runtime protection. With this information, you can then take action securing your code. A vulnerability is a potentially exploitable path in the code base. 
+The ShiftLeft Vulnerability API allows ShiftLeft to access your organization’s applications to analyze, identify and provide data on your code's vulnerabilities. A vulnerability is a potentially exploitable path in the code base. 
 
-Each API query returns vulnerabilities with all the necessary data for you to take action on a code exploitable area.
+The API returns a list of vulnerabilities, by organization or application version, with all the necessary information for you to take action on a code exploitable area. 
 
 ## Example of an API Query Return
 
@@ -30,14 +30,14 @@ Each API query returns vulnerabilities with all the necessary data for you to ta
 
 where:
 
-* `applicationId`: Unique identification string for each application within your organization.
+* `applicationId`: Unique identification for each application within your organization.
 * `vulnerability`:
 	* `firstDetected`: UNIX timestamp of the date and time when ShiftLeft first detected this vulnerability.
 	* `vulnerabilityId`: Unique ID of this particular vulnerability accross all organizations.
-	* `category`: OWASP vulnerability category.
+	* `category`: Vulnerability OWASP category.
 	* `title`: Vulnerability title.
 	* `description`: Vulnerability description.
-	* `score`: Vulnerability float score from 1-9 representing the OWASP severity.
+	* `score`: Vulnerability float score, from 1-9, representing the OWASP severity.
 	* `severity`: Either `LOW_IMPACT`, `MEDIUM_IMPACT`, `HIGH_IMPACT` indicating the score level assigned by ShiftLeft.
 	*  `securityEvents`: Count of security relevant events for the vulnerable endpoint.
 	*  `blockedEvents`: Count of security relevant events that were blocked.
@@ -50,7 +50,7 @@ where:
 
 ## Pagination
 
-The ShiftLeft Vulnerability API endpoints are always paginated, with query results possibles shown in pages of 50 results. These results are displayed in there categories according to severity. Pagination information is provided with each response 
+The ShiftLeft Vulnerability API endpoints are always paginated. Results shown in sequential pages containing a maximum of 50 results. The results are displayed in three categories according to severity. Pagination information is provided with each response 
 
 ```json
 {
@@ -157,7 +157,7 @@ You can filter returns in the body of the query
         "severityFilter": [],
         "titleFilter": "",
         "assignedToFilter": [],
-        "includeCalls": true
+        "includeTraffic": true
     }
 },
 ```

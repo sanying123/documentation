@@ -10,7 +10,7 @@ ShiftLeft Release Notes are updated every month for all products: ShiftLeft Ocul
 
 ### ShiftLeft Ocular
 
-* **New Tutorial on Creating a Code Property Graph (CPG) from a Java Archive**. The ShiftLeft Ocular documentation now includes a tutorial on creating a CPG from a Java Archive. ShiftLeft Ocular creates a CPG for only the application code, and with references to the dependency code. This distinction is made through the use of a built-in Smart Jar Unpacker, which heuristically determines for each namespace whether it contains application or dependency code.
+* **New Tutorial on Creating a Code Property Graph (CPG) from a Java Archive**. The ShiftLeft Ocular documentation now includes a [tutorial on creating a CPG from a Java Archive](../using-ocular/tutorials/cpgcreate.md). ShiftLeft Ocular creates a CPG for only the application code, and with references to the dependency code. This distinction is made through the use of a built-in Smart Jar Unpacker, which heuristically determines for each namespace whether it contains application or dependency code.
 
 ### ShiftLeft Inspect and ShiftLeft Protect
 

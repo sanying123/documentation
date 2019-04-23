@@ -20,7 +20,7 @@ ShiftLeft Release Notes are updated every month for all products: ShiftLeft Ocul
 
 * **JSP support added for ShiftLeft Inspect**. You can now use ShiftLeft Inspect to analyze your JSP pages for vulnerabilities and data leakage. Note that this support does not include JSP Expression Language.
 
-* **Stability Improvements to ShiftLeft Protect**. Stability improvements have enhanced ShiftLeft Protect's ability to function, over time and over its full range of use, without failing or causing failure.
+* **Stability Improvements to ShiftLeft Protect**. Stability improvements have been made in the ShiftLeft Protect Microagent.
 
 
 ## March 2019 Release Notes

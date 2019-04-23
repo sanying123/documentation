@@ -2,7 +2,7 @@
 
 ## Language Support
 
-Currently, ShiftLeft analyzes and protects applications written in Java 7+ and C# 6.0. Support for other languages is in development. For inquiries, please fill out our [contact form](https://www.shiftleft.io/contact/).
+Currently, ShiftLeft analyzes and protects applications written in Java 7+ and C# 7.0. Support for other languages is in development. For inquiries, please fill out our [contact form](https://www.shiftleft.io/contact/).
 
 ## Requirements
 

@@ -1,10 +1,10 @@
 # ShiftLeft Vulnerability API
 
-The ShiftLeft Vulnerability API allows ShiftLeft to access your organization’s applications to analyze, identify and provide data on your code's vulnerabilities. A vulnerability is a potentially exploitable path in the code base. 
+The ShiftLeft Vulnerability API is used to analye your organization’s applications in order to identify and provide data on your code's vulnerabilities. A vulnerability is a potentially exploitable path in the code base. 
 
-The API returns a list of vulnerabilities, by organization or application version, with all the necessary information for you to take action on a code exploitable area. 
+The API returns a list of vulnerabilities, by [organization](#listing-an-organizations-vulnerabilities) or [application version](#listing-an-applications-vulnerabilities), with all the necessary information for you to take action on a code exploitable area. 
 
-## Example of an API Query Return
+## Example of an API Return
 
 ```json
        {
@@ -28,29 +28,29 @@ The API returns a list of vulnerabilities, by organization or application versio
        },
 ```
 
-where:
+where
 
-* `applicationId`: Unique identification for each application within your organization.
-* `vulnerability`:
-	* `firstDetected`: UNIX timestamp of the date and time when ShiftLeft first detected this vulnerability.
-	* `vulnerabilityId`: Unique ID of this particular vulnerability accross all organizations.
-	* `category`: Vulnerability OWASP category.
-	* `title`: Vulnerability title.
-	* `description`: Vulnerability description.
-	* `score`: Vulnerability float score, from 1-9, representing the OWASP severity.
-	* `severity`: Either `LOW_IMPACT`, `MEDIUM_IMPACT`, `HIGH_IMPACT` indicating the score level assigned by ShiftLeft.
-	*  `securityEvents`: Count of security relevant events for the vulnerable endpoint.
-	*  `blockedEvents`: Count of security relevant events that were blocked.
-	*  `calls`: Total calls on the vulnerable endpoint. Represents regular traffic as well as any detected attacks.
-	*  `locationURL`: Published location of the affected endpoint.
-	*  `locationMethod`: Starting method of the vulnerable code path.
-	*  `status`: UI configurable status of the vulnerability (ie. assignees, fixed or ignore state, etc.)
-	*  `assignedTo`: Email address of individual assigned to fix or triage this vulnerability.
+* `applicationId`. Unique identification for each application within your organization.
+* `vulnerability`
+	* `firstDetected`. UNIX timestamp of the date and time when ShiftLeft first detected this vulnerability.
+	* `vulnerabilityId`. Unique ID of this particular vulnerability accross all organizations.
+	* `category`. Vulnerability OWASP category.
+	* `title`. Vulnerability title.
+	* `description`. Vulnerability description.
+	* `score`. Vulnerability float score, from 1-9, representing the OWASP severity.
+	* `severity`. Either `LOW_IMPACT`, `MEDIUM_IMPACT`, `HIGH_IMPACT` representing the score level assigned by ShiftLeft.
+	*  `securityEvents`. Count of security relevant events for the vulnerable endpoint.
+	*  `blockedEvents`. Count of security relevant events that were blocked.
+	*  `calls`. Total calls on the vulnerable endpoint. Represents regular traffic and any detected attacks.
+	*  `locationURL`. Published location of the affected endpoint.
+	*  `locationMethod`. Starting method of the vulnerable code path.
+	*  `status`. UI configurable status of the vulnerability (ie. assignees, fixed or ignore state, etc.)
+	*  `assignedTo`. Email address of individual assigned to fix or triage this vulnerability.
 	
 
 ## Pagination
 
-The ShiftLeft Vulnerability API endpoints are always paginated. Results shown in sequential pages containing a maximum of 50 results. The results are displayed in three categories according to severity. Pagination information is provided with each response 
+The ShiftLeft Vulnerability API endpoints are always paginated. Results are shown in sequential pages containing a maximum of 50 results. The results are displayed in three categories according to severity. Pagination information is provided with each response 
 
 ```json
 {
@@ -69,7 +69,7 @@ You use the following request to return vulnerabilities by organization
 
 POST `/api/v3/public/orgs/{organization id}/vulnerabilities/`
 
-The result returns vulnerabilities with the following criteria
+The result returns vulnerabilities with the following criteria:
 
 * Belonging to the latest analyzed version of any app
 * Of any severity
@@ -107,13 +107,13 @@ You can filter returns in the body of the query
 },
 ```
 
-* `orderByDirection`: Either `DESC` or `ASC` is applied to the `firstDetected` field of a vulnerability.
-* `applicationId`: If included, only returns results for these application IDs.
-* `statusFilter`: If present, only returns results for vulnerabilities with these statuses.
-* `severityFilter`: If present, only returns results for vulnerabilities of these severities.
-* `titleFilter`: If present, the vulnerability title is partially-matched. Note that using this parameter can make the query return slower.
-* `assignedToFilter`: If present, only returns vulnerabilities that have been assigned to the passed emails.
-* `includeCalls`: True by default. Indicates that `securityEvents`, `blockedEvents` and `calls` are returned as part of the results. Note that using these parameters can make the query return slower.
+* `orderByDirection`. Either `DESC` or `ASC` is applied to the `firstDetected` field of a vulnerability.
+* `applicationId`. If included, only returns results for these application IDs.
+* `statusFilter`. If present, only returns results for vulnerabilities with these statuses.
+* `severityFilter`. If present, only returns results for vulnerabilities of these severities.
+* `titleFilter`. If present, the vulnerability title is partially-matched. Note that using this parameter can make the query return slower.
+* `assignedToFilter`. If present, only returns vulnerabilities that have been assigned to the passed emails.
+* `includeCalls`. True by default. Indicates that `securityEvents`, `blockedEvents` and `calls` are returned as part of the results. Note that using these parameters can make the query return slower.
 
 ## Listing an Application's Vulnerabilities
 
@@ -121,14 +121,14 @@ You use the following request to return vulnerabilities by an application
 
 POST `/api/v3/public/orgs/{organization id}/application/{application id}/vulnerabilities/`
 
-This will result on a default query returning vulnerabilities with the following criteria:
+The result returns vulnerabilities with the following criteria:
 
 * Belonging to the latest analyzed version this app.
-* Of any Severity
+* Of any severity
 * Of any category
-* With Any Description
+* With any description
 * With or without calls
-* With or without blocked calls.
+* With or without blocked calls
 * Arbitrarily sorted
 * Only the first page (50 results)
 
@@ -136,13 +136,14 @@ To obtain a specific page of results, use
 
 POST `/api/v3/public/orgs/{organization id}/application/{application id}/vulnerabilities/page/{page number}`
 
+If the page is outside of the possible range, you receive an empty result set.
+
 To obtain results for a specific application version, use 
 
 POST `/api/v3/public/orgs/{organization id}/application/{application id}/version/{version}/vulnerabilities`
 
 Note that this request also supports `/page/{page number}`.
 
-If either of these pages are outside of the possible range, you receive an empty result set.
 
 ### Filtering an Application's Vulnerabilities
 
@@ -162,10 +163,10 @@ You can filter returns in the body of the query
 },
 ```
 
-* `orderByDirection`: Either `DESC` or `ASC` is applied to the `firstDetected` field of a vulnerability.
-* `applicationId`: If included, only returns results for these application IDs.
-* `statusFilter`: If present, only returns results for vulnerabilities with these statuses.
-* `severityFilter`: If present, only returns results for vulnerabilities of these severities.
-* `titleFilter`: If present, the vulnerability title is partially-matched. Note that using this parameter can make the query return slower.
-* `assignedToFilter`: If present, only returns vulnerabilities that have been assigned to the passed emails.
-* `includeCalls`: True by default. Indicates that `securityEvents`, `blockedEvents` and `calls` are returned as part of the results. Note that using these parameters can make the query return slower.
+* `orderByDirection`. Either `DESC` or `ASC` is applied to the `firstDetected` field of a vulnerability.
+* `applicationId`. If included, only returns results for these application IDs.
+* `statusFilter`. If present, only returns results for vulnerabilities with these statuses.
+* `severityFilter`. If present, only returns results for vulnerabilities of these severities.
+* `titleFilter`. If present, the vulnerability title is partially-matched. Note that using this parameter can make the query return slower.
+* `assignedToFilter`. If present, only returns vulnerabilities that have been assigned to the passed emails.
+* `includeCalls`. True by default. Indicates that `securityEvents`, `blockedEvents` and `calls` are returned as part of the results. Note that using these parameters can make the query return slower.

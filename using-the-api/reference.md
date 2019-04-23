@@ -157,7 +157,7 @@ You can filter returns in the body of the query
         "severityFilter": [],
         "titleFilter": "",
         "assignedToFilter": [],
-        "includeTraffic": true
+        "includeCalls": true
     }
 },
 ```

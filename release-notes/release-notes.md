@@ -22,6 +22,8 @@ ShiftLeft Release Notes are updated every month for all products: ShiftLeft Ocul
 
 * **Stability Improvements to ShiftLeft Protect**. Stability improvements have been made in the ShiftLeft Protect Microagent for Java.
 
+* **Automatic Updates for the ShiftLeft Command Line Interface (CLI)**. The ShiftLeft CLI now automatically updates. Refer to [Using the CLI](../using-inspect-protect/using-cli/using-cli.md) for more information.
+
 
 ## March 2019 Release Notes
 

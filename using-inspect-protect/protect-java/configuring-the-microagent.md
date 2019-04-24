@@ -12,7 +12,7 @@ The ShiftLeft Microagent supports various configuration mechanisms, including `s
 
 > #### Note
 >
-> Properties specified in the `shitleft.json` file override the default. In addition, a property specified as a Java system property overrides that same property specified in the JSON file. Environment variables take precedence over both.
+> Properties specified in the `shiftleft.json` file override the default. In addition, a property specified as a Java system property overrides that same property specified in the JSON file. Environment variables take precedence over both.
 
 ### JSON
 

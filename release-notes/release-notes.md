@@ -20,7 +20,7 @@ ShiftLeft Release Notes are updated every month for all products: ShiftLeft Ocul
   * `ocular> config.policy.dynamicPolicyPath("/path/to/dynamic/policy")`
   * `ocular> config.policy.staticPolicyPath("/path/to/dynamic/policy")`
 
-* **The `workspaceReset` Command Replaced with `workspace.reset`**. The `workspaceReset` command has been deprecated and replaced with the `workspace.reset` command. The new command resets the workspace and deletes all CPGs stored on disk.
+* **`workspaceReset` Command Replaced with `workspace.reset`**. The `workspaceReset` command has been deprecated and replaced with the `workspace.reset` command. The new command resets the workspace and deletes all CPGs stored on disk.
 
 * **New `version` Command Added**. This new `version` command prints the current version string.
 
@@ -28,8 +28,7 @@ ShiftLeft Release Notes are updated every month for all products: ShiftLeft Ocul
 
 #### ShiftLeft Ocular v0.3.20
 
-* **On-Disk Graph Swapping for Low RAM Machines.** This experimental feature allows CPG elements to be swapped on disk as required from the main memory. Note that this feature adds extra latency of loading/unloading of memory and is not yet officially supported. Use the following function on the ShiftLeft Ocular shell with either default or custom parameters to enable On-Disk Graph Swapping for Low RAM Machines: 
-  * `ocular> enableOnDiskOverflow()`
+* **On-Disk Graph Swapping for Low RAM Machines.** This experimental feature allows CPG elements to be swapped on disk as required from the main memory. Note that this feature adds extra latency to loading/unloading of memory and is not yet officially supported. Use the `ocular> enableOnDiskOverflow()` function on the ShiftLeft Ocular shell, with either default or custom parameters, to enable On-Disk Graph Swapping for Low RAM Machines.
 
 * **Overlay API**. The Security Profile is now part of the CPG, as an overlay. This new feature unifies the Ocular Query Language (OQL) for the CPG and Security Profile and removes the need for using `cpg2sp.sh` to create a Security Profile. This means that all Security Profile functionality is now part of the CPG. For example, you now use `cpg.finding.p` instead of `sp.findings.p`. The new Overlay feature requires that `cpg2sp` to be run with the --overlay flag. For ease of use, all Overlay API endpoints have been integrated into ShiftLeft Ocular.
 
@@ -38,9 +37,9 @@ ShiftLeft Release Notes are updated every month for all products: ShiftLeft Ocul
   * `ocular> createCpgAndSp("/path/to/jar")`
   * `ocular> createSp(cpg)`
 
- Older APIs and functionality (e.g. `loadCpg` and `loadSp`) are now backwards compatible.
+  Older APIs and functionality (e.g. `loadCpg` and `loadSp`) are now backwards compatible.
 
-* **Workspaces**. ShiftLeft Ocular now includes workspaces for easy management of CPGs and overlays. [Refer to the API] (https://ocular.shiftleft.io/api/io/shiftleft/repl/Console.html) for additional information.
+* **Workspaces**. ShiftLeft Ocular now includes workspaces for easy management of CPGs and overlays. [Refer to the API](https://ocular.shiftleft.io/api/io/shiftleft/repl/Console.html) for additional information.
 
 * **Load Multiple CPG Queries**. You can now load more than one CPG in a given workspace and then combine queries. For example, `ocular> cpgs.flatMap(_.method.fullName.l)`.
 
@@ -48,7 +47,7 @@ ShiftLeft Release Notes are updated every month for all products: ShiftLeft Ocul
 
 * **Dependency List Outputs Complete Dependencies**. The Dependency List has been fixed to now output complete dependencies.
 
-* **Renamed newLocation Step**. The newLocation step has been rename to location.
+* **Renamed newLocation Step**. The newLocation step has been renamed to location.
 
 * ** `.flows` Behavior Fixed**. `.flows` behavior has been fixed to show only a single flow, thereby resolving printing issues. Use `.allFlows` to show the complete flows list.
 
@@ -66,11 +65,11 @@ ShiftLeft Release Notes are updated every month for all products: ShiftLeft Ocul
 
 ### ShiftLeft Inspect and ShiftLeft Protect
 
-* **Enhancements to ShiftLeft Inspect for .Net**. The current version of ShiftLeft Inspect for .Net includes significant performance improvements in both processing time and memory consumption. In addition, numerous bug fixes have been made.
+* **Enhancements to ShiftLeft Inspect for .NET**. The current version of ShiftLeft Inspect for .NET includes significant performance improvements in both processing time and memory consumption. In addition, numerous bug fixes have been made.
 
-* **JSP support added for ShiftLeft Inspect**. You can now use ShiftLeft Inspect to analyze your JSP pages for vulnerabilities and data leakage. Note that this support does not include JSP Expression Language.
+* **JSP Support Added for ShiftLeft Inspect**. You can now use ShiftLeft Inspect to analyze your JSP pages for vulnerabilities and data leakage. Note that this support does not include JSP Expression Language.
 
-* **Stability Improvements to ShiftLeft Protect**. Stability improvements have been made in the ShiftLeft Protect Microagent for Java.
+* **Stability Improvements to ShiftLeft Protect**. Stability improvements have been made in the ShiftLeft Protect for Java Microagent.
 
 * **Automatic Updates for the ShiftLeft Command Line Interface (CLI)**. The ShiftLeft CLI now automatically updates so that you don't have to reinstall the CLI whenever there are new features or fixes. Refer to [Using the CLI](../using-inspect-protect/using-cli/using-cli.md) for more information.
 

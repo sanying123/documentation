@@ -2,47 +2,53 @@
 
 The ShiftLeft CLI is used to:
 
-- [Use ShiftLeft Inspect to submit applications for analysis and profiling](analyzing-applications-in-ci.md). 
-- [Use ShiftLeft Protect to run the Microagent](protect-java/configuring-the-microagent.md) with analyzed applications for runtime monitoring and metrics.
+- [Use ShiftLeft Inspect to submit applications for analysis and profiling](../analyzing-applications-in-ci.md). 
+- [Use ShiftLeft Protect to run the Microagent](../protect-java/configuring-the-microagent.md) with analyzed applications for runtime monitoring and metrics.
 
-Before using the ShiftLeft CLI with Inspect and Protect, make sure you have [authenticated the CLI with your ShiftLeft Account](../using-cli/authenticating.md).
+Before using the ShiftLeft CLI with ShiftLeft Inspect and ShiftLeft Protect, make sure you have [authenticated the CLI with your ShiftLeft Account](../using-cli/authenticating.md).
 
 The ShiftLeft CLI tool is named `sl`.
 
 ## Requirements
 
-See [ShiftLeft CLI Requirements](../introduction/requirements.md) for details.
+See [ShiftLeft CLI Requirements](../../introduction/requirements.md) for details.
 
 ## Installation
 
-The ShiftLeft (CLI) is used with ShiftLeft Inspect to submit applications for analysis and with ShiftLeft Protect to run the ShiftLeft Microagent. The tool is named sl.
-
 If you haven't already downloaded the CLI as part of the Quick Start process when you first logged into ShiftLeft, you can do so by running the appropriate CLI install command.
 
-To run the CLI Install command:
+To run the CLI install command:
 
 * From the Quick Start page, copy the command and run it from your command line. The command displayed is appropriate to your chosen operating system.
 
-![](img/run-install-command.jpg)
+![Command for Installing the CLI](../img/run-install-command.jpg)
 
 You can also copy the command from here:
 
-### Linux
+### Linux and MacOS X
 
-curl https://<i></i>cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
-
-### MacOS X
-
-curl https://<i></i>cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz | tar xvz -C /usr/local/bin
-
+```
+curl https://cdn.shiftleft.io/download/sl >/usr/local/bin/sl && chmod a+rx /usr/local/bin/sl
+```
+`sl` automatically updates so that you don't have to reinstall the CLI whenever there are new features or fixes (`curl` or `wget` are required for automatic updates). You can disable automatic updating by setting the environment variable `SHIFTLEFT_NO_AUTO_UPDATE=true` when running `sl`.
 
 ### Windows .NET Framework
 
+In PowerShell, you can issue the following command to download an installer that enables `sl` and the ShiftLeft Protect for .NET Microagent
+
+```
 Invoke-WebRequest -Uri https://<i></i>cdn.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
+```
+Alternatively you can use a browser to download the file.
 
 ### Windows .NET Core
 
+In PowerShell, you can issue the following command to download an installer that enables `sl` and the ShiftLeft Protect for .NET Microagent
+
+```
 Invoke-WebRequest -Uri https://<i></i>cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
+```
+Alternatively you can use a browser to download the file.
 
 ## CLI Command Reference
 

@@ -46,9 +46,9 @@ See more information on [Using the ShiftLeft CLI](using-cli/using-cli.md).
 
 Make sure that `/usr/local/bin` is in your `$PATH`.
 
-Extract the `sl/sl.exe` binary and then add the directory location of the `sl` binary to your `$PATH` (or manually copy it to `/usr/local/bin`).
+Extract the `sl` or `sl.exe` binary and then add the directory location of the `sl` binary to your `$PATH` (or manually copy it to `/usr/local/bin`).
 
-#### Windows .Net
+#### Windows .NET
 
 Note that for Windows .NET there are two variants: .NET Framework or .NET Core version. Make sure to pick the right one for your project.
 
@@ -64,29 +64,30 @@ To run the CLI Install command:
 
 You can also copy the command from here:
 
-#### Linux
+#### Linux and MacOS X
 
 ```
-curl https://cdn.shiftleft.io/download/sl-latest-linux-x64.tar.gz | tar xvz -C /usr/local/bin
+curl https://cdn.shiftleft.io/download/sl >/usr/local/bin/sl && chmod a+rx /usr/local/bin/sl
 ```
-
-#### MacOS X
-
-```
-curl https://cdn.shiftleft.io/download/sl-latest-osx-x64.tar.gz | tar xvz -C /usr/local/bin
-```
+`sl` automatically updates so that you don't have to reinstall the CLI whenever there are new features or fixes (`curl` or `wget` are required for automatic updates). You can disable automatic updating by setting the environment variable `SHIFTLEFT_NO_AUTO_UPDATE=true` when running `sl`.
 
 #### Windows .NET Framework
+
+In PowerShell, you can issue the following command to download an installer that enables `sl` and the ShiftLeft Protect for .NET Microagent
 
 ```
 Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-framework-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
 ```
+Alternatively you can use a browser to download the file.
 
 #### Windows .NET Core
+
+In PowerShell, you can issue the following command to download an installer that enables `sl` and the ShiftLeft Protect for .NET Microagent
 
 ```
 Invoke-WebRequest -Uri https://cdn.shiftleft.io/download/installer-dotnet-core-latest-windows-x64.zip -UseBasicParsing -OutFile sl-latest-windows-x64.zip
 ```
+Alternatively you can use a browser to download the file.
 
 ## Authenticating with ShiftLeft
 
@@ -94,7 +95,7 @@ To authenticate with ShiftLeft:
 
 * From the Quick Start page, copy the command and run it from your command line. The command automatically includes your unique organization ID and upload token.
 
-![](img/authenticate.jpg)
+![Location of Code to Use to Authenticate](img/authenticate.jpg)
 
 Refer to [Authenticating with ShiftLeft](using-cli/authenticating.md) for additional information.
 
@@ -108,7 +109,7 @@ Anlaysis of the code can be performed either as a separate step, allowing instal
 
 To analyze the code before running your application, refer to [Analyzing Applications in CI](analyzing-applications-in-ci.md). Note that in this case, you need to carry the produced `shiftleft.json` file to your runtime environment and make it available to the ShiftLeft Protect Microagent. This allows the Microagent to be associated with your application.
 
-To analyze the code during runtime and in at the command line, first verify that you have met the [ShiftLeft Inspect requirements for .NET](../introduction/requirements.md).  Then follow the instructions for analysis using the [ShiftLeft CLI](analyzing-applications-in-ci.md). The system submits your application to the cloud for analysis and waits for the analysis to finish before running the application.
+To analyze the code during runtime and in at the command line, first verify that you have met the [ShiftLeft Inspect requirements for .NET](../introduction/requirements.md).  Then follow the instructions for analysis using the [ShiftLeft CLI](using-cli/using-cli.md). The system submits your application to the cloud for analysis and waits for the analysis to finish before running the application.
 
 ### Running ShiftLeft Protect for Java
 
@@ -140,7 +141,7 @@ For additional information, refer to [Installing ShiftLeft Protect and Configuri
 To run ShiftLeft Protect .Net, be sure that you:
 
 - Are running on a Windows operating system that has at least .NET Framework Runtime 4.5 installed.
-- Analyze the application beforehand [using the ShiftLeft CLI](using-cli.md).
+- Analyze the application beforehand [using the ShiftLeft CLI](using-cli/using-cli.md).
 
 If you are running ShiftLeft Protect with *Internet Information Services (IIS)* you should first copy the `shiftleft.json` file (that was generated during analysis) into the `C:\shiftleftDotNetAgent\spr` directory. You can then start sending requests to your application in the usual manner (e.g., through a browser or a script). The ShiftLeft Protect Microagent is activated once your application receives its first request.
 

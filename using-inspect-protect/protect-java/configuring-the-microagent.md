@@ -1,18 +1,16 @@
-# Configuring the Microagent
+# Configuring the ShiftLeft Protect for Java Microagent
 
-The ShiftLeft Java Microagent runs out-of-the-box with default settings. Optionally you can configure the microagent for your environment.
+The ShiftLeft Protect for Java Microagent runs out-of-the-box with default settings. Optionally you can configure the microagent for your environment.
 
 ## Configuration Options
 
 ### Defaults
 
-The ShiftLeft Java Microagent is configured with default settings that support core operations. (The defaults are identified in context below.) 
+The ShiftLeft Protect for Java Microagent is configured with default settings that support core operations. (The defaults are identified in context below.) 
 
-The ShiftLeft Microagent supports various configuration mechanisms, including `shiftleft.json`, Java properties, or environment variables, each overriding the values of the previous.
+The ShiftLeft Protect for Java Microagent supports various configuration mechanisms, including `shiftleft.json`, Java properties, or environment variables, each overriding the values of the previous.
 
-> #### Note
->
-> Properties specified in the `shiftleft.json` file override the default. In addition, a property specified as a Java system property overrides that same property specified in the JSON file. Environment variables take precedence over both.
+**Note**. Properties specified in the `shiftleft.json` file override the default. In addition, a property specified as a Java system property overrides that same property specified in the JSON file. Environment variables take precedence over both.
 
 ### JSON
 
@@ -42,7 +40,7 @@ VWXluZGdISkdwQ2ZXUDlReU9xN05jbGFCSUE=",
 
 ### Java Properties
 
-Configure the microagent using Java system properties specified as arguments to the JVM command.
+Configure the Microagent using Java system properties specified as arguments to the JVM command.
 
 Syntax: `-D${prop-name}=${prop-value}`
 
@@ -55,7 +53,7 @@ java -javaagent:sl-microagent-x.y.z.jar -Dshiftleft.log.level=DEBUG -jar /hello-
 
 ### Environment Variables
 
-Configure the microagent using process environment variables passed to the JVM by its parent process.
+Configure the Microagent using process environment variables passed to the JVM by its parent process.
 
 Syntax:  `SHIFTLEFT_PROP_NAME="prop-value"`
 
@@ -67,13 +65,13 @@ export SHIFTLEFT_LOG_LEVEL=DEBUG
 
 ## Required Parameters
 
-If analysis has been performed as a separate step, then the `license` and `sprId` parameters are required by the Microagent and must be passed using the `shiftleft.json` file that is generated during `analyze` by including it in the working directory with the app JAR file that you are deploying with the microagent.
+If analysis has been performed as a separate step, then the `license` and `sprId` parameters are required by the Microagent and must be passed using the `shiftleft.json` file that is generated during `analyze` by including it in the working directory with the app JAR file that you are deploying with the Microagent.
 
 As an alternative to providing a `shiftleft.json` file, the `license` and `sprId` can be provided via the environment variables `SHIFTLEFT_LICENSE` and `SHIFTLEFT_SPR_ID`, respectively.
 
 ### License
 
-The license property represents the client license that authorizes the microagent to use ShiftLeft services.
+The license property represents the client license that authorizes the Microagent to use ShiftLeft services.
 
 ### SPR ID
 
@@ -86,9 +84,7 @@ The SPR ID property identifies the Security Profile for Runtime (SPR) to fetch f
 }
 ```
 
-> #### Very Important
->
-> The required parameters `license` and `sprId` must be passed using `shiftleft.json`. They cannot be passed using Java properties or environment variables. In addition, the `shiftleft.json` file must be located in the project directory where the application binary is located when you deploy the app with the microagent. Alternatively, you can use the `SHIFTLEFT_CONFIG` environment variable to pass in the path to the `shiftleft.json` file.
+> **Important**. The required parameters `license` and `sprId` must be passed using `shiftleft.json`. They cannot be passed using Java properties or environment variables. In addition, the `shiftleft.json` file must be located in the project directory where the application binary is located when you deploy the app with the Microagent. Alternatively, you can use the `SHIFTLEFT_CONFIG` environment variable to pass in the path to the `shiftleft.json` file.
 >
 > Example:
 >
@@ -100,15 +96,15 @@ The `sprId` is a string containing three main parts: organization ID, applicatio
 "sprId": "sl/418a892e-32fe-4d6e-b0cd-a44c24026b7a/org.springframework-my-rest-service-jar/f0e2bafa21a5790b1d70f6309189de6a1c888e16/baseline"
 ```
 
-If you are using a SCM system such as Git, when you reanalyze the app after changing the code the commit hash will change, indicating a new version of the app is built. In this case you must redeploy the app with the microagent using the updated `shiftleft.json` file. 
+If you are using a SCM system such as Git, when you reanalyze the app after changing the code the commit hash changes, indicating a new version of the app is built. In this case you must redeploy the app with the Microagent using the updated `shiftleft.json` file. 
 
 ## Strictness
 
-The strictness setting determines how the microagent behaves if there is a disconnection between it and the proxy server. The ShiftLeft Microagent runs in two modes: non-strict (default) and strict.
+The strictness setting determines how the microagent behaves if there is a disconnection between it and the proxy server. The ShiftLeft Protect for Java Microagent runs in two modes: non-strict (default) and strict.
 
-In non-strict mode (default), the microagent does not require the SPR at startup. In this case the app will start but may not be monitored by ShifLeft, or in case it is, metrics generated during disconnection are ignored.
+In non-strict mode (default), the Microagent does not require the SPR at startup. In this case the app starts but may not be monitored by ShifLeft, or in case it is, metrics generated during disconnection are ignored.
 
-In strict mode (`"strict":"true"`) the microagent requires the SPR to let the application run. If the microagent loses connection with the proxy, the application methods calling the proxy are paused until connection is reestablished.
+In strict mode (`"strict":"true"`) the Microagent requires the SPR to let the application run. If the Microagent loses connection with the proxy, the application methods calling the proxy are paused until connection is reestablished.
 
 Parameter | Name
 --- | ---
@@ -119,19 +115,17 @@ Environment Variable | `SHIFTLEFT_STRICT`
 ### Strictness Values
 
 - `false` (default): Proxy availability is not required. Event notifications can be lost and the application can run without instrumentation (if the proxy did not respond with the SPR at startup).
-- `true`: Agent pauses the execution of the program until connection with the proxy is established and the SPR is passed to the microagent.
+- `true`: Agent pauses the execution of the program until connection with the proxy is established and the SPR is passed to the Microagent.
 
 The default strictness mode is false.
 
 ## ShiftLeft Proxy
 
-The microagent connects to a ShiftLeft Proxy server to obtain the SPR and push runtime metrics to ShiftLeft. The following options are available for microagent-proxy connections.
+The Microagent connects to a ShiftLeft Proxy server to obtain the SPR and push runtime metrics to ShiftLeft. The following options are available for microagent-proxy connections.
 
-There is an idle timeout of approximately 40-60 minutes for the connection between the ShiftLeft Microagent and Proxy server. If the microagent agent is idle for this period, the connection may be dropped. The microagent will automatically reconnect when the app is run.
+There is an idle timeout of approximately 40-60 minutes for the connection between the ShiftLeft Protect for Java Microagent and Proxy server. If the Microagent agent is idle for this period, the connection may be dropped. The Microagent  automatically reconnects when the app is run.
 
-> #### Important
->
-> ShiftLeft Proxy is not to be confused with system proxy configuration.
+>**Important**. ShiftLeft Proxy is not to be confused with system proxy configuration.
 
 ### Proxy Host Name
 
@@ -155,11 +149,11 @@ Environment Variable | `SHIFTLEFT_SL_PROXY_PORT`
 
 ## Logging
 
-This section describes configuration options for logging microagent activity.
+This section describes configuration options for logging Microagent activity.
 
 ### Log Levels
 
-Log level determines the level of detail that the microagent logger will output.
+Log level determines the level of detail that the Microagent logger outputs.
 
 Parameter | Name
 --- | ---
@@ -177,7 +171,7 @@ Environment Variable | `SHIFTLEFT_LOG_LEVEL`
 
 ### Log Files
 
-Used to write logs to file system. Denotes the file name pattern for a rolling set of logs files. If not specified, agent logs are redirected to target application `stderr`.
+Used to write logs to file system. Denotes the file name pattern for a rolling set of logs files. If not specified, Microagent logs are redirected to target application `stderr`.
 
 Parameter | Name
 --- | ---
@@ -211,7 +205,7 @@ This section contains configuration parameters relative to the detection and blo
 
 ### Mode
 
-Security mode that determines how the agent respond to attacks (malicious external payloads)
+Security mode that determines how the Microagent respond to attacks (malicious external payloads).
 
 Parameter | Name
 --- | ---
@@ -240,7 +234,7 @@ Values:
 
 ## HTTPS Proxy Configuration
 
-The ShiftLeft Microagent supports the commonly used environment variable `https_proxy` for configuring a HTTPS proxy.
+The ShiftLeft Protect for Java Microagent supports the commonly used environment variable `https_proxy` for configuring a HTTPS proxy.
 
 ```bash
 export https_proxy="http://[$user:$password@]$host:$port"

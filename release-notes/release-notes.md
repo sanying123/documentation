@@ -39,15 +39,22 @@ ShiftLeft Release Notes are updated every month for all products: ShiftLeft Ocul
   * `createCpgAndSp("/path/to/jar")`
   * `createSp(cpg)`
 
-Older APIs and functionality (loadCpg and loadSp) is backwards compatible
-Workspaces: This version introduces workspaces which allows easy management of cpgs and overlays. For more info see API Docs: https://ocular.shiftleft.io/api/io/shiftleft/repl/Console.html
-Multiple CPG Queries: You can load more than one CPG in a given workpace and then give combined queries. 
-For example: ocular> cpgs.flatMap(_.method.fullName.l)
-sp object deprecated. Functionality transferred to cpg object
-Fixes:
-Dependency list now outputs complete dependencies
-Rename newLocation step to location
-Fix .flows behavior to show only single flow to avoid printing issues .allFlows now shows complete flows list
+Older APIs and functionality (e.g. `loadCpg` and `loadSp`) are now backwards compatible.
+
+* **Workspaces**. ShiftLeft Ocular now includes workspaces for easy management of CPGs and overlays. [Refer to the API] (https://ocular.shiftleft.io/api/io/shiftleft/repl/Console.html) for additional information.
+
+* **Load Multiple CPG Queries**. You can load more than one CPG in a given workpace and then combine queries. For example `cpgs.flatMap(_.method.fullName.l)`
+
+* **Load Multiple CPG Queries**. You can load more than one CPG in a given workpace and then combine queries. For example `cpgs.flatMap(_.method.fullName.l)`
+
+* **Deprecated `sp` Object**. Functionality of the deprecated `sp` object has been transferred to `cpg` object.
+
+* **Dependency List Outputs Complete Dependencies**. The Dependency List has been fixed to now output complete dependencies.
+
+* **Rename newLocation Step**. The newLocation step has been rename to location.
+
+* ** `.flows` Behavior Fixed**. `.flows` behavior has been fixed to show only single flow, thereby resolving printing issues. Use `.allFlows` to show the complete flows list.
+
 ------------------------------------------------
 
 Ocular v0.3.17

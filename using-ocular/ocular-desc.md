@@ -1,56 +1,41 @@
-## Ocular
+## ShiftLeft Ocular
 
-Ocular is a set of command line tools that provide a static analysis framework
-in the context of security; the distribution currently supports Java, C# and
-C/C++ (based on [Joern](https://github.com/octopus-platform/joern)), and is
-aimed towards developers and security researchers interested in exploring code
-for vulnerabilities.
+ShiftLeft Ocular is a set of command line tools that provide a static analysis framework in the context of security, and is aimed towards developers and security researchers interested in exploring code for vulnerabilities.
 
-A trial version (Java-only) with a limited feature set can be downloaded here:
+A [trial version (Java-only)](https://go.shiftleft.io/ocular-free-trial) with a limited feature set can be downloaded.
 
-https://go.shiftleft.io/ocular-free-trial
+ShiftLeft Ocular provides the following core features:
 
-Ocular provides the following core features.
-
-* **Generation of code property graphs.** Based on the application code, which
-  is provided as JAR for JAVA or as source code for C/C++, we generate a
-  versatile, intermediate graph representation called the code property graph
-  (CPG). CPGs can be used as the basis of custom static analysis and are
+* **Generation of [Code Property Graphs (CPG)](../introduction/products.md).** Based on your application code, which
+  is provided as JAR for JAVA or as source code for C/C++, ShiftLeft Ocular generates a
+  versatile, intermediate CPG. CPGs can be used as the basis of custom static analysis and are
   serializable to various output/exchange formats such as CSV, GraphML, Gryo,
-  and Protobuf (included in trial).
+  and Protobuf (included in the ShiftLeft Ocular trial version).
 
-* **Interactive code analysis via a REPL.** CPGs can be interactively explored
-  via our Read-Eval-Print-Loop (REPL), i.e., an interactive shell with support
-  for our custom query language. Among other features, the REPL offers utilities
+* **Interactive code analysis using a Read-Eval-Print-Loop (REPL).** CPGs can be interactively explored
+  using a REPL, an interactive shell with support
+  for [Ocular Query Language (OQL)](../introduction/products.md). Among other features, the REPL offers utilities
   for exporting security analysis results as plain text or in JSON format,
-  readline support, and tab-completion (included in trial).
+  readline support, and tab-completion (included in the ShiftLeft Ocular trial version).
 
 * **Custom analysis scripts and extensibility.** User-provided REPL scripts can
   be executed non-interactively to perform automated custom scans for security
-  issues. Moreover, the Ocular users can even augment and customize the query
-  language via the "pimp-my-library" pattern (included in trial).
+  issues. Moreover, you can even augment and customize OQL via the "pimp-my-library" pattern (included in the ShiftLeft Ocular trial version).
 
-* **Framework and library support via policies.** ShiftLeft Code Analysis Tools
-  comes with annotations for common Java frameworks and libraries. Possibly
-  attacker-controlled data sources and interesting sinks are tagged in the graph
-  automatically, and flow descriptions exist to scan for common vulnerability
-  patterns. Users can provide additional annotations to extend supported
+* **Framework and library support through policies.** ShiftLeft Inspect includes
+  annotations for common Java frameworks and libraries. Possibly
+  attacker-controlled data sources and interesting sinks are automatically tagged in the CPG, and flow descriptions exist to scan for common vulnerability
+  patterns. You can provide additional annotations to extend supported
   frameworks and libraries or encode additional vulnerability patterns.
 
-* **Automatic code scanning.** Policies can be applied to code property graphs
-  to generate *security profiles* which can be considered as summaries of
+* **Automatic code scanning.** Policies can be applied to CPGs
+  to generate *security profiles* which are summaries of
   vulnerabilities and data leaks present in the code. Similar to CPGs, security
-  profiles can be also explored and processed via the REPL.
-
-This is Ocular's official documentation. Please feel free to suggest
-fixes or provide new tutorials by sending in a pull request.
+  profiles can also be explored and processed using the REPL.
 
 
-Videos
--------
+See Also
+--------
 
-* [Ocular Demo by Fabian Yamaguchi](https://www.youtube.com/watch?v=n_dpgI2RhEU)
-* [Ocular Demo by Chetan Conikee](https://www.youtube.com/watch?v=bB2C-FzC1Yw)
-
-
-
+* [ShiftLeft Ocular Demo by Fabian Yamaguchi](https://www.youtube.com/watch?v=n_dpgI2RhEU)
+* [ShiftLeft Ocular Demo by Chetan Conikee](https://www.youtube.com/watch?v=bB2C-FzC1Yw)

@@ -2,25 +2,24 @@
 
 ## Language Support
 
-Currently, ShiftLeft analyzes and protects applications written in Java 7+ and C# 7.0. Support for other languages is in development. For inquiries, please fill out our [contact form](https://www.shiftleft.io/contact/).
+ShiftLeft Ocular currently supports Java, C# and C/C++ (based on [Joern](https://github.com/octopus-platform/joern)).
+
+ShiftLeft Inspect and Protect analyzes and secures applications written in Java 7+ and C# 7.0. 
+
+Support for other languages is in development. For inquiries, please fill out our [contact form](https://www.shiftleft.io/contact/).
 
 ## Requirements
 
 ShiftLeft has specific requirements for:
-* [Browser](#browser-requirements)
+* [ShiftLeft Ocular](#requirements-for-shiftleft-ocular)
 * [ShiftLeft CLI](#shiftleft-cli-requirements)
 * [ShiftLeft Inspect](#requirements-for-shiftleft-inspect)
 * [ShiftLeft Protect](#requirements-for-shiftleft-protect)
+* [Browser](#browser-requirements)
 
-### Browser Requirements
+### Requirements for ShiftLeft Ocular
 
-ShiftLeft supports the following browsers for accessing, viewing and interacting with the ShiftLeft Dashboard:
-
-- Google Chrome (tested with v61, v62)
-- Mozilla Firefox (tested with v57, v58b)
-- macOS Safari (tested with v11)
-
-Microsoft Edge* is currently not officially supported but has been verified with v41.
+ShiftLeft Ocular runs on top of the Java virtual machine. Please make sure you have a Java Runtime Environment >= 1.8 installed.
 
 ### ShiftLeft CLI Requirements
 
@@ -101,3 +100,13 @@ Component | Requirement
 --- | ---
 System | Windows
 .NET Framework Runtime | version **4.5** or higher
+
+### Browser Requirements
+
+ShiftLeft supports the following browsers for accessing, viewing and interacting with the ShiftLeft Dashboard:
+
+- Google Chrome (tested with v61, v62)
+- Mozilla Firefox (tested with v57, v58b)
+- macOS Safari (tested with v11)
+
+Microsoft Edge* is currently not officially supported but has been verified with v41.

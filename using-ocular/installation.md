@@ -1,14 +1,8 @@
-# Installation
+# Installing ShiftLeft Ocular
 
-This section describes how to install Ocular. Once you have installed it, proceed with [Getting started](https://docs.shiftleft.io/ocular/getting-started).
+Before installing ShiftLeft Ocular, make sure you have [met all requirements](../introduction/requirements).
 
-# Prerequisites
-
-Ocular runs on top of the Java virtual machine. Please make sure you have a Java Runtime Environment >= 1.8 installed.
-
-# Instructions
-
-Begin by decompressing the provided ZIP file `ocular-distribution.zip`. This will create the directory `ocular-distribution`.
+Begin by decompressing the provided ZIP file `ocular-distribution.zip`. This creates the directory `ocular-distribution`.
 
 ```bash
 unzip ocular-distribution.zip
@@ -21,17 +15,18 @@ Run the installer and follow the prompts:
 bash ./install.sh
 ```
 
-The install script will:
+The install script:
 
-* ask you where you want to install it to (defaults to `~/bin/ocular`)
-* check if there is an existing installation and offer to delete it
-* unpack the ShiftLeft dynamic policy to `~/.shiftleft/policy/dynamic` and offer to delete it, if it already exists
-* unpack the ShiftLeft static policy to `~/.shiftleft/policy/static` and offer to delete it, if it already exists.
-* not touch anything outside these directories (installation and policy)
+* asks you where to install ShiftLeft Ocular (defaults to `~/bin/ocular`).
+* checks if there is an existing installation, and if so, offers to delete it.
+* unpacks the ShiftLeft dynamic policy to `~/.shiftleft/policy/dynamic`, and if it already exists, offers to delete it.
+* unpacks the ShiftLeft static policy to `~/.shiftleft/policy/static`, and if it already exists, offers to delete it.
 
-# Additional configuration to deal with large projects
+**Note**: Do not make any changes outside the installation and policy directories.
 
-Code analysis can require lots of memory, and unfortunately, the Java virtual machine does not pick up the available amount of memory by itself. While tuning Java memory usage is a discipline in its own right, it is usually sufficient to specify the maximum available amount of heap memory via the Java virtual machine's `-Xmx` flag. The easiest way to achieve this globally is by setting the environment variable `_JAVA_OPTS` as follows:
+# Additional Configuration for Large Projects
+
+Code analysis can require lots of memory, and unfortunately, the JVM does not pick up the available amount of memory by itself. While tuning Java memory usage is a discipline in its own right, it is usually sufficient to specify the maximum available amount of heap memory using the JVM's `-Xmx` flag. The easiest way to achieve this globally is by setting the environment variable `_JAVA_OPTS` as follows:
 
 ```bash
 export _JAVA_OPTS="-Xmx$NG"

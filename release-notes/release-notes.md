@@ -20,27 +20,25 @@ ShiftLeft Release Notes are updated every month for all products: ShiftLeft Ocul
   * `config.policy.dynamicPolicyPath("/path/to/dynamic/policy")`
   * `config.policy.staticPolicyPath("/path/to/dynamic/policy")`
 
-* **The `workspaceReset` Command Replaced with `workspace.reset`**. The `workspaceReset` command has been deprecated and replaced with the new `workspace.reset` command. The new command resets the workspace and deletes all CPGs stored on disk.
+* **The `workspaceReset` Command Replaced with `workspace.reset`**. The `workspaceReset` command has been deprecated and replaced with the `workspace.reset` command. The new command resets the workspace and deletes all CPGs stored on disk.
 
 * **New `version` Command Added**. This new `version` command prints the current version string.
 
-* **Determining Aliases**. ShiftLeft Ocular now allows determining aliases for a list of identifiers in C/C++ code.
+* **Determining Aliases**. ShiftLeft Ocular has been enhanced to allow determining aliases for a list of identifiers in C/C++ code.
 
+#### ShiftLeft Ocular v0.3.20
 
-Ocular v0.3.20
-Experimental Features:
-On-disk graph swapping for low RAM machines. This allows the CPG elements to be swapped on disk as required from the main memory. Note that this feature adds extra latency of loading/unloading of memory and is not officially supported yet.
-For using this, you can use the following function on the Ocular shell with either default parameters or custom ones:
-ocular> enableOnDiskOverflow()
-ocular> enableOnDiskOverflow(cacheHeapPercentage = 30, storageDir = "/tmp")
-New Features:
-Overlay API. The security profile is now part of the code property graph. More specifically, it is an overlay of the code property graph. This unifies the query language for code property graph and security profile. this removes the need for using `cpg2sp.sh` for creating an SP. From a fucntionality perspective, all functionality of sp is now part of the cpg.
-For example: cpg.finding.p instead of sp.findings.p
-Overlays feature requires cpg2sp to be run with the --overlay flag. For ease of use we have integrated all these steps in Ocular itself.
-Integrated CPG and SP generation: CPG and SP generation can now be performed from inside Ocular and CPGs along with their overlays are managed in a “workspace”. This allows to effectively work with multiple CPGs at once.
-ocular> createCpg("/path/to/jar")
-ocular> createCpgAndSp("/path/to/jar")
-ocular> createSp(cpg)
+* **On-Disk Graph Swapping for Low RAM Machines.** This experimental feature allows CPG elements to be swapped on disk as required from the main memory. Note that this feature adds extra latency of loading/unloading of memory and is not yet officially supported. Use the following function on the Ocular shell with either default parameters or custom ones to enable On-Disk Graph Swapping for Low RAM Machines: 
+  * `enableOnDiskOverflow()`
+  * `config.policy.staticPolicyPath("/path/to/dynamic/policy")`
+
+* **Overlay API**. The Security Profile is now part of the CPG, as an overlay of the CPG. This new feature unifies the Ocular Query Language (OQL) for the CPG and Security Profile and removes the need for using `cpg2sp.sh` to create a Security Profile. From a fucntionality perspective, this means that all Security Profile functionality is now part of the CPG. For example, you now use `cpg.finding.p` instead of `sp.findings.p` The new Overlay feature requires that `cpg2sp` to be run with the --overlay flag. For ease of use, all of these steps have been integrated into ShiftLeft Ocular.
+
+* **Integrated CPG and SP Generation**. CPG and Security Profile generation can now be performed from inside ShiftLeft Ocular, with CPGs along with their overlays managed in a “workspace”. This new feature allows you to effectively work with multiple CPGs at once.
+  * `createCpg("/path/to/jar")`
+  * `createCpgAndSp("/path/to/jar")`
+  * `createSp(cpg)`
+
 Older APIs and functionality (loadCpg and loadSp) is backwards compatible
 Workspaces: This version introduces workspaces which allows easy management of cpgs and overlays. For more info see API Docs: https://ocular.shiftleft.io/api/io/shiftleft/repl/Console.html
 Multiple CPG Queries: You can load more than one CPG in a given workpace and then give combined queries. 

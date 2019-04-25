@@ -49,11 +49,11 @@ ShiftLeft Release Notes are updated every month for all products: ShiftLeft Ocul
 
 * **Renamed newLocation Step**. The newLocation step has been renamed to location.
 
-* ** `.flows` Behavior Fixed**. `.flows` behavior has been fixed to show only a single flow, thereby resolving printing issues. Use `.allFlows` to show the complete flows list.
+* ** `.flows` Behavior Shows Single Flow**. `.flows` behavior has been fixed to show only a single flow, thereby resolving printing issues. Use `.allFlows` to show the complete flows list.
 
 #### ShiftLeft Ocular v0.3.17
 
-* **Improve Data Flow Tracking**. 
+* **Improved Data Flow Tracking**. 
 
 #### ShiftLeft Ocular v0.3.10
 

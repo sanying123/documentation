@@ -32,7 +32,7 @@ ShiftLeft Release Notes are updated every month for all products: ShiftLeft Ocul
   * `enableOnDiskOverflow()`
   * `config.policy.staticPolicyPath("/path/to/dynamic/policy")`
 
-* **Overlay API**. The Security Profile is now part of the CPG, as an overlay. This new feature unifies the Ocular Query Language (OQL) for the CPG and Security Profile and removes the need for using `cpg2sp.sh` to create a Security Profile. This means that all Security Profile functionality is now part of the CPG. For example, you now use `cpg.finding.p` instead of `sp.findings.p` The new Overlay feature requires that `cpg2sp` to be run with the --overlay flag. For ease of use, all Overlay API endpoints have been integrated into ShiftLeft Ocular.
+* **Overlay API**. The Security Profile is now part of the CPG, as an overlay. This new feature unifies the Ocular Query Language (OQL) for the CPG and Security Profile and removes the need for using `cpg2sp.sh` to create a Security Profile. This means that all Security Profile functionality is now part of the CPG. For example, you now use `cpg.finding.p` instead of `sp.findings.p`. The new Overlay feature requires that `cpg2sp` to be run with the --overlay flag. For ease of use, all Overlay API endpoints have been integrated into ShiftLeft Ocular.
 
 * **Integrated CPG and SP Generation**. CPG and Security Profile generation can now be performed from inside ShiftLeft Ocular, with both CPGs and their overlays managed in a workspace. This new feature allows you to effectively work with multiple CPGs at once.
   * `createCpg("/path/to/jar")`
@@ -43,7 +43,7 @@ ShiftLeft Release Notes are updated every month for all products: ShiftLeft Ocul
 
 * **Workspaces**. ShiftLeft Ocular now includes workspaces for easy management of CPGs and overlays. [Refer to the API] (https://ocular.shiftleft.io/api/io/shiftleft/repl/Console.html) for additional information.
 
-* **Load Multiple CPG Queries**. You can now load more than one CPG in a given workpace and then combine queries. For example `cpgs.flatMap(_.method.fullName.l)`.
+* **Load Multiple CPG Queries**. You can now load more than one CPG in a given workspace and then combine queries. For example, `cpgs.flatMap(_.method.fullName.l)`.
 
 * **Deprecated `sp` Object**. Functionality of the deprecated `sp` object has been transferred to `cpg` object.
 
@@ -59,7 +59,7 @@ ShiftLeft Release Notes are updated every month for all products: ShiftLeft Ocul
 
 #### ShiftLeft Ocular v0.3.10
 
-* **Faster Data Flow Analysis Engine**. The Data Flow Analysis Engine has been enhance to be faster with experimental Security Profile overlay features.
+* **Faster Data Flow Analysis Engine**. The Data Flow Analysis Engine has been enhanced to be faster with experimental Security Profile overlay features.
 
 * **Initial C/C++ and C# Analysis Support with fuzzyc2cpg.sh and csharp2cpg.sh**. This new feature allows data flow and code analysis from C/C++ and C# source code directly.
 
